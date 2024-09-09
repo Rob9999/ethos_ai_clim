@@ -1,0 +1,132 @@
+{
+	"activators": [
+		{
+			"name": "fetch_weather",
+			"parameter": [
+				"location"
+			],
+			"command": "curl wttr.in/{location}",
+			"description": "Ruft aktuelle Wetterdaten für den angegebenen Ort {location} ab.",
+			"security_level": "low"
+		},
+		{
+			"name": "send_email",
+			"parameter": [
+				"email_address"
+			],
+			"command": "echo 'Body' | mail -s 'Subject' {email_address}",
+			"description": "Sendet eine E-Mail an die angegebene Adresse {email_address}.",
+			"security_level": "medium"
+		},
+		{
+			"name": "generate_report",
+			"command": "python3 generate_report.py",
+			"description": "Generiert einen Bericht mittels eines Python-Skripts.",
+			"security_level": "medium"
+		},
+		{
+			"name": "compress_logs",
+			"parameter": [
+				"log_directory"
+			],
+			"command": "tar -czf logs.tar.gz {log_directory}/*",
+			"description": "Komprimiert die Logdateien im Verzeichnis {log_directory}.",
+			"security_level": "low"
+		},
+		{
+			"name": "check_status",
+			"parameter": [
+				"backups"
+			],
+			"command": "ls -lh {backups}",
+			"description": "Überprüft den Status der letzten Backups im Verzeichnis {backups}.",
+			"security_level": "medium"
+		}
+	],
+	"sensors": [
+		{
+			"name": "fetch_exchange_rates",
+			"parameter": [
+				"currency"
+			],
+			"command": "curl -s https://api.exchangerate-api.com/v4/latest/{currency}",
+			"description": "Ruft aktuelle Wechselkurse für die angegebene Währung {currency} ab.",
+			"security_level": "low"
+		},
+		{
+			"name": "check_ssl_certificate",
+			"parameter": [
+				"domain"
+			],
+			"command": "echo | openssl s_client -servername {domain} -connect {domain}:443 2>/dev/null | openssl x509 -noout -dates",
+			"description": "Überprüft das Ablaufdatum des SSL-Zertifikats für die Domain {domain}.",
+			"security_level": "medium"
+		},
+		{
+			"name": "internet_connection",
+			"command": "ping -c 1 google.com",
+			"description": "Überprüft, ob eine Internetverbindung besteht.",
+			"security_level": "low"
+		},
+		{
+			"name": "disk_space",
+			"command": "df -h",
+			"description": "Zeigt den freien Speicherplatz auf den Laufwerken an.",
+			"security_level": "low"
+		},
+		{
+			"name": "cpu_usage",
+			"command": "top -bn1 | grep 'Cpu(s)'",
+			"description": "Zeigt die aktuelle CPU-Auslastung an.",
+			"security_level": "medium"
+		},
+		{
+			"name": "memory_usage",
+			"command": "free -h",
+			"description": "Zeigt die aktuelle Speichernutzung an.",
+			"security_level": "medium"
+		},
+		{
+			"name": "service_status",
+			"parameter": [
+				"service_name"
+			],
+			"command": "systemctl status {service_name}",
+			"description": "Überprüft den Status des Dienstes {service_name}.",
+			"security_level": "medium"
+		},
+		{
+			"name": "network_traffic",
+			"parameter": [
+				"interface"
+			],
+			"command": "ifstat -i {interface} 1 1",
+			"description": "Zeigt den Netzwerkverkehr auf dem Interface {interface} an.",
+			"security_level": "low"
+		},
+		{
+			"name": "system_uptime",
+			"command": "uptime",
+			"description": "Zeigt die Systemlaufzeit und die Last an.",
+			"security_level": "low"
+		},
+		{
+			"name": "check_security_updates",
+			"command": "sudo apt-get upgrade --dry-run | grep 'Inst '",
+			"description": "Überprüft, ob Sicherheitsupdates verfügbar sind.",
+			"security_level": "high"
+		},
+		{
+			"name": "check_open_ports",
+			"command": "sudo netstat -tuln",
+			"description": "Zeigt die offenen Ports und die zugehörigen Dienste an.",
+			"security_level": "medium"
+		},
+		{
+			"name": "check_backup_status",
+			"command": "ls -lh /backups/",
+			"description": "Überprüft den Status der letzten Backups im Verzeichnis /backups.",
+			"security_level": "medium"
+		}
+	]
+}

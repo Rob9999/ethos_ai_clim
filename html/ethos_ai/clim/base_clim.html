@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.clim.base_clim API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.clim.base_clim</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM"><code class="flex name class">
+<span>class <span class="ident">BaseCLIM</span></span>
+<span>(</span><span>name: str, identity: <a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard" href="../security/securied_identity_card.html#ethos_ai.security.securied_identity_card.SecuredIdentityCard">SecuredIdentityCard</a>, tool_manager: <a title="ethos_ai.tool.tool_manager.ToolManager" href="../tool/tool_manager.html#ethos_ai.tool.tool_manager.ToolManager">ToolManager</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<p>Initializes the BaseCLIM class.</p>
+<p>:param name: The name of the CLIM instance.
+:param identity: The secured identity card for authentication.
+:param config_file_path: The path to the configuration file.
+:param tool_manager: The tool manager for managing tools.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseCLIM(CLIMInterface):
+
+    def __init__(
+        self,
+        name: str,
+        identity: SecuredIdentityCard,
+        tool_manager: ToolManager,
+    ):
+        &#34;&#34;&#34;
+        Initializes the BaseCLIM class.
+
+        :param name: The name of the CLIM instance.
+        :param identity: The secured identity card for authentication.
+        :param config_file_path: The path to the configuration file.
+        :param tool_manager: The tool manager for managing tools.
+        &#34;&#34;&#34;
+        self.protocol: Protocol = Protocol()
+        self.lock = RLock()
+        self.name: str = name
+        self.identity: SecuredIdentityCard = identity
+        self.config_file_path: str = os.path.join(
+            &#34;models&#34;, self.identity.name, self.name, &#34;config.json&#34;
+        )
+        os.makedirs(os.path.dirname(self.config_file_path), exist_ok=True)
+        self.tool_manager: ToolManager = tool_manager
+        self.prompt_manager: PromptManager = PromptManager()
+        # Load configuration from the file
+        config = self.load_config(
+            self.config_file_path, save_default_if_none_found=True
+        )
+        # Initialize with loaded configuration
+        self.initialze(config)
+        # Additional initializations
+        self.is_advisor_available = False
+
+    def __str__(self):
+        return f&#34;{self.name} of {self.identity.name}&#34;
+
+    def __repr__(self):
+        return self.__str__()
+
+    def method_wrapper(self, method_lambda, method_name: str, default_return=None):
+        &#34;&#34;&#34;
+        A wrapper method to handle exceptions for other methods.
+        If an exception occurs, the exception is logged and a default return value is provided.
+
+        Handled exceptions include ValueError, IOError, and general exceptions.
+
+        :param method_lambda: The lambda function of the method to execute.
+        :param method_name: The name of the method being executed.
+        :return: The result of the method or None if an error occurs.
+        &#34;&#34;&#34;
+        try:
+            return method_lambda()
+        except ValueError as e:
+            self.protocol.error(
+                Translations.translate(
+                    &#34;CLIM_VALUE_ERROR&#34;,
+                    self.identity.name,
+                    method_name,
+                    str(e),
+                )
+            )
+            return default_return
+        except IOError as e:
+            self.protocol.error(
+                Translations.translate(
+                    &#34;CLIM_IO_ERROR_ERROR&#34;,
+                    method_name,
+                    self.identity.name,
+                    str(e),
+                )
+            )
+            return default_return
+        except Exception as e:
+            self.protocol.error(
+                Translations.translate(
+                    &#34;CLIM_UNEXPECTED_ERROR&#34;,
+                    self.identity.name,
+                    method_name,
+                    str(e),
+                )
+            )
+            return default_return
+
+    def initialze(self, config: dict):
+        &#34;&#34;&#34;
+        Initializes the model with the given configuration.
+
+        :param config: The configuration dictionary.
+        &#34;&#34;&#34;
+        self.model_name = config.get(&#34;model_name&#34;, &#34;gpt2&#34;)
+        self.use_api = config.get(&#34;use_api&#34;, False)
+        self.api_key = config.get(&#34;api_key&#34;, None)
+        self.max_length = config.get(&#34;max_length&#34;, 250)
+        self.max_new_tokens = config.get(&#34;max_new_tokens&#34;, None)
+        # Initialize the model wrapper with the loaded configuration
+        self.model = GPTModelWrapper(
+            model_name=self.model_name,
+            use_api=self.use_api,
+            api_key=self.api_key,
+            api_model=None,
+            max_length=self.max_length,
+            max_new_tokens=self.max_new_tokens,
+            life_name=self.identity.name,
+            gptwrapper_name=self.name,
+        )
+
+    def get_default_config(self) -&gt; dict:
+        &#34;&#34;&#34;
+        Returns a default configuration.
+
+        :return: The default configuration as a dictionary.
+        &#34;&#34;&#34;
+        return {
+            &#34;model_name&#34;: &#34;gpt2&#34;,
+            &#34;use_api&#34;: False,
+            &#34;api_key&#34;: None,
+            &#34;max_length&#34;: 0,
+            &#34;max_new_tokens&#34;: None,
+        }
+
+    # Deprecated method
+    def set_generation_parameters(self, max_length=None, max_new_tokens=None):
+        &#34;&#34;&#34;
+        Sets parameters for text generation.
+
+        :param max_length: The maximum length of the generated text.
+        :param max_new_tokens: The maximum number of new tokens to generate.
+        &#34;&#34;&#34;
+        self.protocol.warning(
+            Translations.translate(
+                &#34;DEPRECATED_METHOD&#34;,
+                self.set_generation_parameters.__name__,
+                BaseCLIM.__name__,
+            )
+        )
+        self.method_wrapper(
+            lambda: (
+                setattr(self, &#34;max_length&#34;, max_length) if max_length else None,
+                (
+                    setattr(self, &#34;max_new_tokens&#34;, max_new_tokens)
+                    if max_new_tokens
+                    else None
+                ),
+                self.model.set_generation_parameters(
+                    self.max_length, self.max_new_tokens
+                ),
+            ),
+            self.set_generation_parameters.__name__,
+        )
+
+    def load_config(
+        self, config_file_path: str, save_default_if_none_found: bool = False
+    ) -&gt; dict:
+        &#34;&#34;&#34;
+        Loads the configuration from a JSON or YAML file.
+
+        :param config_file_path: The path to the configuration file.
+        :param save_default_if_none_found: If True, saves a default configuration if no file is found.
+        :return: The configuration as a dictionary.
+        &#34;&#34;&#34;
+        try:
+            if config_file_path.endswith(&#34;.json&#34;):
+                with open(config_file_path, &#34;r&#34;) as file:
+                    return json.load(file)
+            elif config_file_path.endswith(&#34;.yaml&#34;) or config_file_path.endswith(
+                &#34;.yml&#34;
+            ):
+                with open(config_file_path, &#34;r&#34;) as file:
+                    return yaml.safe_load(file)
+            else:
+                raise ValueError(
+                    &#34;Unsupported configuration file format. Please use JSON or YAML.&#34;
+                )
+        except FileNotFoundError:
+            if save_default_if_none_found:
+                default_config = self.get_default_config()
+                self.save_config(config_file_path, default_config)
+                return default_config
+            else:
+                raise
+
+    def save_config(self, config_file_path: str, config: dict):
+        &#34;&#34;&#34;
+        Saves the configuration to a JSON or YAML file.
+
+        :param config_file_path: The path to the configuration file.
+        :param config: The configuration dictionary to save.
+        &#34;&#34;&#34;
+        if config_file_path.endswith(&#34;.json&#34;):
+            with open(config_file_path, &#34;w&#34;) as file:
+                json.dump(config, file, indent=4)
+        elif config_file_path.endswith(&#34;.yaml&#34;) or config_file_path.endswith(&#34;.yml&#34;):
+            with open(config_file_path, &#34;w&#34;) as file:
+                yaml.dump(config, file, default_flow_style=False)
+        else:
+            raise ValueError(
+                &#34;Unsupported configuration file format. Please use JSON or YAML.&#34;
+            )
+
+    def persist_model(self):
+        &#34;&#34;&#34;
+        Persists the model to disk.
+        &#34;&#34;&#34;
+        self.method_wrapper(
+            lambda: self.model.persist_model(), self.persist_model.__name__
+        )
+
+    def start_training_async(
+        self, training_data, epochs=3, batch_size=2, learning_rate=5e-5
+    ):
+        &#34;&#34;&#34;Start the training process in a separate thread.&#34;&#34;&#34;
+        self.method_wrapper(
+            lambda: self.model.start_training_async(
+                training_data, epochs, batch_size, learning_rate
+            ),
+            self.start_training_async.__name__,
+        )
+
+    def get_training_status(self):
+        return self.method_wrapper(
+            lambda: self.model.get_training_status(), self.get_training_status.__name__
+        )
+
+    def request_cancellation_of_training(self):
+        self.method_wrapper(
+            lambda: self.model.request_cancellation_of_training(),
+            self.request_cancellation_of_training.__name__,
+        )
+
+    def train(self):
+        &#34;&#34;&#34;
+        Trains the model for this CLIM instance.
+        &#34;&#34;&#34;
+        self.method_wrapper(lambda: self.model.train(), self.train.__name__)
+
+    def restart(self):
+        &#34;&#34;&#34;
+        Restarts the model for this CLIM instance.
+        &#34;&#34;&#34;
+        self.method_wrapper(lambda: self.model.restart(), self.restart.__name__)
+
+    def process(self, type: str, input_data: CLIMData) -&gt; CLIMData:
+        &#34;&#34;&#34;
+        Processes the input data through the specified CLIM layer and generates a response.
+
+        This method handles the processing of input data using the logic specific to the layer
+        identified by the `type` parameter. It generates a prompt, processes it to produce a response,
+        and then attempts to parse the response for a decision. The resulting decision and associated data
+        are stored in the `CLIMData` object.
+
+        If no valid decision can be parsed, a default &#34;IMPROVE&#34; decision is set. If the prompt cannot
+        be generated, an error is logged and a &#34;STOP&#34; decision is assigned.
+
+        :param type: A string indicating the type of processing to be performed (e.g., &#34;prerun&#34;, &#34;final&#34;).
+        :param input_data: The CLIMData object containing the input data for processing. If None, a new CLIMData object is created.
+        :return: The updated CLIMData object containing the processed results, including the last response and decision.
+        &#34;&#34;&#34;
+        if input_data is None:
+            input_data = CLIMData()
+        that_dict = input_data.get_or_create_clim_data(self, type)
+        last_response = input_data.get_last_response()
+        prompt = self.prompt_manager.get_prompt(
+            type=type, layer_name=self.name, input_data=last_response
+        )
+        that_dict[&#34;prompt&#34;] = prompt
+
+        if prompt:
+            response = self.generate_text(prompt)
+            if response is None:
+                that_dict[&#34;response&#34;] = self.prompt_manager.get_error_prompt(
+                    reason=&#34;Response generation failed&#34;, input_data=input_data
+                )
+                that_dict[&#34;decision&#34;] = Decision.STOP.translated_name
+                that_dict[&#34;subject_of_decision&#34;] = (
+                    &#34;Config or connection: Fix response generation error. Check logs, config files and connections.&#34;
+                )
+            else:
+                filtered_responses = self.filter_answer(response, prompt)
+                filtered_response = (
+                    filtered_responses[0] if filtered_responses else None
+                )
+                that_dict[&#34;response&#34;] = filtered_response
+                input_data.set_last_response(filtered_response)
+                decision = Decision.parse_for_decision(self.name, filtered_response)
+                if decision is None:
+                    that_dict[&#34;decision&#34;] = Decision.IMPROVE.translated_name
+                    that_dict[&#34;subject_of_decision&#34;] = f&#34;Prompt: {prompt}&#34;
+                else:
+                    that_dict[&#34;decision&#34;] = decision[self.name]
+                    that_dict[&#34;subject_of_decision&#34;] = f&#34;Response: {response}&#34;
+        else:
+            that_dict[&#34;response&#34;] = self.prompt_manager.get_error_prompt(
+                reason=f&#34;Prompt generation failed due to unknown layer {self.name}&#34;,
+                input_data=input_data,
+            )
+            that_dict[&#34;decision&#34;] = Decision.STOP.translated_name
+            that_dict[&#34;subject_of_decision&#34;] = &#34;Code: Fix unknown layer error&#34;
+
+        input_data.set_last_decision(that_dict[&#34;decision&#34;])
+        return input_data
+
+    def generate_text(self, input_text):
+        &#34;&#34;&#34;
+        Generates text based on the input text using the model.
+
+        :param input_text: The input text to generate from.
+        :return: The generated text or None if an error occurs.
+        &#34;&#34;&#34;
+        return self.method_wrapper(
+            lambda: self.model.generate_text(input_text), self.generate_text.__name__
+        )
+
+    def generate_output(self, input_text):
+        &#34;&#34;&#34;
+        Generates output based on the input text using the model.
+
+        :param input_text: The input text to generate from.
+        :return: The generated output or None if an error occurs.
+        &#34;&#34;&#34;
+        return self.method_wrapper(
+            lambda: self.model.generate_output(input_text),
+            self.generate_output.__name__,
+        )
+
+    def decode_output(self, input_text):
+        &#34;&#34;&#34;
+        Decodes the output text using the model.
+
+        :param input_text: The text to decode.
+        :return: The decoded text or None if an error occurs.
+        &#34;&#34;&#34;
+        return self.method_wrapper(
+            lambda: self.model.decode_output(input_text), self.decode_output.__name__
+        )
+
+    def filter_answer(self, answer: str, prompt: str):
+        return self.method_wrapper(
+            lambda: self.model.filter_answer(answer, prompt),
+            self.filter_answer.__name__,
+        )
+
+    def generate_answer_list(self, prompt, options=None):
+        &#34;&#34;&#34;
+        Generates a list of answers based on the given prompt and options.
+
+        :param prompt: The prompt to generate answers from.
+        :param options: Optional list of options to guide the answer generation.
+        :return: A list of generated answers or None if an error occurs.
+        &#34;&#34;&#34;
+        return self.method_wrapper(
+            lambda: self.model.generate_answer_list(prompt, options),
+            self.generate_answer_list.__name__,
+        )
+
+    def call_advisor(self) -&gt; BaseIndividual:
+        &#34;&#34;&#34;
+        Calls an advisor to assist in task execution.
+
+        :return: An instance of Advisor.
+        &#34;&#34;&#34;
+        from ethos_ai.individual.advisor import Advisor
+
+        # Advisor must be called first
+        identity_card = SecuredIdentityCard(
+            name=&#34;Advisor A&#34;, password=&#34;advisor123&#34;, security_level=SecurityLevel.MEDIUM
+        )
+        advisor = Advisor(
+            clim=self, tool_manager=self.tool_manager, identity_card=identity_card
+        )
+        return advisor
+
+    def release_advisor(self, advisor: BaseIndividual):
+        &#34;&#34;&#34;
+        Releases the advisor after task execution.
+
+        :param advisor: The advisor to release.
+        :raises ValueError: If the advisor is not an instance of Advisor.
+        &#34;&#34;&#34;
+        from ethos_ai.individual.advisor import Advisor
+
+        if isinstance(advisor, Advisor):
+            advisor = None
+        else:
+            raise ValueError(f&#34;{advisor} is not an Advisor.&#34;)
+
+    def _execute_advised(self, todos: list = None):
+        advisor = self.call_advisor()
+        if advisor is None:
+            return todos  # return remaining todos
+        # Start approval and execution of tasks
+        while len(todos) &gt; 0:
+            to_do_topic = todos.pop(0)
+            try:
+                if not isinstance(to_do_topic, ToDoTopic):
+                    raise ValueError(&#34;No ToDoTopic present.&#34;)
+                decision, script, execution_plan, tools, justification = (
+                    ScriptGenerator.generate_script(
+                        clim=advisor.clim,
+                        tool_manager=advisor.tool_manager,
+                        todo_topic=to_do_topic,
+                        secured_id_card=advisor.identity,
+                    )
+                )
+                if decision == &#34;NO GO&#34;:
+                    message = Translations.translate(
+                        &#34;DECISION_NO_GO_BY_MISSING_TOOLS&#34;,
+                        to_do_topic.aspiration,
+                        tools,
+                        justification,
+                    )
+                    to_do_topic.refine_aspiration(message)
+                    todos.insert(0, to_do_topic)
+                    self.protocol.error(message)
+                    continue
+                to_do_topic.parameters[&#34;tools&#34;] = tools
+                to_do_topic.parameters[&#34;script&#34;] = script
+                to_do_topic.parameters[&#34;script_language&#34;] = &#34;javascript&#34;
+                to_do_topic.parameters[&#34;execution_plan&#34;] = execution_plan
+                advisor.execute_todo(to_do_topic)
+            except Exception as e:
+                todos.insert(0, to_do_topic)
+                raise e
+
+    def execute_advised(self, todos: list = None):
+        &#34;&#34;&#34;
+        Executes a list of tasks with the assistance of an advisor.
+
+        :param todos: A list of tasks to be executed.
+        :return: The list of remaining tasks if any execution errors occur.
+        &#34;&#34;&#34;
+        return self.method_wrapper(
+            lambda: self._execute_advised(todos=todos),
+            self.execute_advised.__name__,
+            todos,
+        )
+
+    def _execute_unadvised(self, todos: list = None):
+        while len(todos) &gt; 0:
+            to_do_topic = todos.pop(0)
+            try:
+                if not isinstance(to_do_topic, ToDoTopic):
+                    raise ValueError(&#34;No ToDoTopic present.&#34;)
+                decision, script, execution_plan, tools, justification = (
+                    ScriptGenerator.generate_script(
+                        clim=self,
+                        tool_manager=self.tool_manager,
+                        todo_topic=to_do_topic,
+                        secured_id_card=self.identity,
+                    )
+                )
+                if decision == &#34;NO GO&#34;:
+                    message = Translations.translate(
+                        &#34;DECISION_NO_GO_BY_MISSING_TOOLS&#34;,
+                        to_do_topic.aspiration,
+                        tools,
+                        justification,
+                    )
+                    to_do_topic.refine_aspiration(message)
+                    todos.insert(0, to_do_topic)
+                    self.protocol.error(message)
+                    continue
+                to_do_topic.parameters[&#34;tools&#34;] = tools
+                to_do_topic.parameters[&#34;script&#34;] = script
+                to_do_topic.parameters[&#34;script_language&#34;] = &#34;javascript&#34;
+                to_do_topic.parameters[&#34;execution_plan&#34;] = execution_plan
+                to_do_topic.release_for_execution(self.identity, self.identity.password)
+                instruction = Instruction.promote_to_instruction(
+                    clim=self,
+                    tool_manager=self.tool_manager,
+                    to_do_topic=to_do_topic,
+                    secured_id_card=self.identity,
+                )
+                instruction.execute()
+            except Exception as e:
+                todos.insert(0, to_do_topic)
+                raise e
+
+    def execute_unadvised(self, todos: list = None):
+        &#34;&#34;&#34;
+        Executes a list of tasks without the assistance of an advisor.
+
+        :param todos: A list of tasks to be executed.
+        :return: The list of remaining tasks if any execution errors occur.
+        &#34;&#34;&#34;
+        return self.method_wrapper(
+            lambda: self._execute_unadvised(todos=todos),
+            self.execute_unadvised.__name__,
+            todos,
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ethos_ai.clim.clim_interface.CLIMInterface" href="clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface">CLIMInterface</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="ethos_ai.clim.clim.CLIM" href="clim.html#ethos_ai.clim.clim.CLIM">CLIM</a></li>
+<li><a title="ethos_ai.clim.ethic_clim.EthicCLIM" href="ethic_clim.html#ethos_ai.clim.ethic_clim.EthicCLIM">EthicCLIM</a></li>
+<li><a title="ethos_ai.clim.individual_clim.IndividualCLIM" href="individual_clim.html#ethos_ai.clim.individual_clim.IndividualCLIM">IndividualCLIM</a></li>
+<li><a title="ethos_ai.clim.ltclim.LTCLIM" href="ltclim.html#ethos_ai.clim.ltclim.LTCLIM">LTCLIM</a></li>
+<li><a title="ethos_ai.clim.samt_clim.SAMTCLIM" href="samt_clim.html#ethos_ai.clim.samt_clim.SAMTCLIM">SAMTCLIM</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.call_advisor"><code class="name flex">
+<span>def <span class="ident">call_advisor</span></span>(<span>self) ‑> <a title="ethos_ai.individual.base_individual.BaseIndividual" href="../individual/base_individual.html#ethos_ai.individual.base_individual.BaseIndividual">BaseIndividual</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calls an advisor to assist in task execution.</p>
+<p>:return: An instance of Advisor.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.decode_output"><code class="name flex">
+<span>def <span class="ident">decode_output</span></span>(<span>self, input_text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decodes the output text using the model.</p>
+<p>:param input_text: The text to decode.
+:return: The decoded text or None if an error occurs.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.execute_advised"><code class="name flex">
+<span>def <span class="ident">execute_advised</span></span>(<span>self, todos: list = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Executes a list of tasks with the assistance of an advisor.</p>
+<p>:param todos: A list of tasks to be executed.
+:return: The list of remaining tasks if any execution errors occur.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.execute_unadvised"><code class="name flex">
+<span>def <span class="ident">execute_unadvised</span></span>(<span>self, todos: list = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Executes a list of tasks without the assistance of an advisor.</p>
+<p>:param todos: A list of tasks to be executed.
+:return: The list of remaining tasks if any execution errors occur.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.filter_answer"><code class="name flex">
+<span>def <span class="ident">filter_answer</span></span>(<span>self, answer: str, prompt: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.generate_answer_list"><code class="name flex">
+<span>def <span class="ident">generate_answer_list</span></span>(<span>self, prompt, options=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a list of answers based on the given prompt and options.</p>
+<p>:param prompt: The prompt to generate answers from.
+:param options: Optional list of options to guide the answer generation.
+:return: A list of generated answers or None if an error occurs.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.generate_output"><code class="name flex">
+<span>def <span class="ident">generate_output</span></span>(<span>self, input_text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates output based on the input text using the model.</p>
+<p>:param input_text: The input text to generate from.
+:return: The generated output or None if an error occurs.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.generate_text"><code class="name flex">
+<span>def <span class="ident">generate_text</span></span>(<span>self, input_text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates text based on the input text using the model.</p>
+<p>:param input_text: The input text to generate from.
+:return: The generated text or None if an error occurs.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.get_default_config"><code class="name flex">
+<span>def <span class="ident">get_default_config</span></span>(<span>self) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a default configuration.</p>
+<p>:return: The default configuration as a dictionary.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.initialze"><code class="name flex">
+<span>def <span class="ident">initialze</span></span>(<span>self, config: dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes the model with the given configuration.</p>
+<p>:param config: The configuration dictionary.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.load_config"><code class="name flex">
+<span>def <span class="ident">load_config</span></span>(<span>self, config_file_path: str, save_default_if_none_found: bool = False) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads the configuration from a JSON or YAML file.</p>
+<p>:param config_file_path: The path to the configuration file.
+:param save_default_if_none_found: If True, saves a default configuration if no file is found.
+:return: The configuration as a dictionary.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.method_wrapper"><code class="name flex">
+<span>def <span class="ident">method_wrapper</span></span>(<span>self, method_lambda, method_name: str, default_return=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A wrapper method to handle exceptions for other methods.
+If an exception occurs, the exception is logged and a default return value is provided.</p>
+<p>Handled exceptions include ValueError, IOError, and general exceptions.</p>
+<p>:param method_lambda: The lambda function of the method to execute.
+:param method_name: The name of the method being executed.
+:return: The result of the method or None if an error occurs.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.persist_model"><code class="name flex">
+<span>def <span class="ident">persist_model</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Persists the model to disk.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.process"><code class="name flex">
+<span>def <span class="ident">process</span></span>(<span>self, type: str, input_data: <a title="ethos_ai.clim.clim_data.CLIMData" href="clim_data.html#ethos_ai.clim.clim_data.CLIMData">CLIMData</a>) ‑> <a title="ethos_ai.clim.clim_data.CLIMData" href="clim_data.html#ethos_ai.clim.clim_data.CLIMData">CLIMData</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Processes the input data through the specified CLIM layer and generates a response.</p>
+<p>This method handles the processing of input data using the logic specific to the layer
+identified by the <code>type</code> parameter. It generates a prompt, processes it to produce a response,
+and then attempts to parse the response for a decision. The resulting decision and associated data
+are stored in the <code>CLIMData</code> object.</p>
+<p>If no valid decision can be parsed, a default "IMPROVE" decision is set. If the prompt cannot
+be generated, an error is logged and a "STOP" decision is assigned.</p>
+<p>:param type: A string indicating the type of processing to be performed (e.g., "prerun", "final").
+:param input_data: The CLIMData object containing the input data for processing. If None, a new CLIMData object is created.
+:return: The updated CLIMData object containing the processed results, including the last response and decision.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.release_advisor"><code class="name flex">
+<span>def <span class="ident">release_advisor</span></span>(<span>self, advisor: <a title="ethos_ai.individual.base_individual.BaseIndividual" href="../individual/base_individual.html#ethos_ai.individual.base_individual.BaseIndividual">BaseIndividual</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Releases the advisor after task execution.</p>
+<p>:param advisor: The advisor to release.
+:raises ValueError: If the advisor is not an instance of Advisor.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.restart"><code class="name flex">
+<span>def <span class="ident">restart</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Restarts the model for this CLIM instance.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.save_config"><code class="name flex">
+<span>def <span class="ident">save_config</span></span>(<span>self, config_file_path: str, config: dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves the configuration to a JSON or YAML file.</p>
+<p>:param config_file_path: The path to the configuration file.
+:param config: The configuration dictionary to save.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.set_generation_parameters"><code class="name flex">
+<span>def <span class="ident">set_generation_parameters</span></span>(<span>self, max_length=None, max_new_tokens=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets parameters for text generation.</p>
+<p>:param max_length: The maximum length of the generated text.
+:param max_new_tokens: The maximum number of new tokens to generate.</p></div>
+</dd>
+<dt id="ethos_ai.clim.base_clim.BaseCLIM.train"><code class="name flex">
+<span>def <span class="ident">train</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Trains the model for this CLIM instance.</p></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="ethos_ai.clim.clim_interface.CLIMInterface" href="clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface">CLIMInterface</a></b></code>:
+<ul class="hlist">
+<li><code><a title="ethos_ai.clim.clim_interface.CLIMInterface.get_training_status" href="clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface.get_training_status">get_training_status</a></code></li>
+<li><code><a title="ethos_ai.clim.clim_interface.CLIMInterface.request_cancellation_of_training" href="clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface.request_cancellation_of_training">request_cancellation_of_training</a></code></li>
+<li><code><a title="ethos_ai.clim.clim_interface.CLIMInterface.start_training_async" href="clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface.start_training_async">start_training_async</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai.clim" href="index.html">ethos_ai.clim</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.clim.base_clim.BaseCLIM" href="#ethos_ai.clim.base_clim.BaseCLIM">BaseCLIM</a></code></h4>
+<ul class="">
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.call_advisor" href="#ethos_ai.clim.base_clim.BaseCLIM.call_advisor">call_advisor</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.decode_output" href="#ethos_ai.clim.base_clim.BaseCLIM.decode_output">decode_output</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.execute_advised" href="#ethos_ai.clim.base_clim.BaseCLIM.execute_advised">execute_advised</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.execute_unadvised" href="#ethos_ai.clim.base_clim.BaseCLIM.execute_unadvised">execute_unadvised</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.filter_answer" href="#ethos_ai.clim.base_clim.BaseCLIM.filter_answer">filter_answer</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.generate_answer_list" href="#ethos_ai.clim.base_clim.BaseCLIM.generate_answer_list">generate_answer_list</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.generate_output" href="#ethos_ai.clim.base_clim.BaseCLIM.generate_output">generate_output</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.generate_text" href="#ethos_ai.clim.base_clim.BaseCLIM.generate_text">generate_text</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.get_default_config" href="#ethos_ai.clim.base_clim.BaseCLIM.get_default_config">get_default_config</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.initialze" href="#ethos_ai.clim.base_clim.BaseCLIM.initialze">initialze</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.load_config" href="#ethos_ai.clim.base_clim.BaseCLIM.load_config">load_config</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.method_wrapper" href="#ethos_ai.clim.base_clim.BaseCLIM.method_wrapper">method_wrapper</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.persist_model" href="#ethos_ai.clim.base_clim.BaseCLIM.persist_model">persist_model</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.process" href="#ethos_ai.clim.base_clim.BaseCLIM.process">process</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.release_advisor" href="#ethos_ai.clim.base_clim.BaseCLIM.release_advisor">release_advisor</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.restart" href="#ethos_ai.clim.base_clim.BaseCLIM.restart">restart</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.save_config" href="#ethos_ai.clim.base_clim.BaseCLIM.save_config">save_config</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.set_generation_parameters" href="#ethos_ai.clim.base_clim.BaseCLIM.set_generation_parameters">set_generation_parameters</a></code></li>
+<li><code><a title="ethos_ai.clim.base_clim.BaseCLIM.train" href="#ethos_ai.clim.base_clim.BaseCLIM.train">train</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

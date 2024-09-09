@@ -1,0 +1,26 @@
+{
+	"fetch_weather": {
+		"location": "Munich"
+	},
+	"send_email": {
+		"email_address": "example@example.com"
+	},
+	"compress_logs": {
+		"log_directory": "/var/logs"
+	},
+	"check_status": {
+		"backups": "/backups/"
+	},
+	"fetch_exchange_rates": {
+		"currency": "USD"
+	},
+	"check_ssl_certificate": {
+		"domain": "example.com"
+	},
+	"service_status": {
+		"service_name": "apache2"
+	},
+	"network_traffic": {
+		"interface": "eth0"
+	}
+}

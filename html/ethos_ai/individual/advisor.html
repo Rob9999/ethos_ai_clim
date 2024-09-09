@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.individual.advisor API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.individual.advisor</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.individual.advisor.Advisor"><code class="flex name class">
+<span>class <span class="ident">Advisor</span></span>
+<span>(</span><span>clim: <a title="ethos_ai.clim.clim_interface.CLIMInterface" href="../clim/clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface">CLIMInterface</a>, tool_manager: <a title="ethos_ai.tool.tool_manager.ToolManager" href="../tool/tool_manager.html#ethos_ai.tool.tool_manager.ToolManager">ToolManager</a>, identity_card: <a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard" href="../security/securied_identity_card.html#ethos_ai.security.securied_identity_card.SecuredIdentityCard">SecuredIdentityCard</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Advisor(BaseIndividual):
+    def __init__(
+        self,
+        clim: CLIMInterface,
+        tool_manager: ToolManager,
+        identity_card: SecuredIdentityCard,
+    ):
+        super().__init__(secured_identity_card=identity_card)
+        self.clim = clim  # CLIM-Instanz, die dem Advisor zur Verfügung steht
+        self.tool_manager = (
+            tool_manager  # ToolManager-Instanz, die dem Advisor zur Verfügung steht
+        )
+        self.active_todos: list[ToDoTopic] = []  # Liste der aktiven ToDoTopics
+
+    # Add a ToDoTopic
+    def add_todo(self, todo_topic: ToDoTopic):
+        if isinstance(todo_topic, ToDoTopic):
+            self.active_todos.append(todo_topic)
+            print(f&#34;ToDoTopic hinzugefügt: {todo_topic.description}&#34;)
+            return True
+        else:
+            print(&#34;Ungültiges ToDoTopic.&#34;)
+            return False
+
+    # Add multiple ToDoTopics
+    def add_todos(self, todo_topics: list[ToDoTopic]):
+        return [self.add_todo(todo) for todo in todo_topics]
+
+    # Consult the CLIM for advice
+    def consult_clim(self, todo_topic: ToDoTopic):
+        # Der Advisor fragt das CLIM um Rat, bevor eine Aktion im IST ausgeführt wird
+        advice = self.clim.generate_text(
+            f&#34;Bitte berate mich (min. GO or NO GO plus Beratung) zur Durchführung der Aufgabe:\n{todo_topic.get_instructions()}.\nZiel: {todo_topic.aspiration}&#34;
+        )
+        print(f&#34;Beratung durch CLIM: {advice}&#34;)
+        return advice
+
+    def evaluate_todo_topic(self, todo_topic: ToDoTopic):
+        # Der Advisor fragt das CLIM um Rat, bevor eine Aktion im IST ausgeführt wird
+        advice = self.consult_clim(todo_topic)
+        # Entscheidung auf Basis der Beratung
+        if &#34;GO&#34; in advice:
+            if self.approve_todo_for_execution(
+                todo_topic, self.secured_identity_card.password
+            ):
+                print(
+                    f&#34;ToDoTopic erfolgreich freigegebn zur Ausführung im IST: {todo_topic.description}&#34;
+                )
+                return True
+            else:
+                print(
+                    f&#34;ToDoTopic &#39;{todo_topic.description}&#39; konnte nicht freigegeben werden.&#34;
+                )
+                self.decline_todo_topic(todo_topic, advice)
+                return False
+        else:
+            print(
+                f&#34;Beratung deutet auf NO GO hin. ToDoTopic wird nicht ausgeführt: {todo_topic.description}&#34;
+            )
+            self.decline_todo_topic(todo_topic, advice)
+            return False
+
+    def decline_todo_topic(self, todo_topic: ToDoTopic, advice):
+        todo_topic.isReadyForIST = False
+        todo_topic.isRefined = False
+        todo_topic.execution_denied_by_advisor(advice)
+
+    # Sign and approve the ToDoTopic for execution
+    def approve_todo_for_execution(self, todo_topic: ToDoTopic, input_password):
+        try:
+            # Sicherheitsüberprüfung durch den Advisor
+            self.secured_identity_card.check_security(
+                SecurityLevel.MEDIUM, input_password
+            )
+            # Unterschrift des Advisors
+            todo_topic.release_for_execution(self.secured_identity_card, input_password)
+            print(
+                f&#34;ToDoTopic &#39;{todo_topic.description}&#39; wurde durch Advisor &#39;{self.identity_card.name}&#39; zur Ausführung freigegeben.&#34;
+            )
+            return True
+        except SecurityAccessException as e:
+            print(f&#34;Freigabe fehlgeschlagen: {e}&#34;)
+            return False
+
+    # Execute the ToDoTopics, if it fails, return the ToDoTopic
+    def pop_and_execute_todo(self) -&gt; tuple[ToDoTopic, str]:
+        if not self.active_todos:
+            print(&#34;Keine aktiven ToDoTopics vorhanden.&#34;)
+            return None, &#34;Keine aktiven ToDoTopics.&#34;
+        todo_topic = self.active_todos.pop(0)
+        return self.execute_todo(todo_topic)
+
+    # Execute the ToDoTopic, if it fails, return the ToDoTopic
+    def execute_todo(self, todo_topic: ToDoTopic) -&gt; tuple[ToDoTopic, str]:
+        if not isinstance(todo_topic, ToDoTopic):
+            print(&#34;Kein ToDoTopic vorhanden.&#34;)
+            return None, &#34;Kein ToDoTopic vorhanden.&#34;
+        print(f&#34;Starte Ausführung des ToDoTopic: {todo_topic.description}&#34;)
+        if not self.evaluate_todo_topic(todo_topic):
+            return todo_topic, &#34;ToDoTopic nicht freigegeben.&#34;
+        # generate instruction from ToDoTopic
+        instruction = Instruction.promote_to_instruction(
+            clim=self.clim,
+            tool_manager=self.tool_manager,
+            todo_topic=todo_topic,
+            secured_id_card=self.secured_identity_card,
+        )
+        if instruction is None:
+            return todo_topic, &#34;Instruction konnte nicht erstellt werden.&#34;
+        # execute instruction
+        instruction.execute()
+        return None, &#34;ToDoTopic erfolgreich ausgeführt.&#34;
+
+    def review_todos(self):
+        # Zeigt alle aktiven ToDoTopics an
+        if not self.active_todos:
+            print(&#34;Keine aktiven ToDoTopics vorhanden.&#34;)
+        else:
+            print(&#34;Aktive ToDoTopics:&#34;)
+            for todo in self.active_todos:
+                print(f&#34;- {todo.description}: {todo.aspiration}&#34;)
+
+    def __str__(self):
+        return f&#34;Advisor {self.get_name()} mit {len(self.active_todos)} aktiven ToDoTopics.&#34;
+
+    def __repr__(self):
+        return self.__str__()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ethos_ai.individual.base_individual.BaseIndividual" href="base_individual.html#ethos_ai.individual.base_individual.BaseIndividual">BaseIndividual</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ethos_ai.individual.advisor.Advisor.add_todo"><code class="name flex">
+<span>def <span class="ident">add_todo</span></span>(<span>self, todo_topic: <a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.add_todos"><code class="name flex">
+<span>def <span class="ident">add_todos</span></span>(<span>self, todo_topics: list[<a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.approve_todo_for_execution"><code class="name flex">
+<span>def <span class="ident">approve_todo_for_execution</span></span>(<span>self, todo_topic: <a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>, input_password)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.consult_clim"><code class="name flex">
+<span>def <span class="ident">consult_clim</span></span>(<span>self, todo_topic: <a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.decline_todo_topic"><code class="name flex">
+<span>def <span class="ident">decline_todo_topic</span></span>(<span>self, todo_topic: <a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>, advice)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.evaluate_todo_topic"><code class="name flex">
+<span>def <span class="ident">evaluate_todo_topic</span></span>(<span>self, todo_topic: <a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.execute_todo"><code class="name flex">
+<span>def <span class="ident">execute_todo</span></span>(<span>self, todo_topic: <a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>) ‑> tuple[<a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>, str]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.pop_and_execute_todo"><code class="name flex">
+<span>def <span class="ident">pop_and_execute_todo</span></span>(<span>self) ‑> tuple[<a title="ethos_ai.topic.to_do_topic.ToDoTopic" href="../topic/to_do_topic.html#ethos_ai.topic.to_do_topic.ToDoTopic">ToDoTopic</a>, str]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.individual.advisor.Advisor.review_todos"><code class="name flex">
+<span>def <span class="ident">review_todos</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai.individual" href="index.html">ethos_ai.individual</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.individual.advisor.Advisor" href="#ethos_ai.individual.advisor.Advisor">Advisor</a></code></h4>
+<ul class="">
+<li><code><a title="ethos_ai.individual.advisor.Advisor.add_todo" href="#ethos_ai.individual.advisor.Advisor.add_todo">add_todo</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.add_todos" href="#ethos_ai.individual.advisor.Advisor.add_todos">add_todos</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.approve_todo_for_execution" href="#ethos_ai.individual.advisor.Advisor.approve_todo_for_execution">approve_todo_for_execution</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.consult_clim" href="#ethos_ai.individual.advisor.Advisor.consult_clim">consult_clim</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.decline_todo_topic" href="#ethos_ai.individual.advisor.Advisor.decline_todo_topic">decline_todo_topic</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.evaluate_todo_topic" href="#ethos_ai.individual.advisor.Advisor.evaluate_todo_topic">evaluate_todo_topic</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.execute_todo" href="#ethos_ai.individual.advisor.Advisor.execute_todo">execute_todo</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.pop_and_execute_todo" href="#ethos_ai.individual.advisor.Advisor.pop_and_execute_todo">pop_and_execute_todo</a></code></li>
+<li><code><a title="ethos_ai.individual.advisor.Advisor.review_todos" href="#ethos_ai.individual.advisor.Advisor.review_todos">review_todos</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

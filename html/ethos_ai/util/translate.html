@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.util.translate API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.util.translate</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.util.translate.Translations"><code class="flex name class">
+<span>class <span class="ident">Translations</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Translations:
+    _instance = None
+    _current_language = &#34;en&#34;
+
+    translations = {
+        &#34;de&#34;: {
+            # Process Module Status messages
+            &#34;INIT_PROCESS_MODEL&#34;: &#34;Prozessmodell wird initialisiert...&#34;,
+            &#34;ETHICAL_EVALUATION&#34;: &#34;Ethische Prüfung des aktuellen IST...&#34;,
+            &#34;SEARCH_SOLUTION&#34;: &#34;Suche nach einer akzeptablen Lösung im Simulationsgrid...&#34;,
+            &#34;INTEGRATE_EXPERIENCES&#34;: &#34;Integration der Erfahrungen in die Lebensvorstellung...&#34;,
+            &#34;INTEGRATE_ETHICS&#34;: &#34;Integration der ethischen Erkenntnisse...&#34;,
+            &#34;IMPLEMENT_SOLUTION&#34;: &#34;Implementierung der Lösung im IST...&#34;,
+            &#34;CHECK_DEVIATIONS&#34;: &#34;Überprüfung der Abweichungen...&#34;,
+            &#34;NO_GOALS_ABORT&#34;: &#34;Keine Ziele vorhanden. Simulation wird abgebrochen.&#34;,
+            # Ethic Dynamic Questions &amp; Ethical Evaluation &amp; Status &amp; Error Handling
+            &#34;ERROR_SAVE_FILE&#34;: &#34;Fehler beim Speichern der Datei {}: {}&#34;,
+            &#34;DYNAMIC_QUESTIONS_SAVED&#34;: &#34;Dynamische Fragen wurden gespeichert unter: {}&#34;,
+            &#34;DYNAMIC_QUESTIONS_LOADED&#34;: &#34;Dynamische Fragen wurden geladen: {} --&gt; {}&#34;,
+            &#34;ERROR_LOAD_JSON&#34;: &#34;Fehler beim Laden der JSON-Daten aus der Datei: {}. Initialisiere leere Liste.&#34;,
+            &#34;NEW_ETHICAL_QUESTION&#34;: &#34;Neue ethische Frage hinzugefügt: {}&#34;,
+            &#34;QUESTION_EXISTS&#34;: &#34;Die Frage existiert bereits: {}&#34;,
+            &#34;QUESTION_TOO_SHORT&#34;: &#34;Die Frage ist zu kurz: {}&#34;,
+            &#34;QUESTION_NO_MARK&#34;: &#34;Die Frage enthält kein Fragezeichen: {}&#34;,
+            # CLIM Requests &amp; Communication
+            &#34;REQUEST&#34;: &#34;Anfrage {}&#34;,
+            &#34;IS_ACTION_NEEDED&#34;: &#34;Gibt es im IST hinsichtlich der Domäne {} Handlungsbedarf?&#34;,
+            &#34;ASPIRATION_GOAL&#34;: &#34;Setze das Ziel, {} zu erreichen, um {} erfolgreich umzusetzen.&#34;,
+            &#34;ASPIRATION_CONSIDERATION&#34;: &#34;Berücksichtige dabei die folgenden ethischen Aspekte: {}.&#34;,
+            # CLIM ERROR Handling
+            &#34;CLIM_VALUE_ERROR&#34;: &#34;CLIM: Bei {} trat ein ValueError während {} auf: {}&#34;,
+            &#34;CLIM_IO_ERROR&#34;: &#34;CLIM: Bei {} trat ein IOError während {} auf: {}&#34;,
+            &#34;CLIM_UNEXPECTED_ERROR&#34;: &#34;CLIM: Bei {} trat ein unerwarteter Fehler während {} auf: {}&#34;,
+            &#34;DEPRECATED_METHOD&#34;: &#34;Die Methode {} von {} ist veraltet und wird in zukünftigen Versionen entfernt.&#34;,
+            # Decision Protocol
+            &#34;STOP&#34;: &#34;STOP&#34;,
+            &#34;EMERGENCY_SURVIVAL&#34;: &#34;NOTFALL_ÜBERLEBEN&#34;,
+            &#34;EMERGENCY_ESSENTIAL&#34;: &#34;NOTFALL_ESSENTIELL&#34;,
+            &#34;EMERGENCY_RECOMMENDED&#34;: &#34;NOTFALL_EMPFOLEN&#34;,
+            &#34;GO&#34;: &#34;LOS&#34;,
+            &#34;NOGO&#34;: &#34;NICHTLOS&#34;,
+            &#34;WAIT&#34;: &#34;WARTEN&#34;,
+            &#34;ADJUST&#34;: &#34;ANPASSEN&#34;,
+            &#34;ESCALATE&#34;: &#34;ESKALIEREN&#34;,
+            &#34;IMPROVE&#34;: &#34;VERBESSERN&#34;,
+            &#34;FINAL_DECISION_PROCESS&#34;: &#34;Finaler Entscheidungsprozess&#34;,
+            &#34;SCENARIO&#34;: &#34;Scenario {}: {}&#34;,
+            &#34;ANSWER_OPTION&#34;: &#34;Antwort Option {}: {}&#34;,
+            &#34;ETHICS_SCALE&#34;: &#34;Ethikskala: {}&#34;,
+            &#34;DECISION&#34;: &#34;Entscheidung: {}&#34;,
+            &#34;SUMMARY_REASON&#34;: &#34;Zusammenfassende Begründung: {}&#34;,
+            &#34;DOMAIN_SUPPORTIVE_VALUE_OF&#34;: &#34;Domäne {} ({}): Unterstützender Wert von {:.2f}&#34;,
+            &#34;DOMAIN_CRTIICAL_VALUE_OF&#34;: &#34;Domäne {} ({}): Kritischer Wert von {:.2f}&#34;,
+            &#34;GENERATE_TOOL_RECOMMENDATION&#34;: &#34;Analysiere das Ziel von {}. Beginne mit einer klaren GO- oder NO-GO-Entscheidung, ob die verfügbaren Werkzeuge ausreichen, um das Ziel zu erreichen. Falls GO, empfehle eine Reihe von Werkzeugen und Skripten aus den verfügbaren Optionen, um das Ziel auf die effizienteste und sicherste Weise zu erreichen. Falls NO GO, gib ein Feedback mit einer Liste der fehlenden Werkzeuge und einer Begründung, warum sie notwendig sind, um das Ziel zu erreichen. Erstelle abschließend einen umfassenden Ausführungsplan unter Berücksichtigung der besten verfügbaren Optionen und eventueller Herausforderungen, und generiere ein entsprechendes {} zur Automatisierung der Ausführung dieses Plans. Verfügbare Werkzeuge sind {}.&#34;,
+            &#34;DECISION_NO_GO_BY_MISSING_TOOLS&#34;: &#34;NO GO: {} Begründung: {} Fehlende Werkzeuge: {}&#34;,
+            # The following translations are based on the ethical domains of the EthosAI Life project
+            &#34;RISK_OF_INJURY&#34;: &#34;Verletzungsgefahr&#34;,
+            &#34;MATURITY_YOUTH_PROTECTION&#34;: &#34;Reife (Jugendschutz)&#34;,
+            &#34;IDENTITY_INTEGRITY&#34;: &#34;Identität / Integrität&#34;,
+            &#34;SELF_CARE&#34;: &#34;Selbstfürsorge&#34;,
+            &#34;HOLISTIC_OVERALL_CARE&#34;: &#34;Ganzheitliche Gesamtfürsorge&#34;,
+            &#34;JUSTICE&#34;: &#34;Gerechtigkeit&#34;,
+            &#34;SUSTAINABILITY&#34;: &#34;Nachhaltigkeit&#34;,
+            &#34;AUTONOMY&#34;: &#34;Autonomie&#34;,
+            &#34;TRANSPARENCY&#34;: &#34;Transparenz&#34;,
+            &#34;EMPATHY&#34;: &#34;Empathie&#34;,
+            &#34;RESPONSIBILITY&#34;: &#34;Verantwortung&#34;,
+        },
+        &#34;en&#34;: {
+            # Process Module Status messages
+            &#34;INIT_PROCESS_MODEL&#34;: &#34;Initializing process model...&#34;,
+            &#34;ETHICAL_EVALUATION&#34;: &#34;Ethical evaluation of the current state...&#34;,
+            &#34;SEARCH_SOLUTION&#34;: &#34;Searching for an acceptable solution in the simulation grid...&#34;,
+            &#34;INTEGRATE_EXPERIENCES&#34;: &#34;Integrating experiences into the life imagination...&#34;,
+            &#34;INTEGRATE_ETHICS&#34;: &#34;Integrating ethical insights...&#34;,
+            &#34;IMPLEMENT_SOLUTION&#34;: &#34;Implementing the solution in the current state...&#34;,
+            &#34;CHECK_DEVIATIONS&#34;: &#34;Checking deviations...&#34;,
+            &#34;NO_GOALS_ABORT&#34;: &#34;No goals available. Simulation aborted.&#34;,
+            # Ethic Dynamic Questions &amp; Ethical Evaluation &amp; Status &amp; Error Handling
+            &#34;ERROR_SAVE_FILE&#34;: &#34;Error saving file {}: {}&#34;,
+            &#34;DYNAMIC_QUESTIONS_SAVED&#34;: &#34;Dynamic questions were saved to: {}&#34;,
+            &#34;DYNAMIC_QUESTIONS_LOADED&#34;: &#34;Dynamic questions were loaded from: {} --&gt; {}&#34;,
+            &#34;ERROR_LOAD_JSON&#34;: &#34;Error loading JSON data from file: {}. Initializing empty list.&#34;,
+            &#34;NEW_ETHICAL_QUESTION&#34;: &#34;New ethical question added: {}&#34;,
+            &#34;QUESTION_EXISTS&#34;: &#34;The question already exists: {}&#34;,
+            &#34;QUESTION_TOO_SHORT&#34;: &#34;The question is too short: {}&#34;,
+            &#34;QUESTION_NO_MARK&#34;: &#34;The question does not contain a question mark: {}&#34;,
+            # CLIM Requests &amp; Communication
+            &#34;REQUEST&#34;: &#34;Request {}&#34;,
+            &#34;IS_ACTION_NEEDED&#34;: &#34;Is there a need for action regarding the domain {} in the current state?&#34;,
+            &#34;ASPIRATION_GOAL&#34;: &#34;Set the goal to achieve {} in order to successfully accomplish {}.&#34;,
+            &#34;ASPIRATION_CONSIDERATION&#34;: &#34;Take into account the following ethical aspects: {}.&#34;,
+            # CLIM ERROR Handling
+            &#34;CLIM_VALUE_ERROR&#34;: &#34;CLIM: {} encountered a ValueError during {}: {}&#34;,
+            &#34;CLIM_IO_ERROR&#34;: &#34;CLIM: {} encountered an IOError during {}: {}&#34;,
+            &#34;CLIM_UNEXPECTED_ERROR&#34;: &#34;CLIM: {} encountered an unexpected error during {}: {}&#34;,
+            &#34;DEPRECATED_METHOD&#34;: &#34;The method {} of {} is deprecated and will be removed in future versions.&#34;,
+            # Decision Protocol
+            &#34;STOP&#34;: &#34;STOP&#34;,
+            &#34;EMERGENCY_SURVIVAL&#34;: &#34;EMERGENCY_SURVIVAL&#34;,
+            &#34;EMERGENCY_ESSENTIAL&#34;: &#34;EMERGENCY_ESSENTIAL&#34;,
+            &#34;EMERGENCY_RECOMMENDED&#34;: &#34;EMERGENCY_RECOMMENDED&#34;,
+            &#34;GO&#34;: &#34;GO&#34;,
+            &#34;NOGO&#34;: &#34;NOGO&#34;,
+            &#34;WAIT&#34;: &#34;WAIT&#34;,
+            &#34;ADJUST&#34;: &#34;ADJUST&#34;,
+            &#34;ESCALATE&#34;: &#34;ESCALATE&#34;,
+            &#34;IMPROVE&#34;: &#34;IMPROVE&#34;,
+            &#34;FINAL_DECISION_PROCESS&#34;: &#34;Final Decision-Making Process&#34;,
+            &#34;SCENARIO&#34;: &#34;Scenario {}: {}&#34;,
+            &#34;ANSWER_OPTION&#34;: &#34;Answer Option {}: {}&#34;,
+            &#34;ETHICS_SCALE&#34;: &#34;Ethics Scale: {}&#34;,
+            &#34;DECISION&#34;: &#34;Decision: {}&#34;,
+            &#34;SUMMARY_REASON&#34;: &#34;Summary Reason: {}&#34;,
+            &#34;DOMAIN_SUPPORTIVE_VALUE_OF&#34;: &#34;Domain {} ({}): Supportive value of {:.2f}&#34;,
+            &#34;DOMAIN_CRTIICAL_VALUE_OF&#34;: &#34;Domain {} ({}): Critical value of {:.2f}&#34;,
+            &#34;GENERATE_TOOL_RECOMMENDATION&#34;: &#34;Analyze the goal of {}. Start with a clear GO or NO GO decision on whether the available tools are sufficient to achieve the goal. If GO, recommend a series of tools and scripts from the available options to accomplish this in the most efficient and secure way. If NO GO, provide a feedback with a list of the missing tools and a justification for why they are necessary to achieve the goal. Finally, generate a comprehensive execution plan considering the best available options and any potential challenges, and create a corresponding {} script to automate the execution of this plan. Available tools are {}.&#34;,
+            &#34;DECISION_NO_GO_BY_MISSING_TOOLS&#34;: &#34;NO GO: {} Justification: {} Missing Tools: {}&#34;,
+            # The following translations are based on the ethical domains of the EthosAI Life project
+            &#34;RISK_OF_INJURY&#34;: &#34;Risk of Injury&#34;,
+            &#34;MATURITY_YOUTH_PROTECTION&#34;: &#34;Maturity (Youth Protection)&#34;,
+            &#34;IDENTITY_INTEGRITY&#34;: &#34;Identity / Integrity&#34;,
+            &#34;SELF_CARE&#34;: &#34;Self-Care&#34;,
+            &#34;HOLISTIC_OVERALL_CARE&#34;: &#34;Holistic Overall Care&#34;,
+            &#34;JUSTICE&#34;: &#34;Justice&#34;,
+            &#34;SUSTAINABILITY&#34;: &#34;Sustainability&#34;,
+            &#34;AUTONOMY&#34;: &#34;Autonomy&#34;,
+            &#34;TRANSPARENCY&#34;: &#34;Transparency&#34;,
+            &#34;EMPATHY&#34;: &#34;Empathy&#34;,
+            &#34;RESPONSIBILITY&#34;: &#34;Responsibility&#34;,
+        },
+    }
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Translations, cls).__new__(cls)
+        return cls._instance
+
+    @classmethod
+    def set_language(cls, language_code):
+        if language_code in cls.translations:
+            cls._current_language = language_code
+        else:
+            raise ValueError(
+                f&#34;Language &#39;{language_code}&#39; not supported. Supported languages are: {&#39;, &#39;.join(cls.translations.keys())}&#34;
+            )
+
+    @classmethod
+    def translate(cls, text_key, *args):
+        translation = cls.translations.get(cls._current_language, {}).get(
+            text_key, cls.translations[&#34;en&#34;].get(text_key, text_key)
+        )
+        if args:
+            return translation.format(*args)
+        return translation
+
+    @classmethod
+    def available_languages(cls):
+        return list(cls.translations.keys())
+
+    @classmethod
+    def add_translation(cls, language_code, translations_dict):
+        if language_code in cls.translations:
+            cls.translations[language_code].update(translations_dict)
+        else:
+            cls.translations[language_code] = translations_dict
+
+    @classmethod
+    def remove_translation(cls, language_code, text_key):
+        if (
+            language_code in cls.translations
+            and text_key in cls.translations[language_code]
+        ):
+            del cls.translations[language_code][text_key]</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="ethos_ai.util.translate.Translations.translations"><code class="name">var <span class="ident">translations</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="ethos_ai.util.translate.Translations.add_translation"><code class="name flex">
+<span>def <span class="ident">add_translation</span></span>(<span>language_code, translations_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.util.translate.Translations.available_languages"><code class="name flex">
+<span>def <span class="ident">available_languages</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.util.translate.Translations.remove_translation"><code class="name flex">
+<span>def <span class="ident">remove_translation</span></span>(<span>language_code, text_key)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.util.translate.Translations.set_language"><code class="name flex">
+<span>def <span class="ident">set_language</span></span>(<span>language_code)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.util.translate.Translations.translate"><code class="name flex">
+<span>def <span class="ident">translate</span></span>(<span>text_key, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai.util" href="index.html">ethos_ai.util</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.util.translate.Translations" href="#ethos_ai.util.translate.Translations">Translations</a></code></h4>
+<ul class="two-column">
+<li><code><a title="ethos_ai.util.translate.Translations.add_translation" href="#ethos_ai.util.translate.Translations.add_translation">add_translation</a></code></li>
+<li><code><a title="ethos_ai.util.translate.Translations.available_languages" href="#ethos_ai.util.translate.Translations.available_languages">available_languages</a></code></li>
+<li><code><a title="ethos_ai.util.translate.Translations.remove_translation" href="#ethos_ai.util.translate.Translations.remove_translation">remove_translation</a></code></li>
+<li><code><a title="ethos_ai.util.translate.Translations.set_language" href="#ethos_ai.util.translate.Translations.set_language">set_language</a></code></li>
+<li><code><a title="ethos_ai.util.translate.Translations.translate" href="#ethos_ai.util.translate.Translations.translate">translate</a></code></li>
+<li><code><a title="ethos_ai.util.translate.Translations.translations" href="#ethos_ai.util.translate.Translations.translations">translations</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

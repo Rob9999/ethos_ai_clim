@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.ethos_ai_individual API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.ethos_ai_individual</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual"><code class="flex name class">
+<span>class <span class="ident">EthosAIIndividual</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EthosAIIndividual:
+    def __init__(self):
+        self.protocol_module = Protocol(&#34;WARNING&#34;)
+        self.current_phase: Phase = Phase.OFF
+        self.maintenance_phase: MaintenancePhase = MaintenancePhase.NONE
+        self.execution_thread = None
+        self._stop_event = threading.Event()
+        self.lock = threading.RLock()
+        self.advised_living = False
+
+    def initialize(self):
+        self.protocol_module.info(&#34;EthosAI Life wird initialisiert...&#34;)
+        self.tool_manager = ToolManager()
+        self.identity = SecuredIdentityCard(
+            # To Be Moved To CLIM persistant layer
+            name=&#34;EthosAI Life ONE&#34;,
+            password=&#34;1234&#34;,
+            security_level=SecurityLevel.LOW,
+            responsible=&#34;Advisor&#34;,
+        )
+        self.ethic_module = EthicsModule(EthicsDomains.get_domains())
+        self.clim: CLIM = CLIM(
+            identity_card=self.identity, password=&#34;123&#34;, tool_manager=self.tool_manager
+        )
+        self.clim.set_generation_parameters(max_length=256, max_new_tokens=100)
+        self.simulationsgrid = SimulationsGrid(self, self.clim, self.ethic_module)
+        self.process_model = ProcessModel(self, self.clim, self.simulationsgrid)
+        # Initialize the process model
+        self.process_model.initialize()
+        self.protocol_module.info(&#34;EthosAI Life wurde initialisiert.&#34;)
+        return True, &#34;EthosAI Life wurde initialisiert.&#34;
+
+    def deinitialize(self):
+        self.protocol_module.info(&#34;EthosAI Life wird deinitialisiert...&#34;)
+        # Stop the execution of the process model
+        self.process_model.stop_execution()
+        # TODO persist the state of the EthosAI
+
+        # Deinitialize all the components
+        self.tool_manager = None
+        self.identity = None
+        self.ethic_module = None
+        self.ethic_layer = None
+        self.clim = None
+        self.simulationsgrid = None
+        self.individual_layer = None
+        self.process_model = None
+
+        self.protocol_module.info(&#34;EthosAI Life wurde deinitialisiert.&#34;)
+        return True, &#34;EthosAI Life wurde deinitialisiert.&#34;
+
+    def set_phase(self, phase: Phase):
+        with self.lock:
+            self.current_phase = phase
+            self.protocol_module.info(f&#34;EthosAI Life ist im {phase}-Modus.&#34;)
+
+    def get_phase(self) -&gt; Phase:
+        with self.lock:
+            return self.current_phase
+
+    def start(self, task: Task = None):
+        with self.lock:
+            if self.get_phase() == Phase.OFF:
+                self._stop_event.clear()
+                self.set_phase(Phase.STARTING)
+                self.initialize()
+                self.execution_thread = threading.Thread(target=self.run)
+                self.execution_thread.start()
+                return True, &#34;EthosAI Life wurde gestartet.&#34;
+            else:
+                self.protocol_module.warning(&#34;EthosAI Life ist bereits aktiv.&#34;)
+                return False, &#34;EthosAI Life ist bereits aktiv.&#34;
+
+    def stop(self, task: Task = None):
+        with self.lock:
+            if self.get_phase() == Phase.OFF:
+                self.protocol_module.warning(&#34;EthosAI Life ist bereits ausgeschaltet.&#34;)
+                return False, &#34;EthosAI Life ist bereits ausgeschaltet.&#34;
+            self.set_phase(Phase.STOPPING)
+            self.process_model.stop_execution()
+            self.deinitialize()
+            self.protocol_module.info(&#34;Protokollierung des Shutdowns...&#34;)
+            self.set_phase(Phase.OFF)
+            return True, &#34;EthosAI Life wurde ausgeschaltet.&#34;
+
+    def check_tasks(self, phase: MaintenancePhase, task_check_function):
+        with self.lock:
+            self.set_phase(Phase.MAINTENANCE)
+            self.maintenance_phase = phase
+            tasks = task_check_function()
+            self.maintenance_phase = MaintenancePhase.NONE
+            return tasks
+
+    def handle_tasks(self, phase: Phase, tasks: list, priority: Priority):
+        with self.lock:
+            self.set_phase(phase)
+            self.protocol_module.info(
+                f&#34;Bearbeitung der {priority.name} Aufgaben... {tasks}&#34;
+            )
+            self.process_model.stop_execution(priority, len(tasks))
+
+            failed_tasks = [
+                task for task in tasks if not self.process_task(task, priority)
+            ]
+
+            self.start()
+            self.protocol_module.info(
+                f&#34;EthosAI Life hat die Bearbeitung der {priority.name} Aufgaben abgeschlossen.&#34;
+            )
+            return not failed_tasks, failed_tasks
+
+    def process_task(self, task: Task, priority):
+        self.protocol_module.info(f&#34;Bearbeitung der {priority} Aufgabe: {task}&#34;)
+        task_type = task.get_type()
+
+        task_function_mapping = {
+            TaskType.SERVICE: self.service,
+            TaskType.DREAM: self.dream,
+            TaskType.TRAIN_ETHIC: self.train_ethic,
+            TaskType.TRAIN_INDIVIDUAL: self.train_individual,
+            TaskType.TRAIN_CLIM: self.train_clim,
+            TaskType.STOP: self.stop,
+            TaskType.START: self.start,
+            TaskType.AUTONOM_LIVING: self.autonom_living,
+            TaskType.ADVISED_LIVING: self.advised_living,
+        }
+
+        if task_type in task_function_mapping:
+            task_function_mapping[task_type](task)
+            return True
+        else:
+            self.protocol_module.warning(f&#34;Unbekannte Aufgabe: {task}&#34;)
+            return False
+
+    # check and handle task if any according to the specified parameters
+    def check_and_handle_task(
+        self,
+        maintenance_phase: MaintenancePhase,
+        phase: Phase,
+        task_check_function,
+        priority: Priority,
+    ):
+        with self.lock:
+            if not self._stop_event.is_set():
+                tasks = self.check_tasks(maintenance_phase, task_check_function)
+                if tasks:
+                    return self.handle_tasks(phase, tasks, priority)
+                return False, []
+
+    # main loop of the EthosAI
+    def run(self):
+        while not self._stop_event.is_set():
+            handled_prio1, _ = self.check_and_handle_task(
+                MaintenancePhase.CHECKING_FOR_PRIO_1_TASKS,
+                Phase.HANDLE_PRIORITY_1_TASKS,
+                self.check_prio1_tasks,
+                Priority.PRIO_1,
+            )
+            if handled_prio1:
+                continue  # Wenn Prio 1 Aufgaben behandelt wurden, starte den normalen Betrieb nicht sofort
+
+            handled_prio2, _ = self.check_and_handle_task(
+                MaintenancePhase.CHECKING_FOR_PRIO_2_TASKS,
+                Phase.HANDLE_PRIORITY_2_TASKS,
+                self.check_prio2_tasks,
+                Priority.PRIO_2,
+            )
+            if handled_prio2:
+                continue  # Wenn Prio 2 Aufgaben behandelt wurden, starte den normalen Betrieb nicht sofort
+
+            handled_prio_low, _ = self.check_and_handle_task(
+                MaintenancePhase.CHECKING_FOR_PRIO_LOW_TASKS,
+                Phase.HANDLE_PRIORITY_LOW_TASKS,
+                self.check_low_priority_tasks,
+                Priority.PRIO_LOW,
+            )
+            if handled_prio_low:
+                continue  # Wenn niedrige Prioritätsaufgaben behandelt wurden, starte den normalen Betrieb nicht sofort
+
+            self.protocol_module.info(&#34;Start des normalen Betriebs...&#34;)
+            self.normal_operation()
+
+    def check_prio1_tasks(self):
+        # Implement logic to check for Prio 1 tasks
+        return []
+
+    def check_prio2_tasks(self):
+        # Implement logic to check for Prio 2 tasks
+        return []
+
+    def check_low_priority_tasks(self):
+        # Implement logic to check for low priority tasks
+        if random.randint(1, 10) == 1:
+            return [Task(TaskType.DREAM)]
+        return []
+
+    def submit_normal_operation_task(self, task):
+        with self.lock:
+            self.process_model.submit_task(task)
+
+    def normal_operation(self, task: Task = None):
+        with self.lock:
+            if self.process_model.is_running():
+                self.protocol_module.warning(
+                    &#34;EthosAI Life ist bereits im normalen Betrieb.&#34;
+                )
+                return False, &#34;EthosAI Life ist bereits im normalen Betrieb.&#34;
+            self.set_phase(Phase.NORMAL_OPERATION)
+            self.protocol_module.info(&#34;Start des normalen Betriebs...&#34;)
+            self.process_model.execute()
+            return True, &#34;EthosAI Life ist im normalen Betrieb.&#34;
+
+    def dream(self, task: Task = None):
+        with self.lock:
+            if self.current_phase == Phase.DREAMING:
+                self.protocol_module.warning(&#34;EthosAI Life ist bereits im Traummodus.&#34;)
+                return False, &#34;EthosAI Life ist bereits im Traummodus.&#34;
+            self.set_phase(Phase.DREAMING)
+            self.protocol_module.info(&#34;EthosAI Life träumt...&#34;)
+            self.clim.ethic_layer.train()
+            return True, &#34;EthosAI Life ist im Traummodus.&#34;
+
+    def train_ethic(self, task: Task = None):
+        with self.lock:
+            if self.current_phase == Phase.TRAINING_ETHICS:
+                return False, &#34;Ethikschicht wird bereits trainiert.&#34;
+            self.set_phase(Phase.TRAINING_ETHIC)
+            self.protocol_module.info(&#34;Starte das Training der Ethikschicht...&#34;)
+            self.clim.ethic_layer.train()
+            return True, &#34;Ethikschicht wird trainiert.&#34;
+
+    def train_individual(self, task: Task = None):
+        with self.lock:
+            if self.current_phase == Phase.TRAINING_INDIVIDUAL:
+                self.protocol_module.warning(
+                    &#34;Individualschicht wird bereits trainiert.&#34;
+                )
+                return False, &#34;Individualschicht wird bereits trainiert.&#34;
+            self.set_phase(Phase.TRAINING_INDIVIDUAL)
+            self.protocol_module.info(&#34;Starte das Training der Individualschicht...&#34;)
+            self.clim.individual_layer.train()
+            return True, &#34;Individualschicht wird trainiert.&#34;
+
+    def train_clim(self, task: Task = None):
+        with self.lock:
+            if self.current_phase == Phase.TRAINING_CLIM:
+                self.protocol_module.warning(&#34;CLIM wird bereits trainiert.&#34;)
+                return False, &#34;CLIM wird bereits trainiert.&#34;
+            self.protocol_module.info(&#34;Starte das Training des CLIM...&#34;)
+            self.set_phase(Phase.TRAINING_CLIM)
+            self.clim.train()
+
+    def service(self, task: Task = None):
+        with self.lock:
+            if self.current_phase == Phase.SERVICE:
+                self.protocol_module.warning(
+                    &#34;EthosAI Life ist bereits im Wartungsmodus.&#34;
+                )
+                return False, &#34;EthosAI Life ist bereits im Wartungsmodus.&#34;
+            self.set_phase(Phase.SERVICE)
+            self.protocol_module.info(&#34;EthosAI Life wird gewartet...&#34;)
+            return True, &#34;EthosAI Life ist im Wartungsmodus.&#34;
+
+    def autonom_living(self, task: Task = None):
+        with self.lock:
+            if not self.advised_living:
+                self.protocol_module.warning(
+                    &#34;EthosAI Life ist bereits im autonomen Modus.&#34;
+                )
+                return False, &#34;EthosAI Life ist bereits im autonomen Modus.&#34;
+            self.protocol_module.info(&#34;Autonomes Leben ohne Überwachung...&#34;)
+            self.set_advised_living(False)
+            if not self.process_model.is_running():
+                self.normal_operation()
+            return True, &#34;EthosAI Life ist im autonomen Modus.&#34;
+
+    def advised_living(self, task: Task = None):
+        with self.lock:
+            if self.advised_living:
+                self.protocol_module.warning(
+                    &#34;EthosAI Life ist bereits im beratenen Modus.&#34;
+                )
+                return False, &#34;EthosAI Life ist bereits im beratenen Modus.&#34;
+            self.protocol_module.info(&#34;Leben unter Überwachung eines ethischen Lehrers&#34;)
+            self.set_advised_living(True)
+            if not self.process_model.is_running():
+                self.normal_operation()
+            return True, &#34;EthosAI Life ist im beratenen Modus.&#34;
+
+    def is_advised_living(self):
+        with self.lock:
+            return self.advised_living
+
+    def set_advised_living(self, advised_living):
+        with self.lock:
+            self.advised_living = advised_living
+            self.process_model.set_advised(advised_living)
+            mode = &#34;beratenen&#34; if advised_living else &#34;autonomen&#34;
+            self.protocol_module.info(f&#34;EthosAI Life ist im {mode} Modus.&#34;)
+            return self.advised_living</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.advised_living"><code class="name flex">
+<span>def <span class="ident">advised_living</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.autonom_living"><code class="name flex">
+<span>def <span class="ident">autonom_living</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_and_handle_task"><code class="name flex">
+<span>def <span class="ident">check_and_handle_task</span></span>(<span>self, maintenance_phase: <a title="ethos_ai.state.maintenance_phase.MaintenancePhase" href="state/maintenance_phase.html#ethos_ai.state.maintenance_phase.MaintenancePhase">MaintenancePhase</a>, phase: <a title="ethos_ai.state.phase.Phase" href="state/phase.html#ethos_ai.state.phase.Phase">Phase</a>, task_check_function, priority: <a title="ethos_ai.state.priority.Priority" href="state/priority.html#ethos_ai.state.priority.Priority">Priority</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_low_priority_tasks"><code class="name flex">
+<span>def <span class="ident">check_low_priority_tasks</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_prio1_tasks"><code class="name flex">
+<span>def <span class="ident">check_prio1_tasks</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_prio2_tasks"><code class="name flex">
+<span>def <span class="ident">check_prio2_tasks</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_tasks"><code class="name flex">
+<span>def <span class="ident">check_tasks</span></span>(<span>self, phase: <a title="ethos_ai.state.maintenance_phase.MaintenancePhase" href="state/maintenance_phase.html#ethos_ai.state.maintenance_phase.MaintenancePhase">MaintenancePhase</a>, task_check_function)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.deinitialize"><code class="name flex">
+<span>def <span class="ident">deinitialize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.dream"><code class="name flex">
+<span>def <span class="ident">dream</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.get_phase"><code class="name flex">
+<span>def <span class="ident">get_phase</span></span>(<span>self) ‑> <a title="ethos_ai.state.phase.Phase" href="state/phase.html#ethos_ai.state.phase.Phase">Phase</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.handle_tasks"><code class="name flex">
+<span>def <span class="ident">handle_tasks</span></span>(<span>self, phase: <a title="ethos_ai.state.phase.Phase" href="state/phase.html#ethos_ai.state.phase.Phase">Phase</a>, tasks: list, priority: <a title="ethos_ai.state.priority.Priority" href="state/priority.html#ethos_ai.state.priority.Priority">Priority</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.initialize"><code class="name flex">
+<span>def <span class="ident">initialize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.is_advised_living"><code class="name flex">
+<span>def <span class="ident">is_advised_living</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.normal_operation"><code class="name flex">
+<span>def <span class="ident">normal_operation</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.process_task"><code class="name flex">
+<span>def <span class="ident">process_task</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a>, priority)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.service"><code class="name flex">
+<span>def <span class="ident">service</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.set_advised_living"><code class="name flex">
+<span>def <span class="ident">set_advised_living</span></span>(<span>self, advised_living)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.set_phase"><code class="name flex">
+<span>def <span class="ident">set_phase</span></span>(<span>self, phase: <a title="ethos_ai.state.phase.Phase" href="state/phase.html#ethos_ai.state.phase.Phase">Phase</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.submit_normal_operation_task"><code class="name flex">
+<span>def <span class="ident">submit_normal_operation_task</span></span>(<span>self, task)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.train_clim"><code class="name flex">
+<span>def <span class="ident">train_clim</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.train_ethic"><code class="name flex">
+<span>def <span class="ident">train_ethic</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.ethos_ai_individual.EthosAIIndividual.train_individual"><code class="name flex">
+<span>def <span class="ident">train_individual</span></span>(<span>self, task: <a title="ethos_ai.task.task.Task" href="task/task.html#ethos_ai.task.task.Task">Task</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai" href="index.html">ethos_ai</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual">EthosAIIndividual</a></code></h4>
+<ul class="">
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.advised_living" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.advised_living">advised_living</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.autonom_living" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.autonom_living">autonom_living</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_and_handle_task" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.check_and_handle_task">check_and_handle_task</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_low_priority_tasks" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.check_low_priority_tasks">check_low_priority_tasks</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_prio1_tasks" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.check_prio1_tasks">check_prio1_tasks</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_prio2_tasks" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.check_prio2_tasks">check_prio2_tasks</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.check_tasks" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.check_tasks">check_tasks</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.deinitialize" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.deinitialize">deinitialize</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.dream" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.dream">dream</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.get_phase" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.get_phase">get_phase</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.handle_tasks" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.handle_tasks">handle_tasks</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.initialize" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.initialize">initialize</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.is_advised_living" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.is_advised_living">is_advised_living</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.normal_operation" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.normal_operation">normal_operation</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.process_task" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.process_task">process_task</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.run" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.run">run</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.service" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.service">service</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.set_advised_living" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.set_advised_living">set_advised_living</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.set_phase" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.set_phase">set_phase</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.start" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.start">start</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.stop" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.stop">stop</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.submit_normal_operation_task" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.submit_normal_operation_task">submit_normal_operation_task</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.train_clim" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.train_clim">train_clim</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.train_ethic" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.train_ethic">train_ethic</a></code></li>
+<li><code><a title="ethos_ai.ethos_ai_individual.EthosAIIndividual.train_individual" href="#ethos_ai.ethos_ai_individual.EthosAIIndividual.train_individual">train_individual</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

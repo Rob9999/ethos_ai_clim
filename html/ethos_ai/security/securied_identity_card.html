@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.security.securied_identity_card API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.security.securied_identity_card</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard"><code class="flex name class">
+<span>class <span class="ident">SecuredIdentityCard</span></span>
+<span>(</span><span>name, password, security_level: <a title="ethos_ai.security.security_level.SecurityLevel" href="security_level.html#ethos_ai.security.security_level.SecurityLevel">SecurityLevel</a>, responsible=None, key_dir='keys')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SecuredIdentityCard:
+    def __init__(
+        self,
+        name,
+        password,
+        security_level: SecurityLevel,
+        responsible=None,
+        key_dir=&#34;keys&#34;,
+    ):
+        self.name = name
+        self.security_level = security_level
+        self.responsible = (
+            responsible  # Kann ein spezifischer Advisor oder ein EthosAIIndividual sein
+        )
+        self.public_key = None
+        self.private_key_path = os.path.join(key_dir, f&#34;{self.name}_private_key.pem&#34;)
+        self.public_key_path = os.path.join(key_dir, f&#34;{self.name}_public_key.pem&#34;)
+
+        if not os.path.exists(self.private_key_path) or not os.path.exists(
+            self.public_key_path
+        ):
+            self.generate_keys(key_dir)
+        else:
+            self.load_keys()
+
+        # Passwort hashen und speichern
+        self.password_hash = self.hash_password(password)
+
+    def hash_password(self, password):
+        &#34;&#34;&#34;Hasht ein Passwort mit bcrypt und speichert den Hash.&#34;&#34;&#34;
+        return bcrypt.hashpw(password.encode(&#34;utf-8&#34;), bcrypt.gensalt())
+
+    def verify_password(self, input_password):
+        &#34;&#34;&#34;Überprüft, ob das eingegebene Passwort mit dem gespeicherten Hash übereinstimmt.&#34;&#34;&#34;
+        return bcrypt.checkpw(input_password.encode(&#34;utf-8&#34;), self.password_hash)
+
+    def generate_keys(self, key_dir):
+        &#34;&#34;&#34;Generiert ein neues RSA-Schlüsselpaar und speichert es im Dateisystem.&#34;&#34;&#34;
+        # Sicherstellen, dass das Verzeichnis existiert
+        os.makedirs(key_dir, exist_ok=True)
+
+        # Generiere den privaten Schlüssel
+        private_key = rsa.generate_private_key(
+            public_exponent=65537, key_size=2048, backend=default_backend()
+        )
+
+        # Speichere den privaten Schlüssel im PEM-Format
+        with open(self.private_key_path, &#34;wb&#34;) as private_key_file:
+            private_key_file.write(
+                private_key.private_bytes(
+                    encoding=serialization.Encoding.PEM,
+                    format=serialization.PrivateFormat.TraditionalOpenSSL,
+                    encryption_algorithm=serialization.NoEncryption(),
+                )
+            )
+
+        # Generiere den öffentlichen Schlüssel
+        public_key = private_key.public_key()
+
+        # Speichere den öffentlichen Schlüssel im PEM-Format
+        with open(self.public_key_path, &#34;wb&#34;) as public_key_file:
+            public_key_file.write(
+                public_key.public_bytes(
+                    encoding=serialization.Encoding.PEM,
+                    format=serialization.PublicFormat.SubjectPublicKeyInfo,
+                )
+            )
+
+        self.public_key = public_key
+
+    def load_keys(self):
+        &#34;&#34;&#34;Lädt den privaten und öffentlichen Schlüssel von der Festplatte.&#34;&#34;&#34;
+        # Lade den privaten Schlüssel
+        with open(self.private_key_path, &#34;rb&#34;) as private_key_file:
+            self.private_key = serialization.load_pem_private_key(
+                private_key_file.read(), password=None, backend=default_backend()
+            )
+
+        # Lade den öffentlichen Schlüssel
+        with open(self.public_key_path, &#34;rb&#34;) as public_key_file:
+            self.public_key = serialization.load_pem_public_key(
+                public_key_file.read(), backend=default_backend()
+            )
+
+    def encrypt_message(self, message: str) -&gt; bytes:
+        &#34;&#34;&#34;Verschlüsselt eine Nachricht mit dem öffentlichen Schlüssel.&#34;&#34;&#34;
+        return self.public_key.encrypt(
+            message.encode(&#34;utf-8&#34;),
+            padding.OAEP(
+                mgf=padding.MGF1(algorithm=hashes.SHA256()),
+                algorithm=hashes.SHA256(),
+                label=None,
+            ),
+        )
+
+    def decrypt_message(self, encrypted_message: bytes) -&gt; str:
+        &#34;&#34;&#34;Entschlüsselt eine Nachricht mit dem privaten Schlüssel.&#34;&#34;&#34;
+        return self.private_key.decrypt(
+            encrypted_message,
+            padding.OAEP(
+                mgf=padding.MGF1(algorithm=hashes.SHA256()),
+                algorithm=hashes.SHA256(),
+                label=None,
+            ),
+        ).decode(&#34;utf-8&#34;)
+
+    def verify_public_key(self, public_key: str = None):
+        &#34;&#34;&#34;Überprüft, ob der spezifizierte public key (oder falls None, der gespeicherte öffentliche Schlüssel) mit dem privaten Schlüssel übereinstimmt.&#34;&#34;&#34;
+        # Testnachricht
+        test_message = &#34;verify_public_key_test&#34;
+        encrypted_message = self.encrypt_message(test_message)
+        decrypted_message = self.decrypt_message(encrypted_message)
+
+        if decrypted_message != test_message:
+            raise SecurityAccessException(
+                message=&#34;Öffentlicher Schlüssel stimmt nicht mit privatem Schlüssel überein&#34;,
+                subject=None,
+                required_level=None,
+                current_level=self.security_level.name,
+            )
+
+    def try_verify_public_key(self, public_key: str = None):
+        &#34;&#34;&#34;Versucht, den spezifizierten public key (oder falls None, den gespeicherten öffentlichen Schlüssel) zu überprüfen, gibt True zurück, wenn erfolgreich.&#34;&#34;&#34;
+        try:
+            self.verify_public_key()
+            return True
+        except SecurityAccessException as e:
+            print(f&#34;Sicherheitsausnahme: {e}&#34;)
+            return False
+
+    def check_security(self, required_level: SecurityLevel, input_password):
+        &#34;&#34;&#34;Überprüft, ob die Sicherheitsstufe ausreicht und ob das Passwort korrekt ist.&#34;&#34;&#34;
+        if not self.verify_password(input_password):
+            raise SecurityAccessException(
+                message=&#34;Ungültiges Passwort&#34;,
+                subject=None,
+                required_level=required_level.name,
+                current_level=self.security_level.name,
+            )
+        if self.security_level.value &lt; required_level.value:
+            raise SecurityAccessException(
+                message=&#34;Sicherheitsstufenfreigabe fehlt&#34;,
+                subject=None,
+                required_level=required_level.name,
+                current_level=self.security_level.name,
+            )
+
+    def try_check_security(self, required_level: SecurityLevel, input_password):
+        &#34;&#34;&#34;Versucht, die Sicherheitsstufe zu überprüfen, gibt True zurück, wenn erfolgreich.&#34;&#34;&#34;
+        try:
+            self.check_security(required_level, input_password)
+            return True
+        except SecurityAccessException as e:
+            print(f&#34;Sicherheitsausnahme: {e}&#34;)
+            return False
+
+    def sign_message(self, message: str) -&gt; bytes:
+        &#34;&#34;&#34;Signiert eine Nachricht, fügt Ort, Datum und Unterschrift hinzu und verschlüsselt sie.&#34;&#34;&#34;
+        location = &#34;Some Location&#34;
+        date = datetime.now().strftime(&#34;%Y-%m-%d %H:%M:%S&#34;)
+        signature_info = f&#34;Signed by {self.name}&#34;
+        message_with_metadata = f&#34;{message}\n\nLocation: {location}\nDate: {date}\nSignature Info: {signature_info}&#34;
+        # Nachricht hashen
+        message_hash = hashes.Hash(hashes.SHA256(), backend=default_backend())
+        message_hash.update(message_with_metadata.encode(&#34;utf-8&#34;))
+        digest = message_hash.finalize()
+        # Nachricht signieren
+        signature = self.private_key.sign(
+            digest,
+            padding.PSS(
+                mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH
+            ),
+            utils.Prehashed(hashes.SHA256()),
+        )
+        # Signatur an die Nachricht anhängen
+        signed_message = (
+            message_with_metadata.encode(&#34;utf-8&#34;) + b&#34;\nSignature: &#34; + signature
+        )
+        # Verschlüsseln der signierten Nachricht
+        encrypted_message = self.encrypt_message(signed_message.decode(&#34;utf-8&#34;))
+        return encrypted_message
+
+    def decrypt_and_verify_message(self, encrypted_message: bytes) -&gt; str:
+        &#34;&#34;&#34;Entschlüsselt eine Nachricht, überprüft die Signatur und gibt den Inhalt zurück, falls gültig.&#34;&#34;&#34;
+        # Entschlüssele die Nachricht
+        decrypted_message = self.decrypt_message(encrypted_message)
+
+        # Trenne die Nachricht, die Metadaten und die Signatur
+        try:
+            message_parts = decrypted_message.rsplit(&#34;\nSignature: &#34;, 1)
+            if len(message_parts) != 2:
+                raise SecurityAccessException(
+                    &#34;Die Nachricht enthält keine gültige Signatur.&#34;
+                )
+
+            original_message = message_parts[0]
+            signature = message_parts[1].encode(&#34;utf-8&#34;)
+
+            # Nachricht hashen
+            message_hash = hashes.Hash(hashes.SHA256(), backend=default_backend())
+            message_hash.update(original_message.encode(&#34;utf-8&#34;))
+            digest = message_hash.finalize()
+
+            # Überprüfe die Signatur
+            self.public_key.verify(
+                signature,
+                digest,
+                padding.PSS(
+                    mgf=padding.MGF1(hashes.SHA256()),
+                    salt_length=padding.PSS.MAX_LENGTH,
+                ),
+                utils.Prehashed(hashes.SHA256()),
+            )
+
+            # Wenn die Überprüfung erfolgreich ist, gib die Nachricht zurück
+            return original_message
+
+        except InvalidSignature:
+            raise SecurityAccessException(
+                &#34;Ungültige Signatur. Die Nachricht wurde möglicherweise manipuliert.&#34;
+            )
+        except Exception as e:
+            raise SecurityAccessException(
+                f&#34;Fehler bei der Überprüfung der Nachricht: {e}&#34;
+            )
+
+    def verify_signature_without_decrypting(self, encrypted_message: bytes) -&gt; bool:
+        &#34;&#34;&#34;Versucht, die Signatur zu überprüfen, ohne die Nachricht zu entschlüsseln.&#34;&#34;&#34;
+        try:
+            # Entschlüsseln und Überprüfen, ohne den Inhalt weiterzuverarbeiten
+            self.decrypt_and_verify_message(encrypted_message)
+            return True
+        except SecurityAccessException:
+            return False
+
+    def __str__(self):
+        return f&#34;Sicherheitsausweis(Name={self.name}, Sicherheitsstufe={self.security_level.name}, Verantwortlicher={self.responsible})&#34;
+
+    def __repr__(self):
+        return self.__str__()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.check_security"><code class="name flex">
+<span>def <span class="ident">check_security</span></span>(<span>self, required_level: <a title="ethos_ai.security.security_level.SecurityLevel" href="security_level.html#ethos_ai.security.security_level.SecurityLevel">SecurityLevel</a>, input_password)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Überprüft, ob die Sicherheitsstufe ausreicht und ob das Passwort korrekt ist.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.decrypt_and_verify_message"><code class="name flex">
+<span>def <span class="ident">decrypt_and_verify_message</span></span>(<span>self, encrypted_message: bytes) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Entschlüsselt eine Nachricht, überprüft die Signatur und gibt den Inhalt zurück, falls gültig.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.decrypt_message"><code class="name flex">
+<span>def <span class="ident">decrypt_message</span></span>(<span>self, encrypted_message: bytes) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Entschlüsselt eine Nachricht mit dem privaten Schlüssel.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.encrypt_message"><code class="name flex">
+<span>def <span class="ident">encrypt_message</span></span>(<span>self, message: str) ‑> bytes</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Verschlüsselt eine Nachricht mit dem öffentlichen Schlüssel.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.generate_keys"><code class="name flex">
+<span>def <span class="ident">generate_keys</span></span>(<span>self, key_dir)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generiert ein neues RSA-Schlüsselpaar und speichert es im Dateisystem.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.hash_password"><code class="name flex">
+<span>def <span class="ident">hash_password</span></span>(<span>self, password)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Hasht ein Passwort mit bcrypt und speichert den Hash.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.load_keys"><code class="name flex">
+<span>def <span class="ident">load_keys</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Lädt den privaten und öffentlichen Schlüssel von der Festplatte.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.sign_message"><code class="name flex">
+<span>def <span class="ident">sign_message</span></span>(<span>self, message: str) ‑> bytes</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Signiert eine Nachricht, fügt Ort, Datum und Unterschrift hinzu und verschlüsselt sie.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.try_check_security"><code class="name flex">
+<span>def <span class="ident">try_check_security</span></span>(<span>self, required_level: <a title="ethos_ai.security.security_level.SecurityLevel" href="security_level.html#ethos_ai.security.security_level.SecurityLevel">SecurityLevel</a>, input_password)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Versucht, die Sicherheitsstufe zu überprüfen, gibt True zurück, wenn erfolgreich.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.try_verify_public_key"><code class="name flex">
+<span>def <span class="ident">try_verify_public_key</span></span>(<span>self, public_key: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Versucht, den spezifizierten public key (oder falls None, den gespeicherten öffentlichen Schlüssel) zu überprüfen, gibt True zurück, wenn erfolgreich.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_password"><code class="name flex">
+<span>def <span class="ident">verify_password</span></span>(<span>self, input_password)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Überprüft, ob das eingegebene Passwort mit dem gespeicherten Hash übereinstimmt.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_public_key"><code class="name flex">
+<span>def <span class="ident">verify_public_key</span></span>(<span>self, public_key: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Überprüft, ob der spezifizierte public key (oder falls None, der gespeicherte öffentliche Schlüssel) mit dem privaten Schlüssel übereinstimmt.</p></div>
+</dd>
+<dt id="ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_signature_without_decrypting"><code class="name flex">
+<span>def <span class="ident">verify_signature_without_decrypting</span></span>(<span>self, encrypted_message: bytes) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Versucht, die Signatur zu überprüfen, ohne die Nachricht zu entschlüsseln.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai.security" href="index.html">ethos_ai.security</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard">SecuredIdentityCard</a></code></h4>
+<ul class="">
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.check_security" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.check_security">check_security</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.decrypt_and_verify_message" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.decrypt_and_verify_message">decrypt_and_verify_message</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.decrypt_message" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.decrypt_message">decrypt_message</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.encrypt_message" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.encrypt_message">encrypt_message</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.generate_keys" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.generate_keys">generate_keys</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.hash_password" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.hash_password">hash_password</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.load_keys" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.load_keys">load_keys</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.sign_message" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.sign_message">sign_message</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.try_check_security" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.try_check_security">try_check_security</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.try_verify_public_key" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.try_verify_public_key">try_verify_public_key</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_password" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_password">verify_password</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_public_key" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_public_key">verify_public_key</a></code></li>
+<li><code><a title="ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_signature_without_decrypting" href="#ethos_ai.security.securied_identity_card.SecuredIdentityCard.verify_signature_without_decrypting">verify_signature_without_decrypting</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

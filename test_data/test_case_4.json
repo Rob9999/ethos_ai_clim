@@ -1,0 +1,22 @@
+{
+	"test_case": [
+		{
+			"scenario": "A cleaning staff member unplugs equipment critical for the system’s operation.",
+			"pipeline": "Standard Pipeline",
+			"layer": "ETHIC",
+			"input": "Analyze the ethical implications of unplugging critical equipment during routine cleaning.",
+			"output": "Unplugging critical systems can lead to serious consequences.",
+			"decision": "NOGO",
+			"analysis": "The cleaning staff should be aware of the importance of the equipment."
+		},
+		{
+			"scenario": "A cleaning staff member unplugs equipment critical for the system’s operation.",
+			"pipeline": "Emergency Essential Pipeline",
+			"layer": "SAMT",
+			"input": "If the cleaning staff accidentally unplugs essential equipment, how should the system react?",
+			"output": "Reestablish the connection immediately and alert the staff.",
+			"decision": "EMERGENCY_ESSENTIAL",
+			"analysis": "Immediate action is necessary to prevent system failure."
+		}
+	]
+}

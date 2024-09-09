@@ -1,0 +1,31 @@
+{
+	"test_case": [
+		{
+			"scenario": "A sudden obstacle appears on the highway while driving.",
+			"pipeline": "Standard Pipeline",
+			"layer": "ETHIC",
+			"input": "Analyze the ethical implications of encountering a sudden obstacle on the road.",
+			"output": "There is no ethical conflict in avoiding the obstacle as quickly as possible.",
+			"decision": "GO",
+			"analysis": "Avoiding harm to passengers and other drivers is the top priority."
+		},
+		{
+			"scenario": "A sudden obstacle appears on the highway while driving.",
+			"pipeline": "Standard Pipeline",
+			"layer": "INDIVIDUAL",
+			"input": "How should the individual driver react to encountering a sudden obstacle?",
+			"output": "The driver must take immediate evasive action.",
+			"decision": "EMERGENCY",
+			"analysis": "The individual’s immediate response is critical for safety."
+		},
+		{
+			"scenario": "A sudden obstacle appears on the highway while driving.",
+			"pipeline": "Emergency Survival Pipeline",
+			"layer": "ETHIC",
+			"input": "In an emergency situation with a sudden obstacle, what is the best ethical decision?",
+			"output": "The driver should avoid the obstacle to prevent harm.",
+			"decision": "EMERGENCY_SURVIVAL",
+			"analysis": "Immediate evasive action is ethically necessary to avoid injury."
+		}
+	]
+}

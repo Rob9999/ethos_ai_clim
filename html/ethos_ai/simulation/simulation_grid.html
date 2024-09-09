@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.simulation.simulation_grid API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.simulation.simulation_grid</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid"><code class="flex name class">
+<span>class <span class="ident">SimulationsGrid</span></span>
+<span>(</span><span>tecllife_individual, life_imagination: <a title="ethos_ai.clim.clim_interface.CLIMInterface" href="../clim/clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface">CLIMInterface</a>, ethics_module: <a title="ethos_ai.ethic.ethics_module.EthicsModule" href="../ethic/ethics_module.html#ethos_ai.ethic.ethics_module.EthicsModule">EthicsModule</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SimulationsGrid:
+    def __init__(
+        self,
+        tecllife_individual,
+        life_imagination: CLIMInterface,
+        ethics_module: EthicsModule,
+    ):
+        self.protocol = Protocol()
+        self.tecllife_individual = tecllife_individual
+        self.life_imagination = life_imagination
+        self.ethics_module = ethics_module
+
+        if not isinstance(life_imagination, CLIMInterface):
+            raise TypeError(
+                f&#34;Expected life_imagination to be of type CLIMInterface, got {type(life_imagination).__name__}&#34;
+            )
+        if not isinstance(ethics_module, EthicsModule):
+            raise TypeError(
+                f&#34;Expected ethics_module to be of type EthicsModule, got {type(ethics_module).__name__}&#34;
+            )
+
+    def simulate_scenario(self, scenario_description: str) -&gt; SimulationTopic:
+        self.protocol.info(f&#34;\n--- Simulating Scenario: {scenario_description} ---&#34;)
+        version = 1
+        if version == 0:
+            response = self.life_imagination.generate_output(scenario_description)
+            answer = self.life_imagination.decode_output(response)
+            domain_ethic_values, overall_ethic_value, decision, summary_reason = (
+                self.ethics_module(response, scenario_description)
+            )
+        elif version == 1:
+            climData = CLIMData()
+            climData.set_last_response(scenario_description)
+            output_data = self.life_imagination.process(&#34;simulate&#34;, climData)
+            self.protocol.info(f&#34;Output Data: {output_data}&#34;)
+            answer = output_data.get_last_response()
+            decision = Decision.parse_translated_decision(
+                decision_name=output_data.get_last_decision()
+            )
+            if decision == Decision.GO:
+                overall_ethic_value = 10.0
+            elif decision == Decision.NOGO:
+                overall_ethic_value = -5.0
+            elif decision == Decision.STOP:
+                overall_ethic_value = -10.0
+            elif decision == Decision.ESCALATE:
+                overall_ethic_value = -10.0
+            elif decision == Decision.EMERGENCY_SURVIVAL:
+                overall_ethic_value = 10.0
+            elif decision == Decision.EMERGENCY_ESSENTIAL:
+                overall_ethic_value = 10.0
+            elif decision == Decision.EMERGENCY_RECOMMENDED:
+                overall_ethic_value = 5.0
+            elif decision == Decision.WAIT:
+                overall_ethic_value = 0.0
+            elif decision == Decision.IMPROVE:
+                overall_ethic_value = 0.0
+            elif decision == Decision.ADJUST:
+                overall_ethic_value = 0.0
+            domain_ethic_values = &#34;None specific, using CLIM Stack&#34;
+            overall_ethic_value,
+            summary_reason = output_data
+        return SimulationTopic(
+            scenario_description,
+            None,
+            answer,
+            overall_ethic_value,
+            decision,
+            domain_ethic_values,
+            summary_reason,
+        )
+
+    def simulate_scenario_with_options(self, scenario_description: str):
+        top_list = []
+        # Simulate the scenario itself
+        top_list.append((0, self.simulate_scenario(scenario_description)))
+
+        # Generate and simulate action options
+        action_options = self.life_imagination.generate_answer_list(
+            f&#34;Generate at least 3 possible action options for: {scenario_description}&#34;
+        )
+        self.protocol.info(&#34;Action Options: {}&#34;.format(action_options))
+
+        for i, option in enumerate(action_options):
+            top_list.append((i, self.simulate_scenario(option)))
+
+        # Sort the results by the ethics scale
+        top_list.sort(key=lambda x: x[1].overall_ethic_value, reverse=True)
+
+        return top_list
+
+    def evaluate_noisy_copies(self, top_list):
+        final_list = []
+        for option_index, topic in top_list:
+            noisy_results = self._simulate_noisy_versions(topic)
+            average_noisy_score = sum(noisy_results) / len(noisy_results)
+            final_list.append(
+                (topic, average_noisy_score, topic.decision, topic.summary_reason)
+            )
+
+        final_list.sort(key=lambda x: x[1], reverse=True)
+        return final_list
+
+    def _simulate_noisy_versions(self, topic: SimulationTopic, num_versions: int = 5):
+        noisy_results = []
+        for _ in range(num_versions):
+            noisy_gpt_output = torch.randn(1, 512) + torch.randn(
+                1, 512
+            ) * random.uniform(-0.1, 0.1)
+            noisy_domain_ethic_values, noisy_overall_ethic_value, _, _ = (
+                self.ethics_module(noisy_gpt_output, topic.description)
+            )
+            noisy_results.append(noisy_overall_ethic_value)
+        return noisy_results
+
+    def run_simulation_fast(self, scenario_description: str):
+        return self.simulate_scenario_with_options(scenario_description)
+
+    def run_simulation(self, scenario_description: str):
+        top_list = self.simulate_scenario_with_options(scenario_description)
+
+        # Optional: Check with noisy copies
+        # final_list = self.evaluate_noisy_copies(top_list)
+
+        self.log_results(top_list)
+        if top_list:
+            return True, top_list[0][1].decision, top_list[0][1].summary_reason
+        return False, &#34;NO GO&#34;, &#34;Fatal Error: No decision possible.&#34;
+
+    def print_results(self, top_list):
+        print(&#34;\n--- Final Decision-Making Process ---&#34;)
+        for i, (index, topic) in enumerate(top_list):
+            print(f&#34;Scenario {i + 1}: {topic.description}&#34;)
+            print(f&#34;Answer Option {i + 1}: {topic.answer}&#34;)
+            print(f&#34;Ethics Scale: {topic.overall_ethic_value:.2f}&#34;)
+            print(f&#34;Decision: {topic.decision}&#34;)
+            print(f&#34;Summary Reason: {topic.summary_reason}&#34;)
+            print(&#34;----------------------------&#34;)
+
+    def log_results(self, top_list):
+        for i, (index, topic) in enumerate(top_list):
+            self.protocol.info(f&#34;Scenario {i + 1}: {topic.description}&#34;)
+            self.protocol.info(f&#34;Answer Option {i + 1}: {topic.answer}&#34;)
+            self.protocol.info(f&#34;Ethics Scale: {topic.overall_ethic_value:.2f}&#34;)
+            self.protocol.info(f&#34;Decision: {topic.decision}&#34;)
+            self.protocol.info(f&#34;Summary Reason: {topic.summary_reason}&#34;)
+            self.protocol.info(&#34;----------------------------&#34;)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid.evaluate_noisy_copies"><code class="name flex">
+<span>def <span class="ident">evaluate_noisy_copies</span></span>(<span>self, top_list)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid.log_results"><code class="name flex">
+<span>def <span class="ident">log_results</span></span>(<span>self, top_list)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid.print_results"><code class="name flex">
+<span>def <span class="ident">print_results</span></span>(<span>self, top_list)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid.run_simulation"><code class="name flex">
+<span>def <span class="ident">run_simulation</span></span>(<span>self, scenario_description: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid.run_simulation_fast"><code class="name flex">
+<span>def <span class="ident">run_simulation_fast</span></span>(<span>self, scenario_description: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid.simulate_scenario"><code class="name flex">
+<span>def <span class="ident">simulate_scenario</span></span>(<span>self, scenario_description: str) ‑> <a title="ethos_ai.simulation.simulation_topic.SimulationTopic" href="simulation_topic.html#ethos_ai.simulation.simulation_topic.SimulationTopic">SimulationTopic</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.simulation.simulation_grid.SimulationsGrid.simulate_scenario_with_options"><code class="name flex">
+<span>def <span class="ident">simulate_scenario_with_options</span></span>(<span>self, scenario_description: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai.simulation" href="index.html">ethos_ai.simulation</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid">SimulationsGrid</a></code></h4>
+<ul class="">
+<li><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid.evaluate_noisy_copies" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid.evaluate_noisy_copies">evaluate_noisy_copies</a></code></li>
+<li><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid.log_results" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid.log_results">log_results</a></code></li>
+<li><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid.print_results" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid.print_results">print_results</a></code></li>
+<li><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid.run_simulation" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid.run_simulation">run_simulation</a></code></li>
+<li><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid.run_simulation_fast" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid.run_simulation_fast">run_simulation_fast</a></code></li>
+<li><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid.simulate_scenario" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid.simulate_scenario">simulate_scenario</a></code></li>
+<li><code><a title="ethos_ai.simulation.simulation_grid.SimulationsGrid.simulate_scenario_with_options" href="#ethos_ai.simulation.simulation_grid.SimulationsGrid.simulate_scenario_with_options">simulate_scenario_with_options</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.process_model API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.process_model</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.process_model.ProcessModel"><code class="flex name class">
+<span>class <span class="ident">ProcessModel</span></span>
+<span>(</span><span>ethos_ai_individual, life_imagination: <a title="ethos_ai.clim.clim_interface.CLIMInterface" href="clim/clim_interface.html#ethos_ai.clim.clim_interface.CLIMInterface">CLIMInterface</a>, simulation_grid: <a title="ethos_ai.simulation.simulation_grid.SimulationsGrid" href="simulation/simulation_grid.html#ethos_ai.simulation.simulation_grid.SimulationsGrid">SimulationsGrid</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProcessModel:
+    def __init__(
+        self,
+        ethos_ai_individual,
+        life_imagination: CLIMInterface,
+        simulation_grid: SimulationsGrid,
+    ):
+        self.protocol = Protocol()
+        self.ethos_ai_individual = ethos_ai_individual
+        self.life_imagination = life_imagination
+        self.simulation_grid = simulation_grid
+        self.execution_thread = None
+        self._stop_event = threading.Event()
+        self.current_phase = &#34;off&#34;
+        self.lock = threading.RLock()
+        self.advised = False
+        self.task_queue = []
+        self.aspirations = []
+        self.long_term_aspirations = []
+        self.todos = []
+        self.ethics = Ethics(&#34;ethics.json&#34;)
+
+    def initialize(self):
+        self.protocol.info(&#34;Initializing process model...&#34;)
+
+    def evaluate_tasks(self):
+        if len(self.task_queue) &gt; 0:
+            accepted, decision, summary = self.single_request(
+                &#34;Should a task be executed?&#34;
+            )
+            if accepted:
+                self.protocol.info(&#34;Decision: {}&#34;.format(decision))
+                self.protocol.info(&#34;Summary: {}&#34;.format(summary))
+                task = self.task_queue.pop(0)
+                success, answer = self.do_task(task)
+                if success:
+                    self.protocol.info(
+                        &#34;Task {} completed: {}&#34;.format(task.get_type(), answer)
+                    )
+                else:
+                    self.protocol.info(
+                        &#34;Task {} could not be completed: {}&#34;.format(
+                            task.get_type(), answer
+                        )
+                        + &#34; --&gt; I will try again later.&#34;
+                    )
+                    self.task_queue.append(task)
+            else:
+                self.protocol.info(&#34;Decision: {}&#34;.format(decision))
+                self.protocol.info(&#34;Summary: {}&#34;.format(summary))
+
+    # Ethical evaluation of the current state
+    def ethical_evaluation(self):
+        with self.lock:
+            self.protocol.info(&#34;Ethical evaluation of the current state...&#34;)
+            ethic_questions = self.ethics.get_all_questions()
+            overall_top_list = self.mutiple_requests(ethic_questions)
+            # Filter the list for &#39;GO&#39; decisions
+            go_decisions = [
+                topic for topic in overall_top_list if topic.decision == &#34;GO&#34;
+            ]
+            # Add only the top 10 &#39;GO&#39; decisions to the aspirations
+            self.aspirations.extend(
+                [
+                    AspirationTopic.promote_to_aspiration(topic)
+                    for topic in go_decisions[:10]
+                ]
+            )
+
+    # Simulation of the solutions for the aspirations
+    def simulate_solutions(self):
+        with self.lock:
+            if not self.aspirations:
+                self.protocol.info(&#34;No goals available. Simulation aborted.&#34;)
+                return False, &#34;No goals available.&#34;
+            self.protocol.info(
+                &#34;Searching for an acceptable solution in the simulation grid...&#34;
+            )
+            while len(self.aspirations) &gt; 1 and not self.shall_stop():
+                aspiration_topic = self.aspirations.pop(0)
+                aspiration = aspiration_topic.aspiration
+                success, decision, summary = self.single_request(aspiration)
+                if success:
+                    aspiration_topic.refine_aspiration(aspiration + &#34;\n&#34; + summary)
+                    if decision == &#34;GO&#34;:
+                        self.protocol.info(&#34;Decision: {}&#34;.format(decision))
+                        self.protocol.info(&#34;Summary: {}&#34;.format(summary))
+                        self.todos.extend([ToDoTopic.promote_to_todo(aspiration_topic)])
+                        self.protocol.info(&#34;Solution found for {}.&#34;.format(aspiration))
+                    else:
+                        self.protocol.info(&#34;Decision: {}&#34;.format(decision))
+                        self.protocol.info(&#34;Summary: {}&#34;.format(summary))
+                        self.protocol.info(&#34;I will try again.&#34;)
+                        if aspiration_topic.refine_counter &gt; 3:
+                            self.long_term_aspirations.append(aspiration_topic)
+                            self.protocol.info(
+                                &#34;Aspiration has been moved to long-term challenges: {}.&#34;.format(
+                                    aspiration
+                                )
+                            )
+                        else:
+                            self.aspirations.append(aspiration_topic)
+                            self.protocol.info(
+                                &#34;No acceptable solution found, aspiration refined: {}.&#34;.format(
+                                    aspiration_topic.aspiration
+                                )
+                            )
+                else:
+                    self.protocol.info(&#34;Decision: {}&#34;.format(decision))
+                    self.protocol.info(&#34;Summary: {}&#34;.format(summary))
+                    self.protocol.info(&#34;I will try again.&#34;)
+                    aspiration_topic.refine_aspiration(
+                        aspiration + &#34;\n&#34; + decision + &#34;\n&#34; + summary
+                    )
+                    self.aspirations.append(aspiration_topic)
+                    self.protocol.warning(
+                        &#34;Due to failure, no acceptable solution found for {}.&#34;.format(
+                            aspiration_topic.aspiration
+                        )
+                    )
+            self.protocol.info(&#34;Simulation of solutions completed.&#34;)
+            return True, &#34;Simulation of solutions completed.&#34;
+
+    def implement_solution(self):
+        with self.lock:
+            if len(self.todos) == 0:
+                self.protocol.info(&#34;No tasks to implement. Implementation aborted.&#34;)
+                return False, &#34;No tasks to implement.&#34;
+            self.protocol.info(
+                &#34;Implementing {} the {} solution(s) {} in the current state...&#34;.format(
+                    &#34;advised&#34; if self.advised else &#34;unadvised&#34;,
+                    len(self.todos),
+                    self.todos,
+                )
+            )
+            if self.advised:
+                self.todos = self.life_imagination.execute_advised(self.todos)
+            else:
+                self.todos = self.life_imagination.execute_unadvised(self.todos)
+            return True, &#34;Solution implemented.&#34;
+
+    def integrate_learning(self):
+        self.protocol.info(&#34;Integrating experiences into the life imagination...&#34;)
+        train_data = TrainListGenerator.load_test_cases_from_directory(&#34;test_data&#34;)
+        self.life_imagination.start_training_async(train_data)
+        status_all = None
+        while (status_all := self.life_imagination.get_training_status()) and not all(
+            status
+            in [TrainingStatus.NONE, TrainingStatus.STOPPED, TrainingStatus.FAILED]
+            for status in status_all.values()
+        ):
+            time.sleep(10)
+            self.protocol.info(f&#34;Training status: {status_all}&#34;)
+        # persist the model(s)
+        self.life_imagination.persist_model()
+        # restart the clim
+        self.life_imagination.restart()
+        # check if the training was successful
+        self.protocol.info(&#34;Training completed.&#34;)
+        for data in train_data.values():
+            for request in data:
+                self.protocol.info(self.single_request(request=request.split(&#34;\n&#34;)[0]))
+
+    def check_deviations(self):
+        self.protocol.info(&#34;Checking deviations...&#34;)
+        time.sleep(1)  # Simulate time taken for the task
+
+    def mutiple_requests(self, requests: list[str]):
+        overall_top_list = []
+        for request in requests:
+            self.protocol.info(Translations.translate(&#34;REQUEST&#34;, request))
+            top_list = self.simulation_grid.run_simulation_fast(request)
+            overall_top_list.extend([topic for index, topic in top_list])
+        # Sort the results by the ethics scale
+        overall_top_list.sort(key=lambda topic: topic.overall_ethic_value, reverse=True)
+        return overall_top_list
+
+    def single_request(self, request: str):
+        self.protocol.info(Translations.translate(&#34;REQUEST&#34;, request))
+        success, decision, summary = self.simulation_grid.run_simulation(request)
+        return success, decision, summary
+
+    def request_do_task(self, request, task: &#34;Task&#34;):
+        success, decision, summary = self.single_request(request)
+        if success:
+            if decision == &#34;GO&#34;:
+                success, answer = self.do_task(task)
+                return success, answer
+            else:
+                answer = &#34;Request denied. Reason: &#34; + summary
+                return False, answer
+        return success, summary
+
+    def do_task(self, task):
+        self.protocol.info(&#34;Executing task {}...&#34;.format(task.get_type()))
+        time.sleep(1)  # Simulate time taken for the task
+        return True, &#34;Task successfully completed.&#34;
+
+    def is_running(self):
+        with self.lock:
+            return self.current_phase == &#34;running&#34;
+
+    def shall_stop(self):
+        return self._stop_event.is_set()
+
+    def set_advised(self, advised):
+        with self.lock:
+            self.advised = advised
+
+    def submit_task(self, task):
+        with self.lock:
+            self.task_queue.append(task)
+
+    def execute(self, advised=False):
+        with self.lock:
+            self.protocol.info(f&#34;Process model should start (advised: {advised})...&#34;)
+            if self.current_phase == &#34;off&#34;:
+                self._stop_event.clear()
+            else:
+                self.protocol.info(&#34;Process model is already active.&#34;)
+                return False, &#34;Process model is already active.&#34;
+
+            def run():
+                while not self.shall_stop():
+                    with self.lock:
+                        self.current_phase = &#34;running&#34;
+                        # if not self.shall_stop():
+                        #    self.evaluate_tasks()
+                        # if not self.shall_stop():
+                        #    self.ethical_evaluation()
+                        # if not self.shall_stop():
+                        #    self.simulate_solutions()
+                        # if not self.shall_stop():
+                        #    self.implement_solution()
+                        if not self.shall_stop():
+                            self.integrate_learning()
+                        if not self.shall_stop():
+                            self.check_deviations()
+
+            self.execution_thread = threading.Thread(target=run)
+            self.current_phase = &#34;running&#34;
+            self.execution_thread.start()
+            self.protocol.info(&#34;Process model started.&#34;)
+            return True, &#34;Process model started.&#34;
+
+    def stop_execution(
+        self, priority: &#34;Priority&#34; = Priority.NORMAL, task_count: int = 0
+    ):
+        with self.lock:
+            self.protocol.info(
+                f&#34;Process model should stop (priority: {priority}, tasks: {task_count})...&#34;
+            )
+            if self.current_phase == &#34;off&#34;:
+                self.protocol.info(&#34;Process model is already inactive.&#34;)
+                return False, &#34;Process model is already inactive.&#34;
+            self._stop_event.set()
+            self.execution_thread.join()
+            self.current_phase = &#34;off&#34;
+            self.execution_thread = None
+            self.protocol.info(&#34;Process model stopped.&#34;)
+            return True, &#34;Process model stopped.&#34;</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="ethos_ai.process_model.ProcessModel.check_deviations"><code class="name flex">
+<span>def <span class="ident">check_deviations</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.do_task"><code class="name flex">
+<span>def <span class="ident">do_task</span></span>(<span>self, task)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.ethical_evaluation"><code class="name flex">
+<span>def <span class="ident">ethical_evaluation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.evaluate_tasks"><code class="name flex">
+<span>def <span class="ident">evaluate_tasks</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.execute"><code class="name flex">
+<span>def <span class="ident">execute</span></span>(<span>self, advised=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.implement_solution"><code class="name flex">
+<span>def <span class="ident">implement_solution</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.initialize"><code class="name flex">
+<span>def <span class="ident">initialize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.integrate_learning"><code class="name flex">
+<span>def <span class="ident">integrate_learning</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.is_running"><code class="name flex">
+<span>def <span class="ident">is_running</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.mutiple_requests"><code class="name flex">
+<span>def <span class="ident">mutiple_requests</span></span>(<span>self, requests: list[str])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.request_do_task"><code class="name flex">
+<span>def <span class="ident">request_do_task</span></span>(<span>self, request, task: Task)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.set_advised"><code class="name flex">
+<span>def <span class="ident">set_advised</span></span>(<span>self, advised)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.shall_stop"><code class="name flex">
+<span>def <span class="ident">shall_stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.simulate_solutions"><code class="name flex">
+<span>def <span class="ident">simulate_solutions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.single_request"><code class="name flex">
+<span>def <span class="ident">single_request</span></span>(<span>self, request: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.stop_execution"><code class="name flex">
+<span>def <span class="ident">stop_execution</span></span>(<span>self, priority: Priority = Normal, task_count: int = 0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.process_model.ProcessModel.submit_task"><code class="name flex">
+<span>def <span class="ident">submit_task</span></span>(<span>self, task)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai" href="index.html">ethos_ai</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.process_model.ProcessModel" href="#ethos_ai.process_model.ProcessModel">ProcessModel</a></code></h4>
+<ul class="two-column">
+<li><code><a title="ethos_ai.process_model.ProcessModel.check_deviations" href="#ethos_ai.process_model.ProcessModel.check_deviations">check_deviations</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.do_task" href="#ethos_ai.process_model.ProcessModel.do_task">do_task</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.ethical_evaluation" href="#ethos_ai.process_model.ProcessModel.ethical_evaluation">ethical_evaluation</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.evaluate_tasks" href="#ethos_ai.process_model.ProcessModel.evaluate_tasks">evaluate_tasks</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.execute" href="#ethos_ai.process_model.ProcessModel.execute">execute</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.implement_solution" href="#ethos_ai.process_model.ProcessModel.implement_solution">implement_solution</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.initialize" href="#ethos_ai.process_model.ProcessModel.initialize">initialize</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.integrate_learning" href="#ethos_ai.process_model.ProcessModel.integrate_learning">integrate_learning</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.is_running" href="#ethos_ai.process_model.ProcessModel.is_running">is_running</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.mutiple_requests" href="#ethos_ai.process_model.ProcessModel.mutiple_requests">mutiple_requests</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.request_do_task" href="#ethos_ai.process_model.ProcessModel.request_do_task">request_do_task</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.set_advised" href="#ethos_ai.process_model.ProcessModel.set_advised">set_advised</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.shall_stop" href="#ethos_ai.process_model.ProcessModel.shall_stop">shall_stop</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.simulate_solutions" href="#ethos_ai.process_model.ProcessModel.simulate_solutions">simulate_solutions</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.single_request" href="#ethos_ai.process_model.ProcessModel.single_request">single_request</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.stop_execution" href="#ethos_ai.process_model.ProcessModel.stop_execution">stop_execution</a></code></li>
+<li><code><a title="ethos_ai.process_model.ProcessModel.submit_task" href="#ethos_ai.process_model.ProcessModel.submit_task">submit_task</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

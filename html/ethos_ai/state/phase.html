@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>ethos_ai.state.phase API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ethos_ai.state.phase</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ethos_ai.state.phase.Phase"><code class="flex name class">
+<span>class <span class="ident">Phase</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a collection of name/value pairs.</p>
+<p>Example enumeration:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class Color(Enum):
+...     RED = 1
+...     BLUE = 2
+...     GREEN = 3
+</code></pre>
+<p>Access them by:</p>
+<ul>
+<li>attribute access::</li>
+</ul>
+<pre><code class="language-python-repl">&gt;&gt;&gt; Color.RED
+&lt;Color.RED: 1&gt;
+</code></pre>
+<ul>
+<li>value lookup:</li>
+</ul>
+<pre><code class="language-python-repl">&gt;&gt;&gt; Color(1)
+&lt;Color.RED: 1&gt;
+</code></pre>
+<ul>
+<li>name lookup:</li>
+</ul>
+<pre><code class="language-python-repl">&gt;&gt;&gt; Color['RED']
+&lt;Color.RED: 1&gt;
+</code></pre>
+<p>Enumerations can be iterated over, and know how many members they have:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; len(Color)
+3
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; list(Color)
+[&lt;Color.RED: 1&gt;, &lt;Color.BLUE: 2&gt;, &lt;Color.GREEN: 3&gt;]
+</code></pre>
+<p>Methods can be added to enumerations, and members can have their own
+attributes &ndash; see the documentation for details.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Phase(Enum):
+    def __new__(
+        cls,
+        display_name: str,
+        description: str,
+        duration: int,
+        priority: &#34;Priority&#34; = Priority.NORMAL,
+    ):
+        obj = object.__new__(cls)
+        obj._value_ = auto()  # Automatisch generierter Wert, falls benötigt
+        obj.display_name = display_name
+        obj.description = description
+        obj.duration = duration
+        obj.priority = priority
+        obj.next_phase = None
+        return obj
+
+    def __str__(self) -&gt; str:
+        # Liefert den Anzeigenamen der Phase zurück
+        return self.display_name
+
+    def __repr__(self) -&gt; str:
+        # Liefert eine detaillierte Repräsentation der Phase für Debugging-Zwecke
+        return f&#34;&lt;Phase.{self.name}: {self.display_name}&gt;&#34;
+
+    def set_next_phase(self, next_phase: &#34;Phase&#34;):
+        # Setzt die nächste Phase, stellt sicher, dass es sich um ein Phase-Enum-Mitglied handelt
+        if isinstance(next_phase, Phase):
+            self.next_phase = next_phase
+        else:
+            raise ValueError(&#34;next_phase muss ein Mitglied der Phase-Enum sein.&#34;)
+
+    def next(self) -&gt; &#34;Phase&#34;:
+        # Gibt die nächste Phase zurück
+        return self.next_phase
+
+    def get_priority(self) -&gt; &#34;Priority&#34;:
+        return self.priority
+
+    def get_duration(self) -&gt; int:
+        return self.duration
+
+    # Phasen-Definitionen
+    DREAMING = (&#34;Träumen&#34;, &#34;In dieser Phase träumt der Mensch.&#34;, 0)
+    SLEEPING = (&#34;Schlafen&#34;, &#34;In dieser Phase schläft der Mensch.&#34;, 0)
+    WAKING = (&#34;Aufwachen&#34;, &#34;In dieser Phase wacht der Mensch auf.&#34;, 0)
+    THINKING = (&#34;Denken&#34;, &#34;In dieser Phase denkt der Mensch.&#34;, 0)
+    ACTING = (&#34;Handeln&#34;, &#34;In dieser Phase handelt der Mensch.&#34;, 0)
+    REFLECTING = (&#34;Reflektieren&#34;, &#34;In dieser Phase reflektiert der Mensch.&#34;, 0)
+    OFF = (&#34;Aus&#34;, &#34;In dieser Phase ist der Mensch aus.&#34;, 0)
+    INITIALIZING = (
+        &#34;Initialisierung&#34;,
+        &#34;In dieser Phase wird das Modell initialisiert.&#34;,
+        0,
+    )
+    LEARNING = (&#34;Lernen&#34;, &#34;In dieser Phase lernt der Mensch.&#34;, 0)
+    ETHICAL_LEARNING = (&#34;Ethik lernen&#34;, &#34;In dieser Phase lernt der Mensch Ethik.&#34;, 0)
+    DEVIATION_CHECK = (
+        &#34;Abweichungen prüfen&#34;,
+        &#34;In dieser Phase prüft der Mensch Abweichungen.&#34;,
+        0,
+    )
+    RUNNING = (&#34;Laufen&#34;, &#34;In dieser Phase läuft der Mensch.&#34;, 0)
+    STARTING = (&#34;Starten&#34;, &#34;In dieser Phase startet der Mensch.&#34;, 0)
+    STOPPING = (&#34;Stoppen&#34;, &#34;In dieser Phase stoppt der Mensch.&#34;, 0)
+    ADVICE = (&#34;Beratung&#34;, &#34;In dieser Phase wird der Mensch beraten.&#34;, 0)
+    EXECUTION = (&#34;Ausführung&#34;, &#34;In dieser Phase wird eine Aufgabe ausgeführt.&#34;, 0)
+    REQUEST = (&#34;Anfrage&#34;, &#34;In dieser Phase wird eine Anfrage gestellt.&#34;, 0)
+    DECISION = (&#34;Entscheidung&#34;, &#34;In dieser Phase wird eine Entscheidung getroffen.&#34;, 0)
+    HANDLE_PRIORITY_1_TASKS = (
+        &#34;Priorität 1 Aufgaben bearbeiten&#34;,
+        &#34;In dieser Phase werden Priorität 1 Aufgaben bearbeitet.&#34;,
+        0,
+        Priority.PRIO_1,
+    )
+    HANDLE_PRIORITY_2_TASKS = (
+        &#34;Priorität 2 Aufgaben bearbeiten&#34;,
+        &#34;In dieser Phase werden Priorität 2 Aufgaben bearbeitet.&#34;,
+        0,
+        Priority.PRIO_2,
+    )
+    HANDLE_PRIORITY_LOW_TASKS = (
+        &#34;Niedrigpriorisierte Aufgaben bearbeiten&#34;,
+        &#34;In dieser Phase werden niedrigpriorisierte Aufgaben bearbeitet.&#34;,
+        0,
+        Priority.PRIO_LOW,
+    )
+    NORMAL_OPERATION = (&#34;Normalbetrieb&#34;, &#34;In dieser Phase wird normal gearbeitet.&#34;, 0)
+    EMERGENCY = (
+        &#34;Notfall&#34;,
+        &#34;In dieser Phase wird ein Notfall behandelt.&#34;,
+        0,
+        Priority.EMERGENCY,
+    )
+    TRAINING_ETHICS = (&#34;Ethik trainieren&#34;, &#34;In dieser Phase wird Ethik trainiert.&#34;, 0)
+    TRAINING_INDIVIDUAL = (
+        &#34;Individuum trainieren&#34;,
+        &#34;In dieser Phase wird das Individuum trainiert.&#34;,
+        0,
+    )
+    TRAINING_CLIM = (&#34;CLIM trainieren&#34;, &#34;In dieser Phase wird CLIM trainiert.&#34;, 0)
+    MAINTENANCE = (&#34;Wartung&#34;, &#34;In dieser Phase wird Wartung durchgeführt.&#34;, 0)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="ethos_ai.state.phase.Phase.ACTING"><code class="name">var <span class="ident">ACTING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.ADVICE"><code class="name">var <span class="ident">ADVICE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.DECISION"><code class="name">var <span class="ident">DECISION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.DEVIATION_CHECK"><code class="name">var <span class="ident">DEVIATION_CHECK</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.DREAMING"><code class="name">var <span class="ident">DREAMING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.EMERGENCY"><code class="name">var <span class="ident">EMERGENCY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.ETHICAL_LEARNING"><code class="name">var <span class="ident">ETHICAL_LEARNING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.EXECUTION"><code class="name">var <span class="ident">EXECUTION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.HANDLE_PRIORITY_1_TASKS"><code class="name">var <span class="ident">HANDLE_PRIORITY_1_TASKS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.HANDLE_PRIORITY_2_TASKS"><code class="name">var <span class="ident">HANDLE_PRIORITY_2_TASKS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.HANDLE_PRIORITY_LOW_TASKS"><code class="name">var <span class="ident">HANDLE_PRIORITY_LOW_TASKS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.INITIALIZING"><code class="name">var <span class="ident">INITIALIZING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.LEARNING"><code class="name">var <span class="ident">LEARNING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.MAINTENANCE"><code class="name">var <span class="ident">MAINTENANCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.NORMAL_OPERATION"><code class="name">var <span class="ident">NORMAL_OPERATION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.OFF"><code class="name">var <span class="ident">OFF</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.REFLECTING"><code class="name">var <span class="ident">REFLECTING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.REQUEST"><code class="name">var <span class="ident">REQUEST</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.RUNNING"><code class="name">var <span class="ident">RUNNING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.SLEEPING"><code class="name">var <span class="ident">SLEEPING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.STARTING"><code class="name">var <span class="ident">STARTING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.STOPPING"><code class="name">var <span class="ident">STOPPING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.THINKING"><code class="name">var <span class="ident">THINKING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.TRAINING_CLIM"><code class="name">var <span class="ident">TRAINING_CLIM</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.TRAINING_ETHICS"><code class="name">var <span class="ident">TRAINING_ETHICS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.TRAINING_INDIVIDUAL"><code class="name">var <span class="ident">TRAINING_INDIVIDUAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.WAKING"><code class="name">var <span class="ident">WAKING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="ethos_ai.state.phase.Phase.get_duration"><code class="name flex">
+<span>def <span class="ident">get_duration</span></span>(<span>self) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.get_priority"><code class="name flex">
+<span>def <span class="ident">get_priority</span></span>(<span>self) ‑> <a title="ethos_ai.state.priority.Priority" href="priority.html#ethos_ai.state.priority.Priority">Priority</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.next"><code class="name flex">
+<span>def <span class="ident">next</span></span>(<span>self) ‑> <a title="ethos_ai.state.phase.Phase" href="#ethos_ai.state.phase.Phase">Phase</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ethos_ai.state.phase.Phase.set_next_phase"><code class="name flex">
+<span>def <span class="ident">set_next_phase</span></span>(<span>self, next_phase: <a title="ethos_ai.state.phase.Phase" href="#ethos_ai.state.phase.Phase">Phase</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ethos_ai.state" href="index.html">ethos_ai.state</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ethos_ai.state.phase.Phase" href="#ethos_ai.state.phase.Phase">Phase</a></code></h4>
+<ul class="">
+<li><code><a title="ethos_ai.state.phase.Phase.ACTING" href="#ethos_ai.state.phase.Phase.ACTING">ACTING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.ADVICE" href="#ethos_ai.state.phase.Phase.ADVICE">ADVICE</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.DECISION" href="#ethos_ai.state.phase.Phase.DECISION">DECISION</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.DEVIATION_CHECK" href="#ethos_ai.state.phase.Phase.DEVIATION_CHECK">DEVIATION_CHECK</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.DREAMING" href="#ethos_ai.state.phase.Phase.DREAMING">DREAMING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.EMERGENCY" href="#ethos_ai.state.phase.Phase.EMERGENCY">EMERGENCY</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.ETHICAL_LEARNING" href="#ethos_ai.state.phase.Phase.ETHICAL_LEARNING">ETHICAL_LEARNING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.EXECUTION" href="#ethos_ai.state.phase.Phase.EXECUTION">EXECUTION</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.HANDLE_PRIORITY_1_TASKS" href="#ethos_ai.state.phase.Phase.HANDLE_PRIORITY_1_TASKS">HANDLE_PRIORITY_1_TASKS</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.HANDLE_PRIORITY_2_TASKS" href="#ethos_ai.state.phase.Phase.HANDLE_PRIORITY_2_TASKS">HANDLE_PRIORITY_2_TASKS</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.HANDLE_PRIORITY_LOW_TASKS" href="#ethos_ai.state.phase.Phase.HANDLE_PRIORITY_LOW_TASKS">HANDLE_PRIORITY_LOW_TASKS</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.INITIALIZING" href="#ethos_ai.state.phase.Phase.INITIALIZING">INITIALIZING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.LEARNING" href="#ethos_ai.state.phase.Phase.LEARNING">LEARNING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.MAINTENANCE" href="#ethos_ai.state.phase.Phase.MAINTENANCE">MAINTENANCE</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.NORMAL_OPERATION" href="#ethos_ai.state.phase.Phase.NORMAL_OPERATION">NORMAL_OPERATION</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.OFF" href="#ethos_ai.state.phase.Phase.OFF">OFF</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.REFLECTING" href="#ethos_ai.state.phase.Phase.REFLECTING">REFLECTING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.REQUEST" href="#ethos_ai.state.phase.Phase.REQUEST">REQUEST</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.RUNNING" href="#ethos_ai.state.phase.Phase.RUNNING">RUNNING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.SLEEPING" href="#ethos_ai.state.phase.Phase.SLEEPING">SLEEPING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.STARTING" href="#ethos_ai.state.phase.Phase.STARTING">STARTING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.STOPPING" href="#ethos_ai.state.phase.Phase.STOPPING">STOPPING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.THINKING" href="#ethos_ai.state.phase.Phase.THINKING">THINKING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.TRAINING_CLIM" href="#ethos_ai.state.phase.Phase.TRAINING_CLIM">TRAINING_CLIM</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.TRAINING_ETHICS" href="#ethos_ai.state.phase.Phase.TRAINING_ETHICS">TRAINING_ETHICS</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.TRAINING_INDIVIDUAL" href="#ethos_ai.state.phase.Phase.TRAINING_INDIVIDUAL">TRAINING_INDIVIDUAL</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.WAKING" href="#ethos_ai.state.phase.Phase.WAKING">WAKING</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.get_duration" href="#ethos_ai.state.phase.Phase.get_duration">get_duration</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.get_priority" href="#ethos_ai.state.phase.Phase.get_priority">get_priority</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.next" href="#ethos_ai.state.phase.Phase.next">next</a></code></li>
+<li><code><a title="ethos_ai.state.phase.Phase.set_next_phase" href="#ethos_ai.state.phase.Phase.set_next_phase">set_next_phase</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>
