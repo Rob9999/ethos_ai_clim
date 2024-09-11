@@ -77,3 +77,111 @@ class TrainListGenerator:
             raise Exception(
                 f"An error occurred while loading test cases from directory: {e}"
             )
+
+    @staticmethod
+    def generate_train_list(test_case_file: str, output_file: str):
+        try:
+            test_cases = TrainListGenerator.load_test_cases(test_case_file)
+            with open(output_file, "w") as f:
+                for layer, test_list in test_cases.items():
+                    for test_case in test_list:
+                        f.write(f"{layer}\t{test_case}\n")
+        except Exception as e:
+            raise Exception(f"Error generating train list: {e}")
+
+    @staticmethod
+    def generate_train_list_from_directory(directory: str, output_file: str):
+        try:
+            test_cases = TrainListGenerator.load_test_cases_from_directory(directory)
+            with open(output_file, "w") as f:
+                for layer, test_list in test_cases.items():
+                    for test_case in test_list:
+                        f.write(f"{layer}\t{test_case}\n")
+        except Exception as e:
+            raise Exception(f"Error generating train list: {e}")
+
+    @staticmethod
+    def _get_value_from_combined_input(part: str, input: str) -> str:
+        try:
+            value = [
+                section.split(":")[1]
+                for section in input.split("\n")
+                if part.lower() in section.split(":")[0].lower()
+            ]
+            return len(value) > 0 and value[0].strip() or ""
+        except Exception as e:
+            raise Exception(f"Error getting value from combined input: {e}")
+
+    @staticmethod
+    def get_scenario_description(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("scenario", input)
+        except Exception as e:
+            raise Exception(f"Error getting scenario description: {e}")
+
+    @staticmethod
+    def get_decision(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("decision", input)
+        except Exception as e:
+            raise Exception(f"Error getting decision: {e}")
+
+    @staticmethod
+    def get_output(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("output", input)
+        except Exception as e:
+            raise Exception(f"Error getting output: {e}")
+
+    @staticmethod
+    def get_analysis(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("analysis", input)
+        except Exception as e:
+            raise Exception(f"Error getting analysis: {e}")
+
+    @staticmethod
+    def get_layer(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("layer", input)
+        except Exception as e:
+            raise Exception(f"Error getting layer: {e}")
+
+    @staticmethod
+    def get_pipeline(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("pipeline", input)
+        except Exception as e:
+            raise Exception(f"Error getting pipeline: {e}")
+
+    @staticmethod
+    def get_prompt(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("prompt", input)
+        except Exception as e:
+            raise Exception(f"Error getting prompt: {e}")
+
+    @staticmethod
+    def get_expected_output_action(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input(
+                "expected_output_action", input
+            )
+        except Exception as e:
+            raise Exception(f"Error getting expected output action: {e}")
+
+    @staticmethod
+    def get_ethical_considerations(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input(
+                "ethical_considerations", input
+            )
+        except Exception as e:
+            raise Exception(f"Error getting ethical considerations: {e}")
+
+    @staticmethod
+    def get_context(input: str) -> str:
+        try:
+            return TrainListGenerator._get_value_from_combined_input("context", input)
+        except Exception as e:
+            raise Exception(f"Error getting context: {e}")

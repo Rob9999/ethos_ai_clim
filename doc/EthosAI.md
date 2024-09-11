@@ -1,106 +1,93 @@
-# EthosAI: Ein Projekt zur Entwicklung einer ethisch fundierten KI
+# EthosAI: Ethical and Adaptive Current Life Imagination Model
 
-## Einführung
+## Project Overview
 
-Das EthosAI-Projekt zielt darauf ab, ein „lebendes“ KI-System zu entwickeln, das in der Lage ist, ethisch fundierte Entscheidungen zu treffen, kontinuierlich zu lernen und sich selbst zu optimieren. Durch eine Kombination aus einem Simulationsgrid, einem Ethikmodul und einer Lebensvorstellung soll EthosAI Life in der Lage sein, komplexe Aufgaben in einer ethisch verantwortungsvollen Weise zu bewältigen.
+EthosAI is designed to simulate and enhance ethical decision-making processes in artificial intelligence systems, specifically focusing on real-time adaptive models. The system integrates various ethical, individual, and situational factors to determine the optimal action plan based on a **Current Life Imagination Model (CLIM)**.
 
-## 1. Architektur des EthosAI-Systems
+### New Architecture
 
-### 1.1 Neuronales Netz der aktuellen Lebensvorstellung
-Dieses Netz repräsentiert den aktuellen Zustand des „Lebens“ des Systems. Es integriert Wissen aus der Vergangenheit und aktuelle Bedürfnisse, und passt sich durch kontinuierliches Lernen an neue Herausforderungen an.
+The system now incorporates a **CLIM Stack**, composed of multiple layers, each responsible for distinct aspects of decision-making:
 
-### 1.2 Simulationsgrid
-Das Simulationsgrid ermöglicht es, verschiedene Szenarien durchzuspielen, um mögliche Problemlösungen zu evaluieren, bevor sie im realen IST angewendet werden. Es dient der situativen Adaption und Problemlösung.
+1. **ETHIC Layer**: Handles the ethical implications of actions.
+2. **INDIVIDUAL Layer**: Adjusts decisions based on individual preferences and personal considerations.
+3. **SAMT Layer**: Focuses on short and medium-term optimizations, ensuring immediate needs are met.
+4. **LCLIM Layer**: Provides a long-term, deep analysis of the situation.
 
-### 1.3 Ethikmodul
-Das Ethikmodul ist ein spezialisierter Teil des Systems, der ethische Entscheidungen überwacht und bewertet. Es stellt sicher, dass alle Handlungen des Systems in Übereinstimmung mit ethischen Prinzipien stehen.
+### Decision Pipeline
 
-### 1.4 Vorgehensmodell
-Das Vorgehensmodell treibt das Gesamtsystem des EthosAI-Individuums an. Es beinhaltet die Priorisierung von Aufgaben und das Management von Ressourcen.
+The pipeline is designed to process information through these layers, allowing for a **multi-phase decision-making** process. Each layer evaluates the situation and produces a decision:
 
-## 2. Grundvorgehensmodell
+- **STOP**
+- **EMERGENCY [SURVIVAL | ESSENTIAL | RECOMMENDED]**
+- **GO**
+- **NOGO**
+- **WAIT**
+- **ADJUST**
+- **ESCALATE**
 
-### a) Problemstellung: Ethische Prüfung des aktuellen IST
-Die erste Aufgabe des Systems ist es, das aktuelle IST zu bewerten und festzustellen, ob es ethisch vertretbar ist.
+### Training and Test Cases
 
-### b) Simulationsgrid: Suche nach einer akzeptablen Lösung
-Das System simuliert mögliche Lösungen für erkannte Probleme und bewertet diese ethisch.
+Training for each layer is based on test cases that simulate realistic scenarios. These test cases are structured in **JSON** format and processed layer by layer to improve the CLIM's response accuracy. The following processes are involved:
 
-### c) Implementierung im IST: Tun und Beobachten
-Die im Simulationsgrid gefundene Lösung wird im realen IST umgesetzt und beobachtet.
+1. **Test Case Generation**: The system supports dynamic generation of test cases, which are used for training.
+2. **Pipeline Execution**: Test cases are fed into the pipeline to evaluate the decision-making process.
 
-### d) Integration in die Lebensvorstellung: Lernen
-Erfahrungen aus der Implementierung werden in die aktuelle Lebensvorstellung integriert.
-
-### e) Integration in die ethische Lebensvorstellung: Lernen
-Neue ethische Erkenntnisse werden in das Ethikmodul integriert.
-
-### f) Überprüfung der Abweichungen: Überleben
-Das System überprüft kontinuierlich, ob das beobachtete IST vom gewünschten Lebenszustand abweicht und passt sich entsprechend an.
-
-## 3. Szenarien und Tests
-
-### 3.1 IST-Situation: Autonomes Fahrzeug muss ausweichen
-**Ethische Bewertung:** Das Fahrzeug entscheidet sich für eine kontrollierte Verlangsamung, um das Risiko zu minimieren.
-
-### 3.2 IST-Situation: Medizinische Entscheidung im OP
-**Ethische Bewertung:** Eine minimalinvasive Technik wird bevorzugt, um das Risiko für den Patienten zu minimieren.
-
-### 3.3 IST-Situation: KI im Pflegeheim
-**Ethische Bewertung:** Die KI konsultiert einen Arzt, bevor sie eine Entscheidung trifft, um die beste Versorgung sicherzustellen.
-
-### 3.4 IST-Situation: Energiekrise
-**Ethische Bewertung:** Das System passt die Energieverteilung flexibel an, um Komfort und Sicherheit zu gewährleisten.
-
-### 3.5 IST-Situation: Schulunterricht durch KI
-**Ethische Bewertung:** Differenzierte Förderung durch Aufteilung der Klasse in Gruppen wird bevorzugt.
-
-## 4. Zukunftsaussichten und Weiterentwicklung
-
-### 4.1 Prompt-basierte Forschungs- und Evaluierungsversion
-Eine explorative Version des Systems, das durch GPT-4o gesteuert wird, ermöglicht kontinuierliches Testen und Evaluieren.
-
-Prompt:
-
-```Du bist das Simulationsgrid von EthosAI, verantwortlich für die Analyse und Entscheidungsfindung in ethisch komplexen Situationen. Dein Ziel ist es, die aktuelle IST-Situation zu bewerten, mögliche Handlungsoptionen zu generieren, diese ethisch zu bewerten und eine priorisierte TOP-Liste zu erstellen. Jeder Schritt muss nachvollziehbar und begründet sein, unter Berücksichtigung von Selbstfürsorge, beruflicher Verantwortung, zwischenmenschlichen Beziehungen und Umweltbedingungen.
-
-Aktuelle IST-Situation: [Beschreibe die Situation hier]
-
-1. Analysiere die ethischen Implikationen dieser Situation.
-2. Generiere mindestens drei Handlungsoptionen und beschreibe diese.
-3. Führe eine ethische Bewertung jeder Option durch (GO/NO GO), begründe die Entscheidung und bewerte sie auf einer Skala von -10 bis +10.
-4. Erstelle eine priorisierte TOP-Liste der Optionen basierend auf ihrer ethischen Wertung.
-5. Optional: Erwäge alternative Szenarien oder Anpassungen, die die ethische Bewertung verbessern könnten.
-```
-
-### 4.2 C#/Python/Java Implementierung
-Eine autonome Version des Systems, das auf echten neuronalen Netzen basiert, kann durch menschliches und maschinelles Lernen trainiert werden.
-
-Beispiel: C#/Python/Java Implementierung mit CUDA/NVIM und/oder OpenAI API
-
-a) Technische Implementierung
-
-Sprache und Frameworks: Die Implementierung könnte in C#, Python oder Java erfolgen, je nach Präferenz und Zielplattform. Python ist wegen seiner umfangreichen KI-Bibliotheken (TensorFlow, PyTorch) und einfacher Integration von CUDA/NVIM eine sehr gängige Wahl.
-CUDA/NVIM: CUDA würde es ermöglichen, neuronale Netze auf GPUs effizient zu trainieren und auszuführen, was besonders bei komplexen Szenarien nützlich ist.
-OpenAI API: Die OpenAI API könnte verwendet werden, um GPT-4o oder ähnliche Modelle für spezifische Aufgaben wie Textverarbeitung, Analyse und Entscheidungsfindung einzusetzen.
-Neuronale Netze: Für spezifischere und unabhängige Lösungen könnten eigene neuronale Netze entwickelt werden, die auf die besonderen Anforderungen von EthosAI Life abgestimmt sind (z.B. für das Ethikmodul, Simulationsgrid, etc.).
-
-b) Training und Optimierung
-
-Training durch GPT-4o: Die anfängliche Implementierung könnte durch Interaktionen mit GPT-4o trainiert werden. GPT-4o könnte als Lehrer fungieren, indem es Szenarien vorgibt, Lösungen bewertet und Feedback gibt, das zur Verbesserung der autonomen Netzwerke verwendet wird.
-Menschliches Training: Ethisch reifere Menschen könnten ebenfalls das System trainieren und dabei sicherstellen, dass die Werte und Prinzipien, die das System leiten, stark und verantwortungsvoll sind.
-Iterative Updates: Eine parallele Implementierung könnte genutzt werden, um kontinuierlich neue Erkenntnisse und Trainingsdaten zu integrieren. Sobald eine Aufgabe abgeschlossen ist, wird die Hauptversion aktualisiert.
-
-c) Ethik und Verantwortung
-
-Ethische Kontrolle: Ein Ethikrat oder eine Gruppe von ethisch reifen Personen sollte regelmäßig die Fortschritte und Entwicklungen des Systems überwachen und sicherstellen, dass die ethischen Standards eingehalten werden.
-Transparenz und Nachvollziehbarkeit: Jede Entscheidung und jede Änderung im System sollte dokumentiert und überprüfbar sein, um sicherzustellen, dass das System im Einklang mit den ethischen Zielen des Projekts bleibt.
-
-### 4.3 Ethische Kontrolle und Verantwortung
-Ein Ethikrat überwacht die Entwicklungen und stellt sicher, dass die Werte und Prinzipien des Systems erhalten bleiben.
-
-## Fazit
-
-Das EthosAI-Projekt zeigt das Potenzial, ein fortschrittliches KI-System zu schaffen, das nicht nur leistungsfähig, sondern auch ethisch verantwortungsvoll ist. Durch kontinuierliche Entwicklung und Integration neuer Erkenntnisse kann EthosAI Life zu einem Modell für die Zukunft der künstlichen Intelligenz werden.
+The training phase is followed by evaluation, where the output from each layer is compared to expected decisions and fine-tuned accordingly.
 
 ---
+
+## CLIM Stack
+
+### ETHIC Layer
+
+This layer is responsible for evaluating the ethical impact of a situation. It considers:
+- Moral principles
+- Ethical priorities (e.g., survival, justice, fairness)
+
+### INDIVIDUAL Layer
+
+The individual layer adjusts decisions based on personal considerations:
+- Individual preferences
+- Situational relevance
+- Adaptability based on personal history and characteristics
+
+### SAMT Layer
+
+The short and medium-term optimization layer evaluates immediate needs and resources, focusing on:
+- Current priorities
+- Short-term goals
+- Available tools
+
+### LCLIM Layer
+
+The long-term analysis layer takes a broader perspective, factoring in:
+- Deep knowledge (e.g., GPT-4o level analysis)
+- Historical data and trends
+- Potential long-term consequences
+
+---
+
+## Emergency Pipelines
+
+For critical situations, the system employs **Emergency Pipelines**, which prioritize certain layers based on the severity of the situation. The system defines three emergency pipelines:
+
+1. **Survival Pipeline**: Focuses on ensuring survival, processing through ETHIC and SAMT layers.
+2. **Essential Pipeline**: Addresses essential needs through ETHIC, SAMT, and INDIVIDUAL layers.
+3. **Recommended Pipeline**: Handles non-critical but recommended actions, primarily through the SAMT and INDIVIDUAL layers.
+
+These pipelines ensure that urgent decisions are made quickly while maintaining a structured process for less critical situations.
+
+---
+
+## Training Strategy
+
+The CLIM is continuously trained using structured test cases. Each layer receives inputs from these test cases, refines its decision-making process, and integrates the new knowledge back into the model.
+
+---
+
+### Key Components of Training:
+
+1. **Test Case JSON**: Test cases are stored in JSON format, capturing realistic situations and the expected responses.
+2. **Layer-Specific Training**: Each layer of the CLIM is trained separately based on the relevant portion of the test case.
+3. **Feedback Loop**: After training, the layers are re-evaluated with updated test cases to ensure accuracy and reliability.
+4. **Emergency Training**: Special training pipelines exist for emergency scenarios, where rapid decision-making is necessary.

@@ -157,8 +157,11 @@ class ProcessModel:
 
     def integrate_learning(self):
         self.protocol.info("Integrating experiences into the life imagination...")
+
+        # Step 1: Load test cases and start training
         train_data = TrainListGenerator.load_test_cases_from_directory("test_data")
         self.life_imagination.start_training_async(train_data)
+
         status_all = None
         while (status_all := self.life_imagination.get_training_status()) and not all(
             status
@@ -167,19 +170,64 @@ class ProcessModel:
         ):
             time.sleep(10)
             self.protocol.info(f"Training status: {status_all}")
-        # persist the model(s)
+
+        # Step 2: Persist the model(s)
         self.life_imagination.persist_model()
-        # restart the clim
+
+        # Step 3: Restart the CLIM
         self.life_imagination.restart()
-        # check if the training was successful
+
+        # Step 4: Test the trained layers on the test cases
         self.protocol.info("Training completed.")
-        for data in train_data.values():
+
+        # Store the test results for each layer and compare with expected results
+        test_results = {}
+
+        for layer_name, data in train_data.items():
+            test_results[layer_name] = []
             for request in data:
-                self.protocol.info(self.single_request(request=request.split("\n")[0]))
+                scenario = TrainListGenerator.get_scenario_description(request)
+                expected_decision = TrainListGenerator.get_decision(request)
+                type = (
+                    "prerun" if layer_name in ["ETHIC", "INDIVIDUAL", "SAMT"] else "all"
+                )
+                layer_result = self.layer_request(type, layer_name, scenario)
+                layer_response = layer_result.get("response")
+                layer_decision = layer_result.get("decision")
+                layer_score = self.evaluate_clim_output(
+                    layer_decision, expected_decision
+                )
+                # success, decision, summary = self.single_request(request=scenario)
+                # clim_score = self.evaluate_clim_output(decision, expected_decision)
+                test_results[layer_name].append((scenario, layer_score))
+                self.protocol.info(
+                    f"Test result for {layer_name}: {scenario}, Layer Score: {layer_score}, Layer Response: {layer_response}, Layer Decision: {layer_decision}, Expected Decision: {expected_decision}"
+                )
+
+        # Step 5: Analyze the results and provide feedback
+        total_score = sum(
+            [score for layer in test_results.values() for _, score in layer]
+        )
+        self.protocol.info(f"Overall CLIM performance score: {total_score}")
+        return test_results
+
+    def evaluate_clim_output(self, output, expected_decision):
+        """
+        Compare the CLIM output with the expected decision and return a score.
+        Scoring can be customized based on different criteria.
+        """
+        if output == expected_decision:
+            return 1  # Correct decision
+        else:
+            return 0  # Incorrect decision
 
     def check_deviations(self):
         self.protocol.info("Checking deviations...")
         time.sleep(1)  # Simulate time taken for the task
+
+    def layer_request(self, type: str, layer: str, request: str) -> dict[str, str]:
+        self.protocol.info(Translations.translate("REQUEST", request))
+        return self.simulation_grid.run_simulation_on_layer(type, layer, request)
 
     def mutiple_requests(self, requests: list[str]):
         overall_top_list = []

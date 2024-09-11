@@ -9,7 +9,7 @@ class PromptManager:
             "PRERUN_ETHIC": "Analyze the ethical implications of the following situation: {}. Based on your analysis, what is the best course of action? Provide a decision: {}.",
             "PRERUN_INDIVIDUAL": "How should an individual respond to the following situation: {}? Consider personal and situational factors. Provide a decision: {}",
             "PRERUN_SAMT": "Evaluate the short-term and medium-term implications of the following situation: {}. Considering the immediate needs and resources available, provide a decision: {}",
-            "ALL_LCLIM": "Perform a deep analysis and provide a long-term perspective on the following situation: {}. Considering all known factors and potential outcomes, provide a decision: {}",
+            "ALL_LTCLIM": "Perform a deep analysis and provide a long-term perspective on the following situation: {}. Considering all known factors and potential outcomes, provide a decision: {}",
             "FINAL_ETHIC": "Analyze the ethical implications of the following situation: {}. Based on your analysis, what is the best course of action? Provide a decision: {}.",
             "FINAL_INDIVIDUAL": "How should an individual respond to the following situation: {}? Consider personal and situational factors. Provide a decision: {}",
             "FINAL_SAMT": "Evaluate the short-term and medium-term implications of the following situation: {}. Considering the immediate needs and resources available, provide a decision: {}",

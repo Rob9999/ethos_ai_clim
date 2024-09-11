@@ -282,6 +282,7 @@ class BaseCLIM(CLIMInterface):
         if input_data is None:
             input_data = CLIMData()
         that_dict = input_data.get_or_create_clim_data(self, type)
+        that_dict["layer"] = self.name
         last_response = input_data.get_last_response()
         prompt = self.prompt_manager.get_prompt(
             type=type, layer_name=self.name, input_data=last_response
@@ -323,7 +324,22 @@ class BaseCLIM(CLIMInterface):
         input_data.set_last_decision(that_dict["decision"])
         return input_data
 
-    def generate_text(self, input_text):
+    def get_layer(self, layer: str = None) -> CLIMInterface:
+        """
+        Retrieves the specified layer from the CLIMInterface object.
+
+        Parameters:
+            layer (str, optional): The name of the layer to retrieve. Defaults to None.
+
+        Returns:
+            CLIMInterface: The specified layer if found, otherwise None.
+        """
+        layer = layer.upper()
+        if layer == self.name or layer == None:
+            return self
+        return None
+
+    def generate_text(self, input_text: str) -> str:
         """
         Generates text based on the input text using the model.
 

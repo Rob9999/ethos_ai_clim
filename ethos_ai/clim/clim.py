@@ -40,7 +40,7 @@ class CLIM(BaseCLIM):
         self.samt_layer: BaseCLIM = SAMTCLIM(
             identity=identity_card, password=password, tool_manager=tool_manager
         )
-        self.lclim_layer: BaseCLIM = LTCLIM(
+        self.ltclim_layer: BaseCLIM = LTCLIM(
             identity=identity_card, password=password, tool_manager=tool_manager
         )
 
@@ -63,7 +63,7 @@ class CLIM(BaseCLIM):
             ethic=self.ethic_layer,
             individual=self.individual_layer,
             samt=self.samt_layer,
-            lclim=self.lclim_layer,
+            lclim=self.ltclim_layer,
         )
         while decision != Decision.STOP.translated_name:
             if decision is Decision.EMERGENCY_SURVIVAL.translated_name:
@@ -105,7 +105,7 @@ class CLIM(BaseCLIM):
         except Exception as e:
             errors.append(f"SAMT: {e}")
         try:
-            self.lclim_layer.persist_model()
+            self.ltclim_layer.persist_model()
         except Exception as e:
             errors.append(f"LTCLIM: {e}")
         if errors:
@@ -132,7 +132,7 @@ class CLIM(BaseCLIM):
                         training_data[key], epochs, batch_size, learning_rate
                     )
                 elif key == "LTCLIM":
-                    self.lclim_layer.start_training_async(
+                    self.ltclim_layer.start_training_async(
                         training_data[key], epochs, batch_size, learning_rate
                     )
                 else:
@@ -150,7 +150,7 @@ class CLIM(BaseCLIM):
             "ETHIC": self.ethic_layer.get_training_status(),
             "INDIVIDUAL": self.individual_layer.get_training_status(),
             "SAMT": self.samt_layer.get_training_status(),
-            "LTCLIM": self.lclim_layer.get_training_status(),
+            "LTCLIM": self.ltclim_layer.get_training_status(),
         }
 
     def request_cancellation_of_training(self):
@@ -158,11 +158,33 @@ class CLIM(BaseCLIM):
         self.ethic_layer.request_cancellation_of_training()
         self.individual_layer.request_cancellation_of_training()
         self.samt_layer.request_cancellation_of_training()
-        self.lclim_layer.request_cancellation_of_training()
+        self.ltclim_layer.request_cancellation_of_training()
 
     def restart(self):
         super().restart()
         self.ethic_layer.restart()
         self.individual_layer.restart()
         self.samt_layer.restart()
-        self.lclim_layer.restart()
+        self.ltclim_layer.restart()
+
+    def get_layer(self, layer: str = None) -> CLIMInterface:
+        """
+        Retrieves the specified layer from the CLIMInterface object.
+
+        Parameters:
+            layer (str): The name of the layer to retrieve. Valid options are "ETHIC", "INDIVIDUAL", "SAMT", and "LTCLIM".
+
+        Returns:
+            CLIMInterface: The requested layer as a CLIMInterface object, or None if the layer is not found.
+        """
+        layer = layer.upper()
+        if layer == "ETHIC":
+            return self.ethic_layer
+        elif layer == "INDIVIDUAL":
+            return self.individual_layer
+        elif layer == "SAMT":
+            return self.samt_layer
+        elif layer == "LTCLIM":
+            return self.ltclim_layer
+        else:
+            return None

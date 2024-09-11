@@ -224,6 +224,12 @@ class GPTModelWrapper(CLIMInterface):
             gptwrapper_name=self.gptwrapper_name,
         )
 
+    def get_layer(self, layer: str = None) -> CLIMInterface:
+        self.protocol.error(
+            "Get layer is not supported for GPTModelWrapper. Please use a different model."
+        )
+        raise NotImplementedError
+
     def decode_output(self, output):
         if not self.use_api:
             return self.tokenizer.decode(output[0], skip_special_tokens=True)
@@ -260,7 +266,7 @@ class GPTModelWrapper(CLIMInterface):
                 self.protocol.error(f"OpenAI API error: {str(e)}")
                 return None
 
-    def generate_text(self, input_text):
+    def generate_text(self, input_text: str) -> str:
         outputs = self.generate_output(input_text)
         if outputs is not None:
             return self.decode_output(outputs)

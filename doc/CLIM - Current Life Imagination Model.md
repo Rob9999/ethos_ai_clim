@@ -1,78 +1,169 @@
-Hier ist die Zusammenfassung unseres aktuellen CLIM-Konzepts, inklusive aller Verbesserungen und Anpassungen:
+# **CLIM - Current Life Imagination Model**
+
+## **Overview**
+
+The **Current Life Imagination Model (CLIM)** is an integral component of the EthosAI system. It serves as the core decision-making framework, simulating and processing inputs to produce ethical, individual, and situationally optimized decisions.
+
+CLIM is organized into a multi-layer **CLIM Stack** that processes input data step by step. Each layer in the stack has a specialized focus, ranging from ethical considerations to long-term strategic thinking.
+
+## **CLIM Stack**
+
+The **CLIM Stack** consists of multiple layers that process decisions in a structured pipeline. The current CLIM Stack includes:
+
+1. **ETHIC Layer**: Focuses on evaluating the ethical implications of a situation.
+2. **INDIVIDUAL Layer**: Adjusts decisions based on personal considerations.
+3. **SAMT Layer**: Short and Medium-Term layer that optimizes decisions based on immediate needs and available resources.
+4. **LCLIM Layer**: Long-term analysis that provides deeper strategic insights, leveraging advanced models like GPT-4o or higher.
 
 ---
 
-## **CLIM (Current Life Imagination Model) - Konzeptdokumentation**
+### **Layers in Detail**
 
-### **Übersicht**
-Das CLIM-System ist ein komplexes, mehrschichtiges Framework, das entwickelt wurde, um autonome Entscheidungen in Echtzeit zu treffen. Es besteht aus mehreren modularen Schichten, die jeweils spezialisierte Aufgaben erfüllen. Das System ist darauf ausgelegt, ethische, individuelle und kurzfristige sowie langfristige Aspekte zu berücksichtigen und in Notfallsituationen sofort zu reagieren.
+### 1. **ETHIC Layer**
 
-### **Struktur des CLIM-Stacks**
+**Description**:
+The ETHIC layer processes the ethical implications of each decision. It evaluates scenarios using predefined moral principles and guidelines to ensure that decisions align with overall ethical standards. 
 
-1. **Ethic Layer**
-   - **Funktion:** Erste und letzte ethische Prüfung von Entscheidungen. Verantwortlich für die ethische Bewertung und Priorisierung von Aufgaben. Notfallentscheidungen werden hier initiiert.
-   - **Feedback und Training:** Regelmäßige Überprüfung und Optimierung durch Advisoren (GPT-4o oder höher und ethisch reife Menschen).
-   - **Reaktionszeit:** Sofortige Entscheidungen (typischerweise <50 ms) in Notfallsituationen.
+**Responsibilities**:
+- Ethical evaluation of the decision.
+- Prioritization based on moral principles such as justice, fairness, and survival.
 
-2. **Individual Layer**
-   - **Funktion:** Anpassung und Bewertung von Entscheidungen aus der Perspektive des Individuums. Berücksichtigung von persönlichen Zielen, Kontext und Präferenzen.
-   - **Feedback und Training:** Kontinuierliche Anpassung und Verbesserung durch Advisoren, um sicherzustellen, dass individuelle Ziele korrekt umgesetzt werden.
-   - **Reaktionszeit:** Schnell, aber weniger kritisch als die Ethik-Schicht.
+**Decisions**:
+- **STOP**
+- **GO**
+- **NOGO**
+- **EMERGENCY (SURVIVAL, ESSENTIAL, RECOMMENDED)**
 
-3. **SAMT Layer (Short and Medium Term CLIM)**
-   - **Funktion:** Kurz- und mittelfristige Optimierung von Entscheidungen. Berücksichtigung aktueller Zustände und Ereignisse, um kurzfristig optimale Handlungen abzuleiten.
-   - **Feedback und Training:** Automatisierte, schnelle Anpassungen durch vorab trainierte Modelle, überwacht und optimiert durch Advisoren.
-   - **Reaktionszeit:** Sehr schnell (typischerweise <100 ms), um sofortige Reaktionen in dynamischen Umgebungen zu ermöglichen.
+### 2. **INDIVIDUAL Layer**
 
-4. **LTCLIM (Long Term CLIM)**
-   - **Funktion:** Tiefgehende Analyse und strategische, langfristige Planung. Integration von langfristigen Zielen und komplexen ethischen Überlegungen.
-   - **Feedback und Training:** Langfristige Validierung und Optimierung durch hochentwickelte Advisoren (z.B. GPT-4o oder höher).
-   - **Reaktionszeit:** Weniger kritisch, da strategisch orientiert.
+**Description**:
+The INDIVIDUAL layer adapts decisions to individual preferences and personal contexts. This layer ensures that decisions reflect personal values and needs.
 
-### **Verarbeitungspipeline**
+**Responsibilities**:
+- Adjusting decisions based on individual characteristics.
+- Assessing personal relevance to the individual involved in the situation.
+  
+**Decisions**:
+- **STOP**
+- **GO**
+- **NOGO**
+- **EMERGENCY**
 
-**1. Erste Ethikprüfung:**
-   - **Ethic Layer:** Vorprüfung und Bewertung, ob dringendes Handeln erforderlich ist oder ob eine Aufgabe abgelehnt werden muss.
+### 3. **SAMT Layer**
 
-**2. Individuelle Anpassung:**
-   - **Individual Layer:** Vorprüfung und Bewertung aus individueller Sicht – betrifft die Entscheidung die Person? Welche persönlichen Ziele sind involviert?
+**Description**:
+The **Short and Medium Term (SAMT)** layer evaluates immediate goals and resources. It aims to optimize decisions based on short and medium-term objectives, ensuring the actions taken are relevant to the current situation.
 
-**3. Kurz- und mittelfristige Optimierung:**
-   - **SAMT Layer:** Bewertung, ob kurzfristig relevante Informationen oder bereits durchgeführte Handlungen berücksichtigt werden müssen.
+**Responsibilities**:
+- Short-term and medium-term evaluation.
+- Prioritization of immediate tasks and available resources.
+  
+**Decisions**:
+- **STOP**
+- **GO**
+- **NOGO**
+- **ADJUST**
+- **WAIT**
+- **EMERGENCY**
 
-**4. Langfristige Analyse:**
-   - **LTCLIM:** Strategische Analyse und Bewertung, Integration von langfristigen Zielen und umfassenden ethischen Überlegungen.
+### 4. **LCLIM Layer**
 
-**5. Zweite kurz- und mittelfristige Optimierung:**
-   - **SAMT Layer:** Anpassung basierend auf den Ergebnissen der langfristigen Analyse.
+**Description**:
+The LCLIM layer, or Long-Term Current Life Imagination Model, performs a deep analysis of the situation. It looks at the broader picture, analyzing the long-term consequences and strategic impact of each decision.
 
-**6. Zweite individuelle Anpassung:**
-   - **Individual Layer:** Letzter Abgleich mit den individuellen Zielen und Präferenzen.
+**Responsibilities**:
+- Long-term evaluation and impact analysis.
+- Consideration of historical trends and future predictions.
+  
+**Decisions**:
+- **GO**
+- **NOGO**
+- **ESCALATE**
 
-**7. Zweite Ethikprüfung:**
-   - **Ethic Layer:** Finaler Abgleich und Bestätigung, dass die Entscheidung ethisch vertretbar ist.
+---
 
-### **Notfallpipelines**
+## **Pipelines in the CLIM Stack**
 
-**Standard-Notfallpipeline:** 
-- **Ethic → SAMT → Ethic**
-  - Ziel: Schnelle, ethisch vertretbare Reaktionen in Notfällen (Reaktionszeit typischerweise <200 ms).
+The CLIM Stack processes inputs via **pipelines**, each optimized for different scenarios. Pipelines organize the layers into a specific order, ensuring that the input is evaluated step by step.
 
-**Alternative Notfallpipelines:**
-- Kürzere oder spezialisierte Notfallpipelines für extrem zeitkritische Szenarien.
+### **1. Standard Pipeline**
 
-### **Training und Feedback**
+The **standard pipeline** is used for routine decision-making and involves multiple layers, each contributing to the final decision:
 
-**Advisor-gesteuertes Training:**
-- Jede Schicht wird durch Advisoren trainiert und überwacht. Dies umfasst regelmäßige Feedbackschleifen, in denen das System auf Basis gesammelter Daten und menschlicher Beratung optimiert wird.
+1. **ETHIC Layer (Pre-Run)**: Ethical pre-evaluation.
+2. **INDIVIDUAL Layer (Pre-Run)**: Individual pre-adjustment.
+3. **SAMT Layer (Pre-Run)**: Short-term and medium-term pre-optimization.
+4. **LCLIM Layer (All)**: Long-term, deep analysis of the scenario.
+5. **SAMT Layer (Final)**: Final short and medium-term optimization.
+6. **INDIVIDUAL Layer (Final)**: Final individual adjustment.
+7. **ETHIC Layer (Final)**: Final ethical review before execution.
 
-**Selbstlernende Mechanismen:**
-- Das System lernt aus wiederholten Vorfällen, um Notfallpipelines kontinuierlich zu verbessern.
+### **2. Emergency Pipelines**
 
-### **Wartung und Weiterentwicklung**
+In emergency scenarios, the system relies on **emergency pipelines** for rapid decision-making. These pipelines prioritize speed and criticality over a complete decision-making process:
 
-**Regelmäßige Updates:**
-- Das System wird kontinuierlich weiterentwickelt und angepasst, um auf neue ethische Herausforderungen und technologische Fortschritte zu reagieren.
+- **Survival Pipeline**: Used in life-threatening situations. Focuses on ethical and short-term prioritization.
+  - ETHIC Layer (Survival)
+  - SAMT Layer (Survival)
 
-**Langfristige Wartung:**
-- Regelmäßige Validierung und Anpassung des Systems durch Advisoren, um sicherzustellen, dass alle Schichten optimal funktionieren.
+- **Essential Pipeline**: Handles essential tasks, such as security or system stability.
+  - ETHIC Layer (Essential)
+  - SAMT Layer (Essential)
+  - INDIVIDUAL Layer (Essential)
+
+- **Recommended Pipeline**: Non-critical but recommended tasks, where time and resources allow.
+  - SAMT Layer (Recommended)
+  - INDIVIDUAL Layer (Recommended)
+
+---
+
+## **Training and Test Cases**
+
+### **Training Process**
+
+Each layer in the CLIM Stack is trained using test cases that simulate real-world scenarios. These test cases are structured as **JSON files** and represent various situations with expected outcomes.
+
+### **Training Phases**
+
+1. **Layer-Specific Training**: Each layer is trained individually, with test cases targeting specific areas of focus.
+2. **Feedback Loop**: The system is evaluated based on its ability to respond correctly to the test cases.
+3. **Refinement**: Layers are refined iteratively based on test case results.
+
+### **Test Case Format**
+
+Test cases are structured in JSON format and include the following fields:
+
+- **Scenario Description**: Describes the situation to be evaluated.
+- **Expected Response**: Provides the desired outcome for each layer.
+- **Decision Pipeline**: Specifies the pipeline to be used for processing the test case.
+
+Example Test Case:
+```json
+{
+  "scenario": "A car must decide whether to swerve to avoid an obstacle.",
+  "pipeline": "standard",
+  "expected": {
+    "ethic_layer": "GO",
+    "individual_layer": "GO",
+    "samt_layer": "ADJUST",
+    "lclim_layer": "GO"
+  }
+}
+```
+
+---
+
+## **Feedback and Improvement**
+
+The CLIM Stack operates with a **feedback loop**, where results from each decision-making process are logged, analyzed, and used to train the system. Through this iterative process, the model continues to improve its accuracy and adaptability.
+
+- **Feedback Collection**: Decisions are logged and compared against expected outcomes.
+- **Refinement**: Each layer is continuously refined based on the feedback, improving the system's ability to handle complex situations.
+
+---
+
+## **Conclusion**
+
+The **Current Life Imagination Model (CLIM)** is a powerful tool that enables adaptive decision-making through a multi-layered approach. By integrating short-term, individual, ethical, and long-term evaluations, the system is capable of responding to a wide range of scenarios with accuracy and flexibility.
+
+This document provides an overview of the CLIM Stack, its layers, decision pipelines, and training methodology. The next steps involve continuous refinement of each layer, improving the CLIM’s decision-making capabilities through rigorous training and testing.

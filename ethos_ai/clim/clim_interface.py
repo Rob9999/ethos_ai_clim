@@ -8,7 +8,7 @@ from ethos_ai.security.securied_identity_card import SecuredIdentityCard
 class CLIMInterface(ABC):
 
     @abstractmethod
-    def generate_text(self, input_text):
+    def generate_text(self, input_text: str) -> str:
         pass
 
     @abstractmethod
@@ -75,3 +75,8 @@ class CLIMInterface(ABC):
     @abstractmethod
     def execute_unadvised(self, todos: list = None):
         pass
+
+    @abstractmethod
+    def get_layer(self, layer: str = None) -> "CLIMInterface":
+        """Return in a multilayer CLIM a child CLIM or this layer."""
+        return self

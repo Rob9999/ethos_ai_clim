@@ -1,5 +1,6 @@
 import random
 import torch
+from ethos_ai.clim.base_clim import BaseCLIM
 from ethos_ai.clim.clim_data import CLIMData
 from ethos_ai.clim.clim_interface import CLIMInterface
 from ethos_ai.clim.decision import Decision
@@ -122,6 +123,20 @@ class SimulationsGrid:
             )
             noisy_results.append(noisy_overall_ethic_value)
         return noisy_results
+
+    def run_simulation_on_layer(
+        self, type: str, layer: str, request: str
+    ) -> dict[str, str]:
+        clim_layer = self.life_imagination.get_layer(layer)
+        if not isinstance(clim_layer, BaseCLIM):
+            raise TypeError(
+                f"Expected layer to be of type BaseCLIM, got {type(clim_layer).__name__}"
+            )
+        input_data = CLIMData()
+        that_dict = input_data.get_or_create_clim_data(clim_layer, type)
+        input_data.set_last_response(request)
+        clim_layer.process(type=type, input_data=input_data)
+        return that_dict
 
     def run_simulation_fast(self, scenario_description: str):
         return self.simulate_scenario_with_options(scenario_description)
