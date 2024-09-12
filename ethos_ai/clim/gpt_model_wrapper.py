@@ -1,3 +1,4 @@
+import gc
 import os
 import threading
 import torch
@@ -6,6 +7,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import openai  # OpenAI API
 
+from ethos_ai.clim.clim_data import CLIMData
 from ethos_ai.clim.text_data_set import TextDataset
 from ethos_ai.clim.training_status import TrainingStatus
 from ethos_ai.individual.advisor import Advisor
@@ -38,6 +40,7 @@ class GPTModelWrapper(CLIMInterface):
         self.gptwrapper_name: str = gptwrapper_name
         self.status: TrainingStatus = TrainingStatus.NONE
         self.cancel_requested: bool = False
+        self.changed: bool = False
 
         # Check for personalized finetuned model and load it
         self.model_path = os.path.join(
@@ -86,6 +89,7 @@ class GPTModelWrapper(CLIMInterface):
         )
         try:
             self._training_loop(train_loader, optimizer, device, epochs)
+            self.changed = True
         except Exception as e:
             self.protocol.error(
                 f"Training of {self.life_name}-{self.gptwrapper_name} failed: {str(e)}"
@@ -139,6 +143,8 @@ class GPTModelWrapper(CLIMInterface):
         self.protocol.info(
             f"Base model loaded for {self.life_name}-{self.gptwrapper_name}."
         )
+        self.changed = False
+        return True
 
     def _load_model(self, model_path):
         """Load a model from a specified path."""
@@ -151,6 +157,8 @@ class GPTModelWrapper(CLIMInterface):
         self.protocol.info(
             f"Finetuned model of {self.life_name}-{self.gptwrapper_name} loaded from {self.model_path}."
         )
+        self.changed = False
+        return True
 
     def _save_model(self, model_path):
         """Save the current model to a specified path."""
@@ -162,10 +170,15 @@ class GPTModelWrapper(CLIMInterface):
         self.protocol.info(
             f"Finetuned model of {self.life_name}-{self.gptwrapper_name} saved to {model_path}."
         )
+        self.changed = False
+        return True
+
+    def get_name(self) -> str:
+        return f"{self.life_name}-{self.gptwrapper_name}-{self.model_name}"
 
     def persist_model(self):
         """Save the current model to the default path."""
-        self._save_model(self.model_path)
+        return self._save_model(self.model_path)
 
     def start_training_async(
         self, training_data, epochs=3, batch_size=2, learning_rate=5e-5
@@ -208,10 +221,24 @@ class GPTModelWrapper(CLIMInterface):
         """Return the current status of the training process."""
         return self.status
 
+    def stop(self):
+        """Stop the model."""
+        self.protocol.info(f"Stopping {self.life_name}-{self.gptwrapper_name} model.")
+        if self.changed:
+            try:
+                self.persist_model()
+            except Exception as e:
+                self.protocol.error(f"Error saving model: {str(e)}")
+        del self.model
+        self.model = None
+        gc.collect()
+        self.protocol.info(f"{self.life_name}-{self.gptwrapper_name} model stopped.")
+
     def restart(self):
         """Restart the model."""
         self.protocol.info(f"Restarting {self.life_name}-{self.gptwrapper_name} model.")
-        del self.model
+        if self.model is not None:
+            self.stop()
         self.__init__(
             model_name=self.model_name,
             use_api=self.use_api,
@@ -223,6 +250,7 @@ class GPTModelWrapper(CLIMInterface):
             life_name=self.life_name,
             gptwrapper_name=self.gptwrapper_name,
         )
+        self.protocol.info(f"{self.life_name}-{self.gptwrapper_name} model restarted.")
 
     def get_layer(self, layer: str = None) -> CLIMInterface:
         self.protocol.error(
@@ -230,7 +258,13 @@ class GPTModelWrapper(CLIMInterface):
         )
         raise NotImplementedError
 
-    def decode_output(self, output):
+    def process(self, type: str, input_data: CLIMData) -> CLIMData:
+        self.protocol.error(
+            "Process is not supported for GPTModelWrapper. Please use a different model."
+        )
+        raise NotImplementedError
+
+    def decode_output(self, output) -> str:
         if not self.use_api:
             return self.tokenizer.decode(output[0], skip_special_tokens=True)
         else:

@@ -61,6 +61,9 @@ class BaseCLIM(CLIMInterface):
     def __repr__(self):
         return self.__str__()
 
+    def get_name(self) -> str:
+        return self.name
+
     def method_wrapper(self, method_lambda, method_name: str, default_return=None):
         """
         A wrapper method to handle exceptions for other methods.
@@ -225,7 +228,7 @@ class BaseCLIM(CLIMInterface):
         """
         Persists the model to disk.
         """
-        self.method_wrapper(
+        return self.method_wrapper(
             lambda: self.model.persist_model(), self.persist_model.__name__
         )
 
@@ -257,6 +260,12 @@ class BaseCLIM(CLIMInterface):
         """
         self.method_wrapper(lambda: self.model.train(), self.train.__name__)
 
+    def stop(self):
+        """
+        Stops the model for this CLIM instance.
+        """
+        self.method_wrapper(lambda: self.model.stop(), self.stop.__name__)
+
     def restart(self):
         """
         Restarts the model for this CLIM instance.
@@ -281,7 +290,7 @@ class BaseCLIM(CLIMInterface):
         """
         if input_data is None:
             input_data = CLIMData()
-        that_dict = input_data.get_or_create_clim_data(self, type)
+        that_dict = input_data.get_or_create_clim_data(self.get_name(), type)
         that_dict["layer"] = self.name
         last_response = input_data.get_last_response()
         prompt = self.prompt_manager.get_prompt(
@@ -362,15 +371,16 @@ class BaseCLIM(CLIMInterface):
             self.generate_output.__name__,
         )
 
-    def decode_output(self, input_text):
+    def decode_output(self, output):
         """
         Decodes the output text using the model.
 
-        :param input_text: The text to decode.
+        :param output: The output code to decode.
         :return: The decoded text or None if an error occurs.
         """
         return self.method_wrapper(
-            lambda: self.model.decode_output(input_text), self.decode_output.__name__
+            lambda: self.model.decode_output(output),
+            self.decode_output.__name__,
         )
 
     def filter_answer(self, answer: str, prompt: str):

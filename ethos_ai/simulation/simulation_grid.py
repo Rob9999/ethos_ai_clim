@@ -133,7 +133,7 @@ class SimulationsGrid:
                 f"Expected layer to be of type BaseCLIM, got {type(clim_layer).__name__}"
             )
         input_data = CLIMData()
-        that_dict = input_data.get_or_create_clim_data(clim_layer, type)
+        that_dict = input_data.get_or_create_clim_data(clim_layer.get_name(), type)
         input_data.set_last_response(request)
         clim_layer.process(type=type, input_data=input_data)
         return that_dict

@@ -1,11 +1,20 @@
 # Definieren des CLIMInterface
 from abc import ABC, abstractmethod
 
+from ethos_ai.clim.clim_data import CLIMData
 from ethos_ai.individual.base_individual import BaseIndividual
 from ethos_ai.security.securied_identity_card import SecuredIdentityCard
 
 
 class CLIMInterface(ABC):
+
+    @abstractmethod
+    def get_name(self) -> str:
+        pass
+
+    @abstractmethod
+    def process(self, type: str, input_data: CLIMData) -> CLIMData:
+        pass
 
     @abstractmethod
     def generate_text(self, input_text: str) -> str:
@@ -16,7 +25,7 @@ class CLIMInterface(ABC):
         pass
 
     @abstractmethod
-    def decode_output(self, input_text):
+    def decode_output(self, output) -> str:
         pass
 
     @abstractmethod
@@ -50,6 +59,10 @@ class CLIMInterface(ABC):
 
     @abstractmethod
     def train(self, training_data, epochs=3, batch_size=2, learning_rate=5e-5):
+        pass
+
+    @abstractmethod
+    def stop(self):
         pass
 
     @abstractmethod

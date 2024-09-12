@@ -175,7 +175,7 @@ class ProcessModel:
         self.life_imagination.persist_model()
 
         # Step 3: Restart the CLIM
-        self.life_imagination.restart()
+        # self.life_imagination.restart()
 
         # Step 4: Test the trained layers on the test cases
         self.protocol.info("Training completed.")
@@ -318,7 +318,8 @@ class ProcessModel:
                 self.protocol.info("Process model is already inactive.")
                 return False, "Process model is already inactive."
             self._stop_event.set()
-            self.execution_thread.join()
+        self.execution_thread.join()
+        with self.lock:
             self.current_phase = "off"
             self.execution_thread = None
             self.protocol.info("Process model stopped.")

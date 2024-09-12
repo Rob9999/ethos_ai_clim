@@ -1,6 +1,6 @@
 import random
 import threading
-from ethos_ai.clim.clim import CLIM
+from ethos_ai.clim.clim_stack import CLIM
 from ethos_ai.security.securied_identity_card import SecurityLevel, SecuredIdentityCard
 from ethos_ai.task.task import Task
 from ethos_ai.task.task_type import TaskType
@@ -40,7 +40,6 @@ class EthosAIIndividual:
         self.clim: CLIM = CLIM(
             identity_card=self.identity, password="123", tool_manager=self.tool_manager
         )
-        self.clim.set_generation_parameters(max_length=256, max_new_tokens=100)
         self.simulationsgrid = SimulationsGrid(self, self.clim, self.ethic_module)
         self.process_model = ProcessModel(self, self.clim, self.simulationsgrid)
         # Initialize the process model
