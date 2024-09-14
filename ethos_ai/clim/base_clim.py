@@ -129,6 +129,7 @@ class BaseCLIM(CLIMInterface):
             max_new_tokens=self.max_new_tokens,
             life_name=self.identity.name,
             gptwrapper_name=self.name,
+            start_model=False,
         )
 
     def get_default_config(self) -> dict:
@@ -254,11 +255,25 @@ class BaseCLIM(CLIMInterface):
             self.request_cancellation_of_training.__name__,
         )
 
-    def train(self):
+    def train(self, training_data, epochs=3, batch_size=2, learning_rate=5e-5):
         """
         Trains the model for this CLIM instance.
         """
-        self.method_wrapper(lambda: self.model.train(), self.train.__name__)
+        self.method_wrapper(
+            lambda: self.model.train(
+                training_data=training_data,
+                epochs=epochs,
+                batch_size=batch_size,
+                learning_rate=learning_rate,
+            ),
+            self.train.__name__,
+        )
+
+    def start(self):
+        """
+        Starts the model for this CLIM instance.
+        """
+        self.method_wrapper(lambda: self.model.start(), self.start.__name__)
 
     def stop(self):
         """

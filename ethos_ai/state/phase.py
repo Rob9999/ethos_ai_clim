@@ -1,5 +1,4 @@
 from enum import Enum, auto
-
 from ethos_ai.state.priority import Priority
 
 
@@ -12,7 +11,7 @@ class Phase(Enum):
         priority: "Priority" = Priority.NORMAL,
     ):
         obj = object.__new__(cls)
-        obj._value_ = auto()  # Automatisch generierter Wert, falls benötigt
+        obj._value_ = auto()  # Automatically generated value if needed
         obj.display_name = display_name
         obj.description = description
         obj.duration = duration
@@ -21,22 +20,22 @@ class Phase(Enum):
         return obj
 
     def __str__(self) -> str:
-        # Liefert den Anzeigenamen der Phase zurück
+        # Returns the display name of the phase
         return self.display_name
 
     def __repr__(self) -> str:
-        # Liefert eine detaillierte Repräsentation der Phase für Debugging-Zwecke
+        # Returns a detailed representation of the phase for debugging purposes
         return f"<Phase.{self.name}: {self.display_name}>"
 
     def set_next_phase(self, next_phase: "Phase"):
-        # Setzt die nächste Phase, stellt sicher, dass es sich um ein Phase-Enum-Mitglied handelt
+        # Sets the next phase, ensures it is a member of the Phase enum
         if isinstance(next_phase, Phase):
             self.next_phase = next_phase
         else:
-            raise ValueError("next_phase muss ein Mitglied der Phase-Enum sein.")
+            raise ValueError("next_phase must be a member of the Phase enum.")
 
     def next(self) -> "Phase":
-        # Gibt die nächste Phase zurück
+        # Returns the next phase
         return self.next_phase
 
     def get_priority(self) -> "Priority":
@@ -45,92 +44,151 @@ class Phase(Enum):
     def get_duration(self) -> int:
         return self.duration
 
-    # Phasen-Definitionen
-    DREAMING = ("Träumen", "In dieser Phase träumt der Mensch.", 0)
-    SLEEPING = ("Schlafen", "In dieser Phase schläft der Mensch.", 0)
-    WAKING = ("Aufwachen", "In dieser Phase wacht der Mensch auf.", 0)
-    THINKING = ("Denken", "In dieser Phase denkt der Mensch.", 0)
-    ACTING = ("Handeln", "In dieser Phase handelt der Mensch.", 0)
-    REFLECTING = ("Reflektieren", "In dieser Phase reflektiert der Mensch.", 0)
-    OFF = ("Aus", "In dieser Phase ist der Mensch aus.", 0)
+    # Phase definitions
+    DREAMING = ("Dreaming", "In this phase, the human is dreaming.", 0)
+    SLEEPING = ("Sleeping", "In this phase, the human is sleeping.", 0)
+    WAKING = ("Waking", "In this phase, the human is waking up.", 0)
+    THINKING = ("Thinking", "In this phase, the human is thinking.", 0)
+    ACTING = ("Acting", "In this phase, the human is acting.", 0)
+    REFLECTING = ("Reflecting", "In this phase, the human is reflecting.", 0)
+    OFF = ("Off", "In this phase, the human is off.", 0)
     INITIALIZING = (
-        "Initialisierung",
-        "In dieser Phase wird das Modell initialisiert.",
+        "Initializing",
+        "In this phase, the model is being initialized.",
         0,
     )
-    LEARNING = ("Lernen", "In dieser Phase lernt der Mensch.", 0)
-    ETHICAL_LEARNING = ("Ethik lernen", "In dieser Phase lernt der Mensch Ethik.", 0)
+    LEARNING = ("Learning", "In this phase, the human is learning.", 0)
+    ETHICAL_LEARNING = (
+        "Ethical Learning",
+        "In this phase, the human learns ethics.",
+        0,
+    )
     DEVIATION_CHECK = (
-        "Abweichungen prüfen",
-        "In dieser Phase prüft der Mensch Abweichungen.",
+        "Checking for Deviations",
+        "In this phase, the human checks for deviations.",
         0,
     )
-    RUNNING = ("Laufen", "In dieser Phase läuft der Mensch.", 0)
-    STARTING = ("Starten", "In dieser Phase startet der Mensch.", 0)
-    STOPPING = ("Stoppen", "In dieser Phase stoppt der Mensch.", 0)
-    ADVICE = ("Beratung", "In dieser Phase wird der Mensch beraten.", 0)
-    EXECUTION = ("Ausführung", "In dieser Phase wird eine Aufgabe ausgeführt.", 0)
-    REQUEST = ("Anfrage", "In dieser Phase wird eine Anfrage gestellt.", 0)
-    DECISION = ("Entscheidung", "In dieser Phase wird eine Entscheidung getroffen.", 0)
+    RUNNING = ("Running", "In this phase, the human is running.", 0)
+    STARTING = ("Starting", "In this phase, the human is starting.", 0)
+    STOPPING = ("Stopping", "In this phase, the human is stopping.", 0)
+    ADVICE = ("Advice", "In this phase, the human is receiving advice.", 0)
+    EXECUTION = ("Execution", "In this phase, a task is being executed.", 0)
+    REQUEST = ("Request", "In this phase, a request is made.", 0)
+    DECISION = ("Decision", "In this phase, a decision is made.", 0)
     HANDLE_PRIORITY_1_TASKS = (
-        "Priorität 1 Aufgaben bearbeiten",
-        "In dieser Phase werden Priorität 1 Aufgaben bearbeitet.",
+        "Handling Priority 1 Tasks",
+        "In this phase, Priority 1 tasks are handled.",
         0,
         Priority.PRIO_1,
     )
     HANDLE_PRIORITY_2_TASKS = (
-        "Priorität 2 Aufgaben bearbeiten",
-        "In dieser Phase werden Priorität 2 Aufgaben bearbeitet.",
+        "Handling Priority 2 Tasks",
+        "In this phase, Priority 2 tasks are handled.",
         0,
         Priority.PRIO_2,
     )
     HANDLE_PRIORITY_LOW_TASKS = (
-        "Niedrigpriorisierte Aufgaben bearbeiten",
-        "In dieser Phase werden niedrigpriorisierte Aufgaben bearbeitet.",
+        "Handling Low Priority Tasks",
+        "In this phase, low-priority tasks are handled.",
         0,
         Priority.PRIO_LOW,
     )
-    NORMAL_OPERATION = ("Normalbetrieb", "In dieser Phase wird normal gearbeitet.", 0)
+    NORMAL_OPERATION = ("Normal Operation", "In this phase, normal work is done.", 0)
     EMERGENCY = (
-        "Notfall",
-        "In dieser Phase wird ein Notfall behandelt.",
+        "Emergency",
+        "In this phase, an emergency is handled.",
         0,
         Priority.EMERGENCY,
     )
-    TRAINING_ETHICS = ("Ethik trainieren", "In dieser Phase wird Ethik trainiert.", 0)
+    TRAINING_ETHICS = ("Ethics Training", "In this phase, ethics are trained.", 0)
     TRAINING_INDIVIDUAL = (
-        "Individuum trainieren",
-        "In dieser Phase wird das Individuum trainiert.",
+        "Individual Training",
+        "In this phase, the individual is trained.",
         0,
     )
-    TRAINING_CLIM = ("CLIM trainieren", "In dieser Phase wird CLIM trainiert.", 0)
-    MAINTENANCE = ("Wartung", "In dieser Phase wird Wartung durchgeführt.", 0)
+    TRAINING_CLIM = ("CLIM Training", "In this phase, CLIM is trained.", 0)
+    MAINTENANCE = ("Maintenance", "In this phase, maintenance is carried out.", 0)
 
 
-# Festlegen der nächsten Phasen
-Phase.DREAMING.set_next_phase(Phase.SLEEPING)
+# Set the next phases with more meaningful transitions
+
+# After dreaming, it makes sense to wake up, following the natural sleep cycle.
+Phase.DREAMING.set_next_phase(Phase.WAKING)
+
+# Once sleeping is over, the natural next phase is waking up.
 Phase.SLEEPING.set_next_phase(Phase.WAKING)
-Phase.WAKING.set_next_phase(Phase.DREAMING)
-Phase.THINKING.set_next_phase(Phase.ACTING)
-Phase.ACTING.set_next_phase(Phase.THINKING)
+
+# After waking up, a period of thinking or processing thoughts is natural.
+Phase.WAKING.set_next_phase(Phase.THINKING)
+
+# After thinking comes decision-making, where the human resolves how to act.
+Phase.THINKING.set_next_phase(Phase.DECISION)
+
+# After a decision is made, the next logical step is to act on it.
+Phase.DECISION.set_next_phase(Phase.ACTING)
+
+# After acting, reflection on those actions often follows.
+Phase.ACTING.set_next_phase(Phase.REFLECTING)
+
+# Once reflection is complete, the cycle returns to dreaming, closing the loop.
 Phase.REFLECTING.set_next_phase(Phase.DREAMING)
-Phase.OFF.set_next_phase(Phase.DREAMING)
-Phase.INITIALIZING.set_next_phase(Phase.DREAMING)
-Phase.LEARNING.set_next_phase(Phase.DREAMING)
-Phase.ETHICAL_LEARNING.set_next_phase(Phase.DREAMING)
-Phase.DEVIATION_CHECK.set_next_phase(Phase.DREAMING)
-Phase.RUNNING.set_next_phase(Phase.DREAMING)
+
+# When off, the next phase would naturally be initializing, to turn things on.
+Phase.OFF.set_next_phase(Phase.INITIALIZING)
+
+# After initialization, the model is ready for normal operations.
+Phase.INITIALIZING.set_next_phase(Phase.NORMAL_OPERATION)
+
+# After learning, the human might transition to training specific skills, like training the individual.
+Phase.LEARNING.set_next_phase(Phase.TRAINING_INDIVIDUAL)
+
+# After ethical learning, the human might reflect on what they have learned.
+Phase.ETHICAL_LEARNING.set_next_phase(Phase.REFLECTING)
+
+# Once deviations are checked, normal operations resume.
+Phase.DEVIATION_CHECK.set_next_phase(Phase.NORMAL_OPERATION)
+
+# After running, it’s useful to reflect on what was achieved during that time.
+Phase.RUNNING.set_next_phase(Phase.REFLECTING)
+
+# After stopping, the system is considered off, closing this cycle.
 Phase.STOPPING.set_next_phase(Phase.OFF)
-Phase.ADVICE.set_next_phase(Phase.DREAMING)
-Phase.EXECUTION.set_next_phase(Phase.DREAMING)
-Phase.REQUEST.set_next_phase(Phase.DREAMING)
-Phase.DECISION.set_next_phase(Phase.DREAMING)
-Phase.HANDLE_PRIORITY_1_TASKS.set_next_phase(Phase.DREAMING)
-Phase.HANDLE_PRIORITY_2_TASKS.set_next_phase(Phase.DREAMING)
-Phase.HANDLE_PRIORITY_LOW_TASKS.set_next_phase(Phase.DREAMING)
-Phase.NORMAL_OPERATION.set_next_phase(Phase.DREAMING)
-Phase.EMERGENCY.set_next_phase(Phase.DREAMING)
-Phase.TRAINING_ETHICS.set_next_phase(Phase.DREAMING)
-Phase.TRAINING_INDIVIDUAL.set_next_phase(Phase.DREAMING)
-Phase.TRAINING_CLIM.set_next_phase(Phase.DREAMING)
-Phase.MAINTENANCE.set_next_phase(Phase.DREAMING)
+
+# After receiving advice, the next logical step is making a decision based on that advice.
+Phase.ADVICE.set_next_phase(Phase.DECISION)
+
+# After executing a task, the human might reflect on the outcome.
+Phase.EXECUTION.set_next_phase(Phase.REFLECTING)
+
+# After making a request, a decision is needed about how to proceed.
+Phase.REQUEST.set_next_phase(Phase.DECISION)
+
+# After a decision is made, execution of that decision follows.
+Phase.DECISION.set_next_phase(Phase.EXECUTION)
+
+# Handling priority 1 tasks should naturally lead to handling lower-priority tasks next.
+Phase.HANDLE_PRIORITY_1_TASKS.set_next_phase(Phase.HANDLE_PRIORITY_2_TASKS)
+
+# After priority 2 tasks, low-priority tasks are handled.
+Phase.HANDLE_PRIORITY_2_TASKS.set_next_phase(Phase.HANDLE_PRIORITY_LOW_TASKS)
+
+# After all tasks are handled, normal operations resume.
+Phase.HANDLE_PRIORITY_LOW_TASKS.set_next_phase(Phase.NORMAL_OPERATION)
+
+# Once normal operations are finished, priority tasks may need to be checked again.
+Phase.NORMAL_OPERATION.set_next_phase(Phase.HANDLE_PRIORITY_1_TASKS)
+
+# After an emergency is handled, things go back to normal operations.
+Phase.EMERGENCY.set_next_phase(Phase.NORMAL_OPERATION)
+
+# After ethics training, it makes sense to continue ethical learning.
+Phase.TRAINING_ETHICS.set_next_phase(Phase.ETHICAL_LEARNING)
+
+# After training the individual, normal operations resume.
+Phase.TRAINING_INDIVIDUAL.set_next_phase(Phase.NORMAL_OPERATION)
+
+# After CLIM training, normal operations follow.
+Phase.TRAINING_CLIM.set_next_phase(Phase.NORMAL_OPERATION)
+
+# After maintenance is performed, the system returns to running.
+Phase.MAINTENANCE.set_next_phase(Phase.RUNNING)

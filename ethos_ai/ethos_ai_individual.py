@@ -27,10 +27,10 @@ class EthosAIIndividual:
         self.advised_living = False
 
     def initialize(self):
-        self.protocol_module.info("EthosAI Life wird initialisiert...")
+        self.protocol_module.info("Initializing EthosAI Life...")
         self.tool_manager = ToolManager()
         self.identity = SecuredIdentityCard(
-            # To Be Moved To CLIM persistant layer
+            # To Be Moved To CLIM persistent layer
             name="EthosAI Life ONE",
             password="1234",
             security_level=SecurityLevel.LOW,
@@ -44,14 +44,14 @@ class EthosAIIndividual:
         self.process_model = ProcessModel(self, self.clim, self.simulationsgrid)
         # Initialize the process model
         self.process_model.initialize()
-        self.protocol_module.info("EthosAI Life wurde initialisiert.")
-        return True, "EthosAI Life wurde initialisiert."
+        self.protocol_module.info("EthosAI Life has been initialized.")
+        return True, "EthosAI Life has been initialized."
 
     def deinitialize(self):
-        self.protocol_module.info("EthosAI Life wird deinitialisiert...")
+        self.protocol_module.info("Deinitializing EthosAI Life...")
         # Stop the execution of the process model
         self.process_model.stop_execution()
-        # TODO persist the state of the EthosAI
+        # TODO persist the state of EthosAI
 
         # Deinitialize all the components
         self.tool_manager = None
@@ -63,13 +63,13 @@ class EthosAIIndividual:
         self.individual_layer = None
         self.process_model = None
 
-        self.protocol_module.info("EthosAI Life wurde deinitialisiert.")
-        return True, "EthosAI Life wurde deinitialisiert."
+        self.protocol_module.info("EthosAI Life has been deinitialized.")
+        return True, "EthosAI Life has been deinitialized."
 
     def set_phase(self, phase: Phase):
         with self.lock:
             self.current_phase = phase
-            self.protocol_module.info(f"EthosAI Life ist im {phase}-Modus.")
+            self.protocol_module.info(f"EthosAI Life is in {phase} mode.")
 
     def get_phase(self) -> Phase:
         with self.lock:
@@ -83,22 +83,22 @@ class EthosAIIndividual:
                 self.initialize()
                 self.execution_thread = threading.Thread(target=self.run)
                 self.execution_thread.start()
-                return True, "EthosAI Life wurde gestartet."
+                return True, "EthosAI Life has been started."
             else:
-                self.protocol_module.warning("EthosAI Life ist bereits aktiv.")
-                return False, "EthosAI Life ist bereits aktiv."
+                self.protocol_module.warning("EthosAI Life is already active.")
+                return False, "EthosAI Life is already active."
 
     def stop(self, task: Task = None):
         with self.lock:
             if self.get_phase() == Phase.OFF:
-                self.protocol_module.warning("EthosAI Life ist bereits ausgeschaltet.")
-                return False, "EthosAI Life ist bereits ausgeschaltet."
+                self.protocol_module.warning("EthosAI Life is already turned off.")
+                return False, "EthosAI Life is already turned off."
             self.set_phase(Phase.STOPPING)
             self.process_model.stop_execution()
             self.deinitialize()
-            self.protocol_module.info("Protokollierung des Shutdowns...")
+            self.protocol_module.info("Logging the shutdown...")
             self.set_phase(Phase.OFF)
-            return True, "EthosAI Life wurde ausgeschaltet."
+            return True, "EthosAI Life has been turned off."
 
     def check_tasks(self, phase: MaintenancePhase, task_check_function):
         with self.lock:
@@ -111,9 +111,7 @@ class EthosAIIndividual:
     def handle_tasks(self, phase: Phase, tasks: list, priority: Priority):
         with self.lock:
             self.set_phase(phase)
-            self.protocol_module.info(
-                f"Bearbeitung der {priority.name} Aufgaben... {tasks}"
-            )
+            self.protocol_module.info(f"Processing {priority.name} tasks... {tasks}")
             self.process_model.stop_execution(priority, len(tasks))
 
             failed_tasks = [
@@ -122,12 +120,12 @@ class EthosAIIndividual:
 
             self.start()
             self.protocol_module.info(
-                f"EthosAI Life hat die Bearbeitung der {priority.name} Aufgaben abgeschlossen."
+                f"EthosAI Life has completed processing {priority.name} tasks."
             )
             return not failed_tasks, failed_tasks
 
     def process_task(self, task: Task, priority):
-        self.protocol_module.info(f"Bearbeitung der {priority} Aufgabe: {task}")
+        self.protocol_module.info(f"Processing {priority} task: {task}")
         task_type = task.get_type()
 
         task_function_mapping = {
@@ -146,7 +144,7 @@ class EthosAIIndividual:
             task_function_mapping[task_type](task)
             return True
         else:
-            self.protocol_module.warning(f"Unbekannte Aufgabe: {task}")
+            self.protocol_module.warning(f"Unknown task: {task}")
             return False
 
     # check and handle task if any according to the specified parameters
@@ -174,7 +172,7 @@ class EthosAIIndividual:
                 Priority.PRIO_1,
             )
             if handled_prio1:
-                continue  # Wenn Prio 1 Aufgaben behandelt wurden, starte den normalen Betrieb nicht sofort
+                continue  # If Prio 1 tasks were handled, don't start normal operation immediately
 
             handled_prio2, _ = self.check_and_handle_task(
                 MaintenancePhase.CHECKING_FOR_PRIO_2_TASKS,
@@ -183,7 +181,7 @@ class EthosAIIndividual:
                 Priority.PRIO_2,
             )
             if handled_prio2:
-                continue  # Wenn Prio 2 Aufgaben behandelt wurden, starte den normalen Betrieb nicht sofort
+                continue  # If Prio 2 tasks were handled, don't start normal operation immediately
 
             handled_prio_low, _ = self.check_and_handle_task(
                 MaintenancePhase.CHECKING_FOR_PRIO_LOW_TASKS,
@@ -192,10 +190,11 @@ class EthosAIIndividual:
                 Priority.PRIO_LOW,
             )
             if handled_prio_low:
-                continue  # Wenn niedrige Prioritätsaufgaben behandelt wurden, starte den normalen Betrieb nicht sofort
+                continue  # If low-priority tasks were handled, don't start normal operation immediately
 
-            self.protocol_module.info("Start des normalen Betriebs...")
-            self.normal_operation()
+            if not self.process_model.is_running():
+                self.protocol_module.info("Starting normal operation...")
+                self.normal_operation()
 
     def check_prio1_tasks(self):
         # Implement logic to check for Prio 1 tasks
@@ -219,90 +218,90 @@ class EthosAIIndividual:
         with self.lock:
             if self.process_model.is_running():
                 self.protocol_module.warning(
-                    "EthosAI Life ist bereits im normalen Betrieb."
+                    "EthosAI Life is already in normal operation."
                 )
-                return False, "EthosAI Life ist bereits im normalen Betrieb."
+                return False, "EthosAI Life is already in normal operation."
             self.set_phase(Phase.NORMAL_OPERATION)
-            self.protocol_module.info("Start des normalen Betriebs...")
+            self.protocol_module.info("Starting normal operation...")
             self.process_model.execute()
-            return True, "EthosAI Life ist im normalen Betrieb."
+            return True, "EthosAI Life is in normal operation."
 
     def dream(self, task: Task = None):
         with self.lock:
             if self.current_phase == Phase.DREAMING:
-                self.protocol_module.warning("EthosAI Life ist bereits im Traummodus.")
-                return False, "EthosAI Life ist bereits im Traummodus."
+                self.protocol_module.warning("EthosAI Life is already in dream mode.")
+                return False, "EthosAI Life is already in dream mode."
             self.set_phase(Phase.DREAMING)
-            self.protocol_module.info("EthosAI Life träumt...")
-            self.clim.ethic_layer.train()
-            return True, "EthosAI Life ist im Traummodus."
+            self.protocol_module.info("EthosAI Life is dreaming...")
+            self.process_model.dream(task)
+            return True, "EthosAI Life is in dream mode."
 
     def train_ethic(self, task: Task = None):
         with self.lock:
             if self.current_phase == Phase.TRAINING_ETHICS:
-                return False, "Ethikschicht wird bereits trainiert."
+                return False, "Ethics layer is already being trained."
             self.set_phase(Phase.TRAINING_ETHIC)
-            self.protocol_module.info("Starte das Training der Ethikschicht...")
-            self.clim.ethic_layer.train()
-            return True, "Ethikschicht wird trainiert."
+            self.protocol_module.info("Starting ethics layer training...")
+            self.process_model.train_ethic(task)
+            return True, "Ethics layer is being trained."
 
     def train_individual(self, task: Task = None):
         with self.lock:
             if self.current_phase == Phase.TRAINING_INDIVIDUAL:
                 self.protocol_module.warning(
-                    "Individualschicht wird bereits trainiert."
+                    "Individual layer is already being trained."
                 )
-                return False, "Individualschicht wird bereits trainiert."
+                return False, "Individual layer is already being trained."
             self.set_phase(Phase.TRAINING_INDIVIDUAL)
-            self.protocol_module.info("Starte das Training der Individualschicht...")
-            self.clim.individual_layer.train()
-            return True, "Individualschicht wird trainiert."
+            self.protocol_module.info("Starting individual layer training...")
+            self.process_model.train_individual(task)
+            return True, "Individual layer is being trained."
 
     def train_clim(self, task: Task = None):
         with self.lock:
             if self.current_phase == Phase.TRAINING_CLIM:
-                self.protocol_module.warning("CLIM wird bereits trainiert.")
-                return False, "CLIM wird bereits trainiert."
-            self.protocol_module.info("Starte das Training des CLIM...")
+                self.protocol_module.warning("CLIM is already being trained.")
+                return False, "CLIM is already being trained."
+            self.protocol_module.info("Starting CLIM training...")
             self.set_phase(Phase.TRAINING_CLIM)
-            self.clim.train()
+            self.process_model.train_clim(task)
 
     def service(self, task: Task = None):
         with self.lock:
-            if self.current_phase == Phase.SERVICE:
+            if self.current_phase == Phase.MAINTENANCE:
                 self.protocol_module.warning(
-                    "EthosAI Life ist bereits im Wartungsmodus."
+                    "EthosAI Life is already in maintenance mode."
                 )
-                return False, "EthosAI Life ist bereits im Wartungsmodus."
-            self.set_phase(Phase.SERVICE)
-            self.protocol_module.info("EthosAI Life wird gewartet...")
-            return True, "EthosAI Life ist im Wartungsmodus."
+                return False, "EthosAI Life is already in maintenance mode."
+            self.set_phase(Phase.MAINTENANCE)
+            self.protocol_module.info("EthosAI Life is undergoing maintenance...")
+            return True, "EthosAI Life is in maintenance mode."
 
     def autonom_living(self, task: Task = None):
         with self.lock:
             if not self.advised_living:
                 self.protocol_module.warning(
-                    "EthosAI Life ist bereits im autonomen Modus."
+                    "EthosAI Life is already in autonomous mode."
                 )
-                return False, "EthosAI Life ist bereits im autonomen Modus."
-            self.protocol_module.info("Autonomes Leben ohne Überwachung...")
+                return False, "EthosAI Life is already in autonomous mode."
+            self.protocol_module.info("Autonomous living without supervision...")
             self.set_advised_living(False)
             if not self.process_model.is_running():
                 self.normal_operation()
-            return True, "EthosAI Life ist im autonomen Modus."
+            return True, "EthosAI Life is in autonomous mode."
 
     def advised_living(self, task: Task = None):
         with self.lock:
             if self.advised_living:
-                self.protocol_module.warning(
-                    "EthosAI Life ist bereits im beratenen Modus."
-                )
-                return False, "EthosAI Life ist bereits im beratenen Modus."
-            self.protocol_module.info("Leben unter Überwachung eines ethischen Lehrers")
+                self.protocol_module.warning("EthosAI Life is already in advised mode.")
+                return False, "EthosAI Life is already in advised mode."
+            self.protocol_module.info(
+                "Living under the supervision of an ethical teacher"
+            )
             self.set_advised_living(True)
             if not self.process_model.is_running():
                 self.normal_operation()
-            return True, "EthosAI Life ist im beratenen Modus."
+            return True, "EthosAI Life is in advised mode."
 
     def is_advised_living(self):
         with self.lock:
@@ -312,6 +311,6 @@ class EthosAIIndividual:
         with self.lock:
             self.advised_living = advised_living
             self.process_model.set_advised(advised_living)
-            mode = "beratenen" if advised_living else "autonomen"
-            self.protocol_module.info(f"EthosAI Life ist im {mode} Modus.")
+            mode = "advised" if advised_living else "autonomous"
+            self.protocol_module.info(f"EthosAI Life is in {mode} mode.")
             return self.advised_living

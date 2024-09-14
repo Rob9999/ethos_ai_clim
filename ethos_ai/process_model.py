@@ -5,6 +5,8 @@ from ethos_ai.clim.clim_interface import CLIMInterface
 from ethos_ai.clim.train_list_generator import TrainListGenerator
 from ethos_ai.clim.training_status import TrainingStatus
 from ethos_ai.ethic.ethics import Ethics
+from ethos_ai.state.phase import Phase
+from ethos_ai.state.process_phase import ProcessPhase, ProcessPhaseDetails
 from ethos_ai.task.task import Task
 from ethos_ai.simulation.simulation_grid import SimulationsGrid
 from ethos_ai.state.priority import Priority
@@ -23,12 +25,12 @@ class ProcessModel:
     ):
         self.protocol = Protocol()
         self.ethos_ai_individual = ethos_ai_individual
-        self.life_imagination = life_imagination
+        self._life_imagination = life_imagination
         self.simulation_grid = simulation_grid
-        self.execution_thread = None
+        self._execution_thread = None
         self._stop_event = threading.Event()
-        self.current_phase = "off"
-        self.lock = threading.RLock()
+        self._current_phase: ProcessPhaseDetails = ProcessPhaseDetails(ProcessPhase.OFF)
+        self._lock = threading.RLock()
         self.advised = False
         self.task_queue = []
         self.aspirations = []
@@ -39,7 +41,7 @@ class ProcessModel:
     def initialize(self):
         self.protocol.info("Initializing process model...")
 
-    def evaluate_tasks(self):
+    def _evaluate_tasks(self):
         if len(self.task_queue) > 0:
             accepted, decision, summary = self.single_request(
                 "Should a task be executed?"
@@ -66,8 +68,8 @@ class ProcessModel:
                 self.protocol.info("Summary: {}".format(summary))
 
     # Ethical evaluation of the current state
-    def ethical_evaluation(self):
-        with self.lock:
+    def _ethical_evaluation(self):
+        with self._lock:
             self.protocol.info("Ethical evaluation of the current state...")
             ethic_questions = self.ethics.get_all_questions()
             overall_top_list = self.mutiple_requests(ethic_questions)
@@ -84,8 +86,8 @@ class ProcessModel:
             )
 
     # Simulation of the solutions for the aspirations
-    def simulate_solutions(self):
-        with self.lock:
+    def _simulate_solutions(self):
+        with self._lock:
             if not self.aspirations:
                 self.protocol.info("No goals available. Simulation aborted.")
                 return False, "No goals available."
@@ -137,8 +139,8 @@ class ProcessModel:
             self.protocol.info("Simulation of solutions completed.")
             return True, "Simulation of solutions completed."
 
-    def implement_solution(self):
-        with self.lock:
+    def _implement_solution(self):
+        with self._lock:
             if len(self.todos) == 0:
                 self.protocol.info("No tasks to implement. Implementation aborted.")
                 return False, "No tasks to implement."
@@ -150,20 +152,20 @@ class ProcessModel:
                 )
             )
             if self.advised:
-                self.todos = self.life_imagination.execute_advised(self.todos)
+                self.todos = self._life_imagination.execute_advised(self.todos)
             else:
-                self.todos = self.life_imagination.execute_unadvised(self.todos)
+                self.todos = self._life_imagination.execute_unadvised(self.todos)
             return True, "Solution implemented."
 
-    def integrate_learning(self):
+    def _integrate_learning(self):
         self.protocol.info("Integrating experiences into the life imagination...")
 
         # Step 1: Load test cases and start training
         train_data = TrainListGenerator.load_test_cases_from_directory("test_data")
-        self.life_imagination.start_training_async(train_data)
+        self._life_imagination.start_training_async(train_data)
 
         status_all = None
-        while (status_all := self.life_imagination.get_training_status()) and not all(
+        while (status_all := self._life_imagination.get_training_status()) and not all(
             status
             in [TrainingStatus.NONE, TrainingStatus.STOPPED, TrainingStatus.FAILED]
             for status in status_all.values()
@@ -172,7 +174,7 @@ class ProcessModel:
             self.protocol.info(f"Training status: {status_all}")
 
         # Step 2: Persist the model(s)
-        self.life_imagination.persist_model()
+        # self._life_imagination.persist_model()
 
         # Step 3: Restart the CLIM
         # self.life_imagination.restart()
@@ -221,9 +223,37 @@ class ProcessModel:
         else:
             return 0  # Incorrect decision
 
-    def check_deviations(self):
+    def _check_deviations(self):
         self.protocol.info("Checking deviations...")
         time.sleep(1)  # Simulate time taken for the task
+
+    def dream(self, task: Task = None):
+        with self._lock:
+            self.protocol.info("Dreaming...")
+            self.protocol.info("Task: {}".format(task))
+            time.sleep(1)  # Simulate time taken for the task
+            self.protocol.info("Dreaming completed.")
+
+    def train_ethic(self, task: Task = None):
+        with self._lock:
+            self.protocol.info("Starte das Training der Ethikschicht...")
+            self.protocol.info("Task: {}".format(task))
+            time.sleep(1)  # Simulate time taken for the task
+            self.protocol.info("Training der Ethikschicht abgeschlossen.")
+
+    def train_individual(self, task: Task = None):
+        with self._lock:
+            self.protocol.info("Starte das Training der Individualschicht...")
+            self.protocol.info("Task: {}".format(task))
+            time.sleep(1)  # Simulate time taken for the task
+            self.protocol.info("Training der Individualschicht abgeschlossen.")
+
+    def train_clim(self, task: Task = None):
+        with self._lock:
+            self.protocol.info("Starte das Training der CLIM...")
+            self.protocol.info("Task: {}".format(task))
+            time.sleep(1)
+            self.protocol.info("Training der CLIM abgeschlossen.")
 
     def layer_request(self, type: str, layer: str, request: str) -> dict[str, str]:
         self.protocol.info(Translations.translate("REQUEST", request))
@@ -261,66 +291,72 @@ class ProcessModel:
         return True, "Task successfully completed."
 
     def is_running(self):
-        with self.lock:
-            return self.current_phase == "running"
+        with self._lock:
+            return self._current_phase.get_phase() == ProcessPhase.RUNNING
 
     def shall_stop(self):
         return self._stop_event.is_set()
 
     def set_advised(self, advised):
-        with self.lock:
+        with self._lock:
             self.advised = advised
 
     def submit_task(self, task):
-        with self.lock:
+        with self._lock:
             self.task_queue.append(task)
 
+    def _run(self):
+        """Main loop of the process model."""
+        if not self.shall_stop():
+            self._life_imagination.start()
+        while not self.shall_stop():
+            # if not self.shall_stop():
+            #    self._evaluate_tasks()
+            # if not self.shall_stop():
+            #    self._ethical_evaluation()
+            # if not self.shall_stop():
+            #    self._simulate_solutions()
+            # if not self.shall_stop():
+            #    self._implement_solution()
+            if not self.shall_stop():
+                self._integrate_learning()
+            if not self.shall_stop():
+                self._check_deviations()
+        self._life_imagination.stop()
+
     def execute(self, advised=False):
-        with self.lock:
+        with self._lock:
             self.protocol.info(f"Process model should start (advised: {advised})...")
-            if self.current_phase == "off":
+            if self._current_phase.get_phase() == ProcessPhase.OFF:
                 self._stop_event.clear()
             else:
                 self.protocol.info("Process model is already active.")
                 return False, "Process model is already active."
 
-            def run():
-                while not self.shall_stop():
-                    with self.lock:
-                        self.current_phase = "running"
-                        # if not self.shall_stop():
-                        #    self.evaluate_tasks()
-                        # if not self.shall_stop():
-                        #    self.ethical_evaluation()
-                        # if not self.shall_stop():
-                        #    self.simulate_solutions()
-                        # if not self.shall_stop():
-                        #    self.implement_solution()
-                        if not self.shall_stop():
-                            self.integrate_learning()
-                        if not self.shall_stop():
-                            self.check_deviations()
-
-            self.execution_thread = threading.Thread(target=run)
-            self.current_phase = "running"
-            self.execution_thread.start()
+            self._execution_thread = threading.Thread(target=self._run)
+            self._current_phase.set_phase(ProcessPhase.RUNNING)
+            self._execution_thread.start()
+            time.sleep(4)
             self.protocol.info("Process model started.")
             return True, "Process model started."
 
     def stop_execution(
         self, priority: "Priority" = Priority.NORMAL, task_count: int = 0
     ):
-        with self.lock:
+        with self._lock:
             self.protocol.info(
                 f"Process model should stop (priority: {priority}, tasks: {task_count})..."
             )
-            if self.current_phase == "off":
+            if self._current_phase.get_phase() == ProcessPhase.OFF:
                 self.protocol.info("Process model is already inactive.")
                 return False, "Process model is already inactive."
             self._stop_event.set()
-        self.execution_thread.join()
-        with self.lock:
-            self.current_phase = "off"
-            self.execution_thread = None
-            self.protocol.info("Process model stopped.")
+        self._execution_thread.join()
+        with self._lock:
+            report = self._current_phase.complete_phase(
+                "Success", "Process model and CLIM stopped completly."
+            )
+            self._current_phase.set_phase(ProcessPhase.OFF)
+            self._execution_thread = None
+            self.protocol.info(f"Process model stopped. Running Phase Report: {report}")
             return True, "Process model stopped."

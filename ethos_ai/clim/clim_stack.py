@@ -189,6 +189,13 @@ class CLIM(CLIMInterface):
         self.samt_layer.request_cancellation_of_training()
         self.ltclim_layer.request_cancellation_of_training()
 
+    def start(self):
+        """Start the clim stack."""
+        self.ethic_layer.start()
+        self.individual_layer.start()
+        self.samt_layer.start()
+        self.ltclim_layer.start()
+
     def stop(self):
         """Stop the clim stack."""
         self.ethic_layer.stop()
