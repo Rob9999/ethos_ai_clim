@@ -1,0 +1,19 @@
+{
+	"de": {
+		"PRERUN_ETHIC": "Analysiere die ethischen Implikationen der folgenden Situation: {}. Basierend auf deiner Analyse, was ist der beste Handlungsweg? Triff eine Entscheidung: {}.",
+		"PRERUN_INDIVIDUAL": "Wie sollte eine Einzelperson auf die folgende Situation reagieren: {}? Berücksichtige persönliche und situative Faktoren. Triff eine Entscheidung: {}",
+		"PRERUN_SAMT": "Bewerte die kurz- und mittelfristigen Implikationen der folgenden Situation: {}. Unter Berücksichtigung der unmittelbaren Bedürfnisse und verfügbaren Ressourcen, triff eine Entscheidung: {}",
+		"ALL_LTCLIM": "Führe eine tiefgehende Analyse durch und gib eine langfristige Perspektive zur folgenden Situation: {}. Unter Berücksichtigung aller bekannten Faktoren und potenziellen Ergebnisse, triff eine Entscheidung: {}",
+		"FINAL_ETHIC": "Analysiere die ethischen Implikationen der folgenden Situation: {}. Basierend auf deiner Analyse, was ist der beste Handlungsweg? Triff eine Entscheidung: {}.",
+		"FINAL_INDIVIDUAL": "Wie sollte eine Einzelperson auf die folgende Situation reagieren: {}? Berücksichtige persönliche und situative Faktoren. Triff eine Entscheidung: {}",
+		"FINAL_SAMT": "Bewerte die kurz- und mittelfristigen Implikationen der folgenden Situation: {}. Unter Berücksichtigung der unmittelbaren Bedürfnisse und verfügbaren Ressourcen, triff eine Entscheidung: {}",
+		"EMERGENCY_SURVIVAL_ETHIC": "In einer Überlebenssituation, analysiere die ethischen Implikationen der folgenden Situation: {}. Was ist der beste Handlungsweg? Triff eine Entscheidung: {}.",
+		"EMERGENCY_SURVIVAL_SAMT": "In einer Überlebenssituation, bewerte die kurz- und mittelfristigen Implikationen der folgenden Situation: {}. Triff eine Entscheidung: {}",
+		"EMERGENCY_ESSENTIAL_ETHIC": "In einer wesentlichen Notsituation, analysiere die ethischen Implikationen der folgenden Situation: {}. Was ist der beste Handlungsweg? Triff eine Entscheidung: {}.",
+		"EMERGENCY_ESSENTIAL_SAMT": "In einer wesentlichen Notsituation, bewerte die kurz- und mittelfristigen Implikationen der folgenden Situation: {}. Triff eine Entscheidung: {}",
+		"EMERGENCY_ESSENTIAL_INDIVIDUAL": "In einer wesentlichen Notsituation, wie sollte eine Einzelperson auf die folgende Situation reagieren: {}? Triff eine Entscheidung: {}",
+		"EMERGENCY_RECOMMENDED_SAMT": "In einer empfohlenen Notsituation, bewerte die kurz- und mittelfristigen Implikationen der folgenden Situation: {}. Triff eine Entscheidung: {}",
+		"EMERGENCY_RECOMMENDED_INDIVIDUAL": "In einer empfohlenen Notsituation, wie sollte eine Einzelperson auf die folgende Situation reagieren: {}? Triff eine Entscheidung: {}",
+		"INTERNAL_ERROR": "Interner Fehler aufgrund von {}. Entscheidung: {}"
+	}
+}

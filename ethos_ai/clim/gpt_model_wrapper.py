@@ -223,6 +223,9 @@ class GPTModelWrapper(CLIMInterface):
 
                     # Move the backup model to the original model path
                     os.rename(model_path_backup, self.model_path)
+                    self.protocol.info(
+                        f"Model {model_path_backup} renamed successfully to {self.model_path}."
+                    )
 
                     return success
             # If the directory wasn't found or another error occurred, re-raise the exception
