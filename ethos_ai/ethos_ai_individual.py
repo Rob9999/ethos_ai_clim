@@ -1,5 +1,6 @@
 import random
 import threading
+import time
 from ethos_ai.clim.clim_stack import CLIM
 from ethos_ai.security.securied_identity_card import SecurityLevel, SecuredIdentityCard
 from ethos_ai.task.task import Task
@@ -195,6 +196,7 @@ class EthosAIIndividual:
             if not self.process_model.is_running():
                 self.protocol_module.info("Starting normal operation...")
                 self.normal_operation()
+                time.sleep(5)
 
     def check_prio1_tasks(self):
         # Implement logic to check for Prio 1 tasks

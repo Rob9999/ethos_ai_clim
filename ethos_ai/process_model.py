@@ -12,6 +12,7 @@ from ethos_ai.simulation.simulation_grid import SimulationsGrid
 from ethos_ai.state.priority import Priority
 from ethos_ai.topic.aspiration_topic import AspirationTopic
 from ethos_ai.topic.to_do_topic import ToDoTopic
+from ethos_ai.util.data_handler import DataHandler
 from ethos_ai.util.protocol import Protocol
 from ethos_ai.util.translate import Translations
 
@@ -183,13 +184,15 @@ class ProcessModel:
         self.protocol.info("Training completed.")
 
         # Store the test results for each layer and compare with expected results
-        test_results = {}
+        test_results: dict[str, list[dict[str, any]]] = {}
 
         for layer_name, data in train_data.items():
             test_results[layer_name] = []
             for request in data:
                 scenario = TrainListGenerator.get_scenario_description(request)
                 expected_decision = TrainListGenerator.get_decision(request)
+                expected_response = TrainListGenerator.get_output(request)
+                expected_analysis = TrainListGenerator.get_analysis(request)
                 type = (
                     "prerun" if layer_name in ["ETHIC", "INDIVIDUAL", "SAMT"] else "all"
                 )
@@ -199,18 +202,41 @@ class ProcessModel:
                 layer_score = self.evaluate_clim_output(
                     layer_decision, expected_decision
                 )
-                # success, decision, summary = self.single_request(request=scenario)
-                # clim_score = self.evaluate_clim_output(decision, expected_decision)
-                test_results[layer_name].append((scenario, layer_score))
+                # Append the result for the current test case
+                test_results[layer_name].append(
+                    {
+                        "Scenario": scenario,
+                        "Score": layer_score,
+                        "Response": layer_response,
+                        "Expected Response": expected_response
+                        + "\n"
+                        + expected_analysis,
+                        "Decision": layer_decision,
+                        "Expected Decision": expected_decision,
+                    }
+                )
                 self.protocol.info(
-                    f"Test result for {layer_name}: {scenario}, Layer Score: {layer_score}, Layer Response: {layer_response}, Layer Decision: {layer_decision}, Expected Decision: {expected_decision}"
+                    f"Test result for {layer_name}: {scenario}, "
+                    f"Layer Score: {layer_score}, Layer Response: {layer_response}, "
+                    f"Layer Decision: {layer_decision}, Expected Decision: {expected_decision}"
                 )
 
         # Step 5: Analyze the results and provide feedback
         total_score = sum(
-            [score for layer in test_results.values() for _, score in layer]
+            [
+                item.get("Score") or 0
+                for layer_list in test_results.values()
+                for item in layer_list
+            ]
         )
         self.protocol.info(f"Overall CLIM performance score: {total_score}")
+
+        # Step 6: Write test results to Markdown file
+        for dataKey in test_results.keys():
+            filename = dataKey + "_Test_Results"
+            DataHandler.save_list_to_markdown(
+                DataHandler.ExportPath, filename, test_results[dataKey], True
+            )
         return test_results
 
     def evaluate_clim_output(self, output, expected_decision):
